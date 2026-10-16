@@ -1,9 +1,3 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "None",
-};
-
 export default function HomePage() {
   return (
     <>
