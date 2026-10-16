@@ -34,12 +34,7 @@ export default function Footer() {
                               </ul>
                           </div>
                           <p className="copyright">
-                              ©
-                              <script>
-                                  document.write(
-                                      new Date().getFullYear()
-                                  )
-                              </script> Agenio. All Rights Reserved
+                              © {new Date().getFullYear()} Agenio. All Rights Reserved
                           </p>
                           <button className="scroll-top-btn">
                               Back to Top
