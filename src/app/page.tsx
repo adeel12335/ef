@@ -45,7 +45,7 @@ export default function HomePage() {
                           <span className="arrow"><img src="/assets/images/banner/icon/arrow-left.svg" alt="" /></span>
                           <span className="arrow"><img src="/assets/images/banner/icon/arrow-left.svg" alt="" /></span>
                           </span>
-                          <span className="text">SYSTEMS</span>
+                          <span className="text">AI SYSTEMS</span>
                           <span className="square-shape top-left"></span>
                           <span className="square-shape bottom-left"></span>
                           </span>
@@ -167,8 +167,8 @@ export default function HomePage() {
                       <div className="section-top-area">
                           <div className="section-title-area center-style">
                               <p className="sub-title">SERVICES</p>
-                              <h2 className="section-title second-font font-semi-bold text-normal wpr-text-anime-style-1">What I Build
-                                  For You </h2>
+                              <h2 className="section-title second-font font-semi-bold text-normal wpr-text-anime-style-1">AI Agents, Automation
+                                  &amp; Web Development </h2>
                           </div>
                       </div>
                       <div className="section-bottom-content square-dot">
@@ -858,8 +858,15 @@ export default function HomePage() {
                   <div className="section-inner bg-white border-1">
                       <div className="section-top-area">
                           <div className="section-title-area center-style">
-                              <p className="sub-title">GIGS</p>
-                              <h2 className="section-title second-font font-semi-bold text-normal">Fixed-Scope Gigs <br /> With A Price Up Front</h2>
+                              <p className="sub-title">GIGS &amp; PRICING</p>
+                              <h2 className="section-title second-font font-semi-bold text-normal">Fixed-Scope Gigs <br /> From $120</h2>
+                              {/* Answer-first: the direct reply to "how much does this cost",
+                                  in the opening lines where answer engines look for it. */}
+                              <p className="gig-answer">Projects start at <strong>$120</strong> for a single
+                                  automation, landing page or chat widget, <strong>$280</strong> for a full AI
+                                  agent or multi-page site, and <strong>$500</strong> for an agent, automation
+                                  and site working as one system. Every gig is a fixed scope agreed in writing
+                                  before work begins, so the price does not move unless the scope does.</p>
                           </div>
                       </div>
                       <div className="section-mid-area">
@@ -867,13 +874,13 @@ export default function HomePage() {
                               <div className="pricing-wrapper">
                                   <div className="pricing-header">
                                       <div className="plan-type">
-                                          <h3 className="h6">AI Agent Gig</h3>
-                                          <p>Booking now</p>
+                                          <h3 className="h6">Starter</h3>
+                                          <p>Fastest to start</p>
                                       </div>
-                                      <h4 className="title h5">A voice or chat assistant <br /> <span>that answers and books.</span>
+                                      <h4 className="title h5">One focused job — a single <br /> <span>automation, page or chatbot.</span>
                                       </h4>
                                       <div className="bottom-pricing">
-                                          <h4 className="price">$1,800 <span>/ from</span></h4>
+                                          <h4 className="price">$120 <span>/ from</span></h4>
                                           <div className="button-area">
                                               <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
                                           </div>
@@ -889,35 +896,27 @@ export default function HomePage() {
                                       <ul>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Agent trained on your own answers
+                                          One automation, landing page or chat widget
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Lead qualification questions
+                                          Connects two tools you already use
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Calendar booking integration
+                                          Mobile-responsive and tested
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Defined human handoff
+                                          Delivered in 3–5 working days
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Call and chat transcripts logged
+                                          Written handover notes
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Scenario testing before launch
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Written documentation
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          30 days post-launch support
+                                          7 days post-delivery support
                                       </li>
                                       </ul>
                                   </div>
@@ -930,13 +929,13 @@ export default function HomePage() {
                               <div className="pricing-wrapper dark">
                                   <div className="pricing-header">
                                       <div className="plan-type">
-                                          <h3 className="h6">Automation Gig</h3>
-                                          <p>Booking now</p>
+                                          <h3 className="h6">Growth</h3>
+                                          <p>Most asked for</p>
                                       </div>
-                                      <h4 className="title h5">Lead capture, CRM sync <br /> <span>and routine follow-up.</span>
+                                      <h4 className="title h5">A complete piece of work — <br /> <span>an AI agent or a full site.</span>
                                       </h4>
                                       <div className="bottom-pricing">
-                                          <h4 className="price">$900 <span>/ from</span></h4>
+                                          <h4 className="price">$280 <span>/ from</span></h4>
                                           <div className="button-area">
                                               <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
                                           </div>
@@ -952,7 +951,15 @@ export default function HomePage() {
                                       <ul>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          One intake path for every lead source
+                                          Everything in Starter
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          AI agent or voice assistant set up
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Multi-page website or web app
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
@@ -960,23 +967,15 @@ export default function HomePage() {
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Automated follow-up tasks
+                                          Calendar and booking integration
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          n8n / Make / Zapier build
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Error alerts, not silent failures
+                                          Scenario testing before launch
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
                                           Written documentation
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Handover session
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
@@ -990,16 +989,16 @@ export default function HomePage() {
                               <span className="square-shape bottom-right"></span>
                           </div>
                           <div className="pricing-inner square-dot">
-                              <div className="pricing-wrapper dark">
+                              <div className="pricing-wrapper">
                                   <div className="pricing-header">
                                       <div className="plan-type">
-                                          <h3 className="h6">Web &amp; Mobile Gig</h3>
-                                          <p>Booking now</p>
+                                          <h3 className="h6">Complete</h3>
+                                          <p>Everything wired together</p>
                                       </div>
-                                      <h4 className="title h5">A site or app built around <br /> <span>one clear next step.</span>
+                                      <h4 className="title h5">Agent, automation and site — <br /> <span>working as one system.</span>
                                       </h4>
                                       <div className="bottom-pricing">
-                                          <h4 className="price">$1,500 <span>/ from</span></h4>
+                                          <h4 className="price">$500 <span>/ from</span></h4>
                                           <div className="button-area">
                                               <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
                                           </div>
@@ -1015,90 +1014,27 @@ export default function HomePage() {
                                       <ul>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Responsive site, web app or mobile app
+                                          Everything in Growth
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Built around a single clear action
+                                          Multi-step workflow automation
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Short forms that explain their errors
+                                          Mobile app or web app build
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Submissions delivered to your tools
+                                          Salesforce objects, flows and reports
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Performance and accessibility pass
+                                          AWS hosting, deployment and monitoring
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Written documentation
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Handover session
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          30 days post-launch support
-                                      </li>
-                                      </ul>
-                                  </div>
-                              </div>
-                              <span className="square-shape top-left"></span>
-                              <span className="square-shape top-right"></span>
-                              <span className="square-shape bottom-right"></span>
-                          </div>
-                          <div className="pricing-inner square-dot">
-                              <div className="pricing-wrapper">
-                                  <div className="pricing-header">
-                                      <div className="plan-type">
-                                          <h3 className="h6">Salesforce &amp; AWS Gig</h3>
-                                          <p>Booking now</p>
-                                      </div>
-                                      <h4 className="title h5">Your CRM and your cloud, <br /> <span>configured and connected.</span>
-                                      </h4>
-                                      <div className="bottom-pricing">
-                                          <h4 className="price">$1,200 <span>/ from</span></h4>
-                                          <div className="button-area">
-                                              <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
-                                          </div>
-                                      </div>
-                                      <div className="shape-one">
-                                          <img src="/assets/images/pricing/shape-2.svg" alt="" />
-                                      </div>
-                                      <div className="shape-two">
-                                          <img src="/assets/images/pricing/grid-2.svg" alt="" />
-                                      </div>
-                                  </div>
-                                  <div className="pricing-body">
-                                      <ul>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Salesforce objects, fields and flows
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Reports and dashboards you asked for
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          AWS servers, storage and hosting
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Deployment and monitoring set up
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Access scoped to what is needed
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Written documentation
+                                          Error alerts, not silent failures
                                       </li>
                                       <li>
                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
@@ -1233,7 +1169,14 @@ export default function HomePage() {
               <div className="container">
                   <div className="section-inner border-1">
                       <div className="section-title-area">
-                          <h2 className="section-title">LET’s start <br /> your project</h2>
+                          <h2 className="section-title">Let’s start <br /> your project</h2>
+                          <p className="cta-desc">Tell me what you’d like to make easier. You’ll get a
+                              fixed scope and a price before any work begins — and a reply within one
+                              business day.</p>
+                          <div className="cta-actions">
+                              <a href="/contact" className="wpr-btn btn-white">Start a project</a>
+                              <a href="#pricing" className="cta-link">See the gigs from $120</a>
+                          </div>
                           <div className="logo"><img src="/assets/images/cta/cta-logo.svg" alt="" /></div>
                           <div className="arrow-track right">
                               <div className="arrow"><img src="/assets/images/cta/arrow-left.svg" alt="" /></div>
@@ -1249,8 +1192,8 @@ export default function HomePage() {
                       <div className="bg-shape"><img src="/assets/images/cta/grid.svg" alt="" /></div>
                       <div className="section-bottom-shape">
                           <img src="/assets/images/cta/graphic.svg" alt="" />
-                          <span className="tag left">IMPACTFUL CREATIVE</span>
-                          <span className="tag right">GLOBAL SUPPORT</span>
+                          <span className="tag left">FIXED SCOPE, PRICED UP FRONT</span>
+                          <span className="tag right">REMOTE, WORLDWIDE</span>
                       </div>
                   </div>
               </div>

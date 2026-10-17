@@ -1,0 +1,83 @@
+# Emerging Freelancer
+
+> Independent developer building AI agents and voice assistants, workflow
+> automation, websites and mobile applications, and Salesforce and AWS
+> integrations for small and medium-sized businesses. Remote, based in
+> Pakistan, working worldwide. Fixed-scope gigs from $120.
+
+One person scopes, builds and supports every project — there is no agency,
+account manager or delivery team. Scope and price are agreed in writing before
+any work starts, and documentation plus a handover session ship with every
+build.
+
+## What I build
+
+- **AI agents and voice assistants** — assistants that answer common questions
+  in the business's own wording, qualify a real enquiry, offer slots from a
+  live calendar and book them, then hand to a person when a conversation goes
+  outside their agreed scope.
+- **Workflow automation** — one intake path for every lead source, with CRM
+  sync, de-duplication and dated follow-up tasks, so information is entered
+  once and failures surface instead of going silent. Built with n8n, Make or
+  Zapier depending on what the business already uses.
+- **Websites and mobile applications** — responsive business sites, web
+  applications and mobile apps, each built around a single clear action and
+  wired into the tools behind it.
+- **Salesforce and AWS** — Salesforce objects, fields, flows and reports, plus
+  AWS servers, storage, deployment and monitoring.
+
+## Pricing
+
+Three fixed-scope gigs, priced before work begins:
+
+- **Starter — from $120.** One automation, landing page or chat widget,
+  connected to two existing tools, delivered in 3–5 working days, with 7 days
+  of post-delivery support.
+- **Growth — from $280.** An AI agent or voice assistant, or a multi-page
+  website or web app, with CRM sync, booking integration, scenario testing and
+  14 days of post-launch support.
+- **Complete — from $500.** Agent, automation and site working as one system,
+  including multi-step workflows, Salesforce configuration, AWS hosting and
+  monitoring, and 30 days of post-launch support.
+
+Anything outside a listed gig is scoped individually and quoted in writing.
+There are no day rates or retainers published, because a number set before
+understanding the problem is either padded or wrong.
+
+## How a project runs
+
+1. **Understand** — a call about the business problem, the tools already in
+   use, and what a good outcome looks like. You receive a written summary.
+2. **Plan** — scope, workflow, deliverables and what is deliberately out of
+   scope, with timeline and fixed price attached, before anything is built.
+3. **Build and test** — progress shared at agreed check-ins, tested against
+   realistic scenarios rather than only the happy path.
+4. **Launch and support** — deployment, written documentation, a handover
+   session, and the agreed post-launch support period.
+
+## Working details
+
+- Remote by default. Calls are scheduled to suit the client's hours; the rest
+  runs asynchronously.
+- Access is requested at the narrowest scope that does the job, granted from
+  the client's own accounts and revocable at any time. Nothing sensitive goes
+  into frontend code or a repository.
+- Documentation is a deliverable, not an extra. The aim is that ongoing
+  support is a choice rather than a dependency.
+
+## Pages
+
+- [Home](https://emergingfreelancer.com/): services, gigs and pricing, process, FAQ
+- [Services](https://emergingfreelancer.com/service): the four service areas in detail
+- [Work](https://emergingfreelancer.com/work): concept builds demonstrating the approach
+- [About](https://emergingfreelancer.com/about): how I work and what to expect
+- [Contact](https://emergingfreelancer.com/contact): enquiry form
+
+## Notes for accurate citation
+
+- The projects shown under "work" are **concept builds**, created to
+  demonstrate an approach. They are not client case studies, and no client
+  metrics, conversion rates or ROI figures are claimed anywhere on this site.
+- No awards, certifications, client counts, ratings or testimonials are
+  claimed, because none have been published.
+- Prices above are starting points for the stated scope, not fixed totals.

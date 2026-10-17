@@ -233,6 +233,78 @@ body {
   background-color: var(--color-secondary);
 }
 
+/* -------------------------------------------------------------------------
+   Closing CTA band
+
+   The template's heading rendered charcoal-on-charcoal, the decorative graphic
+   was the loudest thing on the page, and there was nothing to click. Heading
+   goes ivory, the graphic is toned to a near-charcoal so it reads as texture,
+   and the section gets an actual button — white on charcoal, which carries the
+   contrast without spending lime on it.
+   ------------------------------------------------------------------------- */
+
+/* The template fades this heading with a gradient clipped to the text
+   (#55595C -> #000000). On a charcoal panel the second half of that gradient is
+   black on near-black, so the words disappeared. `color` cannot fix it —
+   -webkit-text-fill-color wins — so the gradient itself is restated, fading
+   ivory to muted instead. Same effect, now legible. */
+.wpr-cta-area .section-inner .section-title {
+  background: linear-gradient(137.66deg, #f5f4ef 16%, #7e8378 86%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 3;
+}
+
+.wpr-cta-area .cta-desc {
+  position: relative;
+  z-index: 3;
+  margin: 10px auto 0;
+  max-width: 52ch;
+  color: #c3c8bc;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.wpr-cta-area .cta-actions {
+  position: relative;
+  z-index: 3;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px 26px;
+}
+
+.wpr-cta-area .cta-actions .wpr-btn {
+  margin-inline: 0;
+}
+
+.wpr-cta-area .cta-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition);
+}
+
+.wpr-cta-area .cta-link:hover {
+  border-bottom-color: var(--color-primary);
+}
+
+/* The decorative blocks sit behind the content, not over it. */
+.wpr-cta-area .section-bottom-shape,
+.wpr-cta-area .bg-shape {
+  z-index: 1;
+}
+
+.wpr-cta-area .section-bottom-shape .tag {
+  z-index: 3;
+}
+
 /* Dark panels: keep muted copy legible against charcoal. */
 .wpr-cta-area .section-inner p,
 .wpr-cta-area .section-inner .desc {
@@ -246,40 +318,76 @@ body {
    only on the featured card's badge and its button, not across all three.
    ------------------------------------------------------------------------- */
 
-/* Four gigs instead of the template's two, so the row has to wrap into a 2x2.
-   The template set width:50% with no wrap, which would have squeezed four onto
-   one line. Borders are redrawn per cell so the grid keeps its ruled look. */
+/* Three gig tiers instead of the template's two, so the row is a 3-across
+   grid rather than two halves. Borders are redrawn per cell to keep the ruled
+   look, and the stack collapses to one column on tablet and below. */
 .wpr-pricing-plans-area .section-inner .section-mid-area {
   flex-wrap: wrap;
 }
 
 .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner {
+  width: 33.3333%;
+  padding: 48px 36px;
   border-right: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
 }
 
-/* Right-hand column of each row, and the final row, lose their outer rules. */
-.wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner:nth-child(2n) {
+.wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner:last-child {
   border-right: 0;
 }
 
-.wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner:nth-last-child(-n + 2) {
-  border-bottom: 0;
+@media (max-width: 1199px) {
+  .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner {
+    padding: 40px 28px;
+  }
 }
 
 @media (max-width: 991px) {
   .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner {
     width: 100%;
     border-right: 0;
-  }
-
-  .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner:nth-last-child(-n + 2) {
     border-bottom: 1px solid var(--color-border);
   }
 
   .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner:last-child {
     border-bottom: 0;
   }
+}
+
+/* The middle tier is the one most people want — lift it slightly. */
+.wpr-pricing-plans-area .pricing-wrapper.dark .plan-type p {
+  color: var(--color-primary);
+}
+
+/* At a third of the row the template's side-by-side price and button no longer
+   fit, and the price was breaking mid-number ("$12 / 0"). Stack them, keep the
+   figure on one line, and let the button fill the card. */
+.pricing-wrapper .pricing-header .bottom-pricing {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.pricing-wrapper .pricing-header .bottom-pricing .price {
+  font-size: 46px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pricing-wrapper .pricing-header .bottom-pricing .button-area .wpr-btn {
+  width: 100%;
+  max-width: none;
+  justify-content: center;
+  text-align: center;
+}
+
+.pricing-wrapper .pricing-header .title {
+  font-size: 25px;
+  margin-bottom: 36px;
+  text-wrap: balance;
+}
+
+.pricing-wrapper .pricing-body ul li {
+  text-wrap: pretty;
 }
 
 /* Gig CTAs keep the template's dark gradient too. Only the label colour is
@@ -369,4 +477,26 @@ select:focus-visible,
   .ef-ticker {
     overflow-x: auto;
   }
+}
+
+/* -------------------------------------------------------------------------
+   Answer-first lead paragraph
+
+   Sits directly under a section heading and states the plain answer — what it
+   costs, how long it takes — in the opening lines, which is where both readers
+   and answer engines look for it.
+   ------------------------------------------------------------------------- */
+
+.gig-answer {
+  max-width: 68ch;
+  margin: 22px auto 0;
+  text-align: center;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--color-body-1);
+}
+
+.gig-answer strong {
+  color: var(--color-title);
+  font-weight: 700;
 }
