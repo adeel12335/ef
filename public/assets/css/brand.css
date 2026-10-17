@@ -124,30 +124,18 @@ body {
    body text. Charcoal on lime is 10.9:1 and is the button pairing.
    ------------------------------------------------------------------------- */
 
-/* The template's default .wpr-btn is a DARK gradient — its text stays ivory.
-   Only buttons that actually sit on a light or lime fill get charcoal text. */
+/* Buttons keep the template's original treatment: the dark glossy gradient for
+   the primary, white for the secondary. They are deliberately NOT recoloured to
+   lime — charcoal is a brand colour, the gradient reads as more considered than
+   a flat fill, and it keeps lime to roughly the 5% the guide asks for.
+   Only the text colour is pinned, so each sits correctly on its own fill. */
 .wpr-btn {
-  color: #f5f4ef;
+  color: #f9fafb;
 }
 
 .wpr-btn.btn-white,
-.wpr-btn.btn-white:hover,
-.wpr-btn.btn-primary,
-.wpr-btn.btn-primary:hover {
+.wpr-btn.btn-white:hover {
   color: #252623;
-}
-
-/* Lime fill, charcoal label — 10.9:1. */
-.wpr-btn.btn-primary {
-  background: var(--color-primary);
-  box-shadow:
-    0 3px 3px rgba(37, 38, 35, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -5px 0 var(--ef-lime-deep);
-}
-
-.wpr-btn.btn-primary:hover {
-  background: var(--ef-lime-deep);
 }
 
 /* Lime text is only safe on charcoal (10.9:1). */
@@ -202,22 +190,11 @@ body {
    only on the featured card's badge and its button, not across all three.
    ------------------------------------------------------------------------- */
 
-/* The template gives both gig CTAs a dark gradient from a 5-class selector, so
-   these need the same specificity to win. Lime fill, charcoal label — it is the
-   primary action on the page and the brand's one accent. */
+/* Gig CTAs keep the template's dark gradient too. Only the label colour is
+   pinned, because the 5-class template selector sets the background. */
 .pricing-wrapper .pricing-header .bottom-pricing .button-area .wpr-btn,
 .pricing-wrapper.dark .pricing-header .bottom-pricing .button-area .wpr-btn {
-  background: var(--color-primary);
-  color: #252623;
-  box-shadow:
-    0 3px 3px rgba(37, 38, 35, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    inset 0 -4px 0 var(--ef-lime-deep);
-}
-
-.pricing-wrapper .pricing-header .bottom-pricing .button-area .wpr-btn:hover,
-.pricing-wrapper.dark .pricing-header .bottom-pricing .button-area .wpr-btn:hover {
-  background: var(--ef-lime-deep);
+  color: #f9fafb;
 }
 
 /* -------------------------------------------------------------------------

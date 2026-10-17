@@ -92,61 +92,10 @@ export default function HomePage() {
 
 
 
-          <div className="wpr-brand-area mb--16">
-              <div className="container">
-                  <div className="section-inner square-dot">
-                      <div className="left-text">
-                          <p>//WE’VE <br /> TRUSTED BY</p>
-                      </div>
-                      <div className="right-marquee-area">
-                          <div className="brand-inner">
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/01.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/02.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/03.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/04.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/05.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/06.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/01.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/02.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/03.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/04.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/05.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/06.svg" alt="" />
-                              </div>
-                          </div>
-                      </div>
-                      <span className="square-shape top-left"></span>
-                      <span className="square-shape bottom-left"></span>
-                      <span className="square-shape top-right"></span>
-                      <span className="square-shape bottom-right"></span>
-                  </div>
-              </div>
-          </div>
-
-
+          {/* The template's "WE’VE TRUSTED BY" client-logo marquee is removed.
+              Its twelve marks were Logoipsum placeholders, and a "trusted by"
+              strip is a claim about who you have worked for. Restore it from
+              git once you have real clients who agree to be named. */}
 
           <section id="about" className="wpr-about-area mb--16">
               <div className="container">
