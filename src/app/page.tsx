@@ -7,7 +7,7 @@ export default function HomePage() {
                       <div className="top-shape wow fadeIn" data-wow-delay=".7s"></div>
                       <h1 className="section-title">
                           <span className="left-area square-dot wow fadeInLeft" data-wow-delay=".7s">
-                              <span className="text">We ARE</span>
+                              <span className="text">I BUILD</span>
                           <span className="square-shape top-right"></span>
                           <span className="square-shape bottom-right"></span>
                           <span className="arrow-track right">
@@ -26,7 +26,7 @@ export default function HomePage() {
                           </span>
                           <span className="mid-icon wow scaleIn" data-wow-delay=".7s">
                               <span className="inner">
-                                  <img src="/assets/images/banner/center-hero.webp" width="303" alt="" />
+                                  <img src="/brand/symbol.svg" width="303" height="303" alt="Emerging Freelancer" />
                               </span>
                           </span>
                           <span className="right-area square-dot wow fadeInRight" data-wow-delay=".7s">
@@ -43,16 +43,15 @@ export default function HomePage() {
                           <span className="arrow"><img src="/assets/images/banner/icon/arrow-left.svg" alt="" /></span>
                           <span className="arrow"><img src="/assets/images/banner/icon/arrow-left.svg" alt="" /></span>
                           </span>
-                          <span className="text">CREATIVE</span>
+                          <span className="text">SYSTEMS</span>
                           <span className="square-shape top-left"></span>
                           <span className="square-shape bottom-left"></span>
                           </span>
                       </h1>
                       <div className="text-area wow fadeInUp" data-wow-delay="1s">
-                          <p className="desc"> We turn ideas into timeless digital experiences <br /> through thoughtful strategy
-                              and refined aesthetics.</p>
+                          <p className="desc">AI agents, automations, websites and cloud integrations <br /> that make your business easier to run.</p>
                           <div className="button-area">
-                              <a href="#pricing" className="wpr-btn btn-white">View Pricing Plans</a>
+                              <a href="#pricing" className="wpr-btn btn-white">See my gigs</a>
                               <a href="#services" className="wpr-btn btn-primary with-icon">
                                   <div className="inner">
                                       <div className="icon">
@@ -154,38 +153,35 @@ export default function HomePage() {
                   <div className="section-inner bg-white border-1">
                       <div className="section-top-area">
                           <div className="section-title-area">
-                              <p className="sub-title">ABOUT US</p>
-                              <h2 className="section-title second-font font-semi-bold text-normal quote">At our core, we believe
-                                  good
-                                  design is more than beauty, it’s emotion</h2>
+                              <p className="sub-title">ABOUT</p>
+                              <h2 className="section-title second-font font-semi-bold text-normal quote">You work with me directly — the person who scopes it also builds and supports it</h2>
                           </div>
                       </div>
                       <div className="about-bottom-content square-dot">
                           <div className="left-area">
                               <ul>
                                   <li className="border-top">
-                                      <p className="top-description">OUR RESULTS SPEAK FOR THEMSELVES. EACH NUMBER <br /> REPRESENTS
-                                          THE TRUST WE’VE BUILT.</p>
+                                      <p className="top-description">ONE DEVELOPER, THREE KINDS OF WORK <br /> — AND THE INTEGRATIONS THAT JOIN THEM UP.</p>
                                   </li>
                                   <li className="border-top with-icon">
                                       <div className="icon"><img src="/assets/images/about/icon/01.svg" alt="" /></div>
                                       <div className="text">
-                                          <h2 className="h4 title"><span className="odometer second-font font-semi-bold" data-count="300">00</span>%</h2>
-                                          <p className="desc">Average ROI from design improvements</p>
+                                          <h2 className="h4 title">AI agents</h2>
+                                          <p className="desc">Voice and chat assistants that answer, qualify and book — then hand to a person</p>
                                       </div>
                                   </li>
                                   <li className="border-top with-icon">
                                       <div className="icon"><img src="/assets/images/about/icon/02.svg" alt="" /></div>
                                       <div className="text">
-                                          <h2 className="h4 title"><span className="odometer second-font font-semi-bold" data-count="120">00</span>+</h2>
-                                          <p className="desc">Projects delivered for global clients</p>
+                                          <h2 className="h4 title">Automation</h2>
+                                          <p className="desc">Connected workflows, so a lead is entered once and reaches every tool</p>
                                       </div>
                                   </li>
                                   <li className="border-top with-icon">
                                       <div className="icon"><img src="/assets/images/about/icon/03.svg" alt="" /></div>
                                       <div className="text">
-                                          <h2 className="h4 title"><span className="odometer second-font font-semi-bold" data-count="4.9">00</span><span className="prefix">/ 5</span></h2>
-                                          <p className="desc">Client rating based on 100+ reviews</p>
+                                          <h2 className="h4 title">Web &amp; cloud</h2>
+                                          <p className="desc">Websites, applications, Salesforce and AWS — built and wired together</p>
                                       </div>
                                   </li>
                               </ul>
@@ -220,8 +216,8 @@ export default function HomePage() {
                       <div className="section-top-area">
                           <div className="section-title-area center-style">
                               <p className="sub-title">SERVICES</p>
-                              <h2 className="section-title second-font font-semi-bold text-normal wpr-text-anime-style-1">We Build
-                                  We Create </h2>
+                              <h2 className="section-title second-font font-semi-bold text-normal wpr-text-anime-style-1">What I Build
+                                  For You </h2>
                           </div>
                       </div>
                       <div className="section-bottom-content square-dot">
@@ -231,19 +227,18 @@ export default function HomePage() {
                               </div>
                               <div className="content">
                                   <div className="top">
-                                      <p className="tag">WEBSITE DEVELOPMENT</p>
-                                      <p className="desc">We create digital experiences that are visually striking, intuitive, and
-                                          conversion-focused.</p>
+                                      <p className="tag">AI AGENTS &amp; VOICE ASSISTANTS</p>
+                                      <p className="desc">Assistants that answer your common questions, qualify a real enquiry, book from your live calendar, and hand to a person the moment they should.</p>
                                   </div>
                                   <div className="mid">
                                       <h2>01</h2>
                                   </div>
                                   <div className="bottom">
                                       <ul>
-                                          <li>Website Concept</li>
-                                          <li>Web Animation</li>
-                                          <li>CMS Integration</li>
-                                          <li>SEO-Friendly Design</li>
+                                          <li>Voice &amp; chat agents</li>
+                                          <li>Call handling &amp; booking</li>
+                                          <li>Lead qualification</li>
+                                          <li>Human handoff rules</li>
                                       </ul>
                                       <a href="/service-details" className="service-btn-area">
                                           <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -259,19 +254,18 @@ export default function HomePage() {
                               </div>
                               <div className="content">
                                   <div className="top">
-                                      <p className="tag">BRAND IDENTITY</p>
-                                      <p className="desc">We build distinctive visual systems that tell your story and strengthen
-                                          your brand.</p>
+                                      <p className="tag">WORKFLOW AUTOMATION</p>
+                                      <p className="desc">One intake path for every lead source, so information is entered once, reaches every tool, and follow-up stops depending on somebody remembering.</p>
                                   </div>
                                   <div className="mid">
                                       <h2>02</h2>
                                   </div>
                                   <div className="bottom">
                                       <ul>
-                                          <li>Brand Strategy</li>
-                                          <li>Logo Design</li>
-                                          <li>Brand Guidelines</li>
-                                          <li>Packaging Design</li>
+                                          <li>CRM sync &amp; de-duplication</li>
+                                          <li>Lead routing</li>
+                                          <li>Automated follow-up</li>
+                                          <li>n8n / Make / Zapier</li>
                                       </ul>
                                       <a href="/service-details" className="service-btn-area">
                                           <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -287,19 +281,18 @@ export default function HomePage() {
                               </div>
                               <div className="content">
                                   <div className="top">
-                                      <p className="tag">UI/UX DESIGN</p>
-                                      <p className="desc">We transform complex ideas into seamless interfaces that deliver
-                                          measurable results.</p>
+                                      <p className="tag">WEBSITES &amp; APPLICATIONS</p>
+                                      <p className="desc">Responsive business sites, landing pages, dashboards and internal tools — built around one clear action and wired into the systems behind them.</p>
                                   </div>
                                   <div className="mid">
                                       <h2>03</h2>
                                   </div>
                                   <div className="bottom">
                                       <ul>
-                                          <li>User Research</li>
-                                          <li>Information Architecture</li>
-                                          <li>Wireframes & Prototyping</li>
-                                          <li>Usability Testing</li>
+                                          <li>Business websites</li>
+                                          <li>Web applications</li>
+                                          <li>Dashboards &amp; portals</li>
+                                          <li>API integrations</li>
                                       </ul>
                                       <a href="/service-details" className="service-btn-area">
                                           <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -315,19 +308,18 @@ export default function HomePage() {
                               </div>
                               <div className="content">
                                   <div className="top">
-                                      <p className="tag">CREATIVE DIRECTION</p>
-                                      <p className="desc">We help brands stay consistent and inspired with art direction that
-                                          aligns every detail with your vision.</p>
+                                      <p className="tag">SALESFORCE &amp; AWS</p>
+                                      <p className="desc">Your CRM and your cloud, configured and connected: custom objects and flows on Salesforce, and servers, storage and deployments on AWS.</p>
                                   </div>
                                   <div className="mid">
                                       <h2>04</h2>
                                   </div>
                                   <div className="bottom">
                                       <ul>
-                                          <li>Visual Campaign</li>
-                                          <li>Art Direction</li>
-                                          <li>Photography Guidance</li>
-                                          <li>Brand Tone</li>
+                                          <li>Salesforce setup &amp; flows</li>
+                                          <li>Custom objects &amp; reports</li>
+                                          <li>AWS servers &amp; hosting</li>
+                                          <li>Deployment &amp; monitoring</li>
                                       </ul>
                                       <a href="/service-details" className="service-btn-area">
                                           <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -359,14 +351,12 @@ export default function HomePage() {
                       <div className="space"></div>
                       <div className="floating-content">
                           <div className="section-title-area center-style">
-                              <p className="sub-title bg-white">OUR VISION</p>
-                              <h2 className="section-title second-font font-semi-bold text-normal">Every project we take on <br />
-                                  <span>starts <span><img src="/assets/images/portfolio/sm.webp" width="147" alt="" /></span>
-                                  with a</span> <br /> deep understanding of goals
+                              <p className="sub-title bg-white">SELECTED WORK</p>
+                              <h2 className="section-title second-font font-semi-bold text-normal">Concept builds that show <br />
+                                  <span>how <span><img src="/assets/images/portfolio/sm.webp" width="147" alt="" /></span>
+                                  I solve a</span> <br /> real business problem
                               </h2>
-                              <p className="desc">We’re a multidisciplinary design agency that blends creativity, strategy, and
-                                  technology to build meaningful brands and digital experiences. The results don’t just look
-                                  great, they work great.</p>
+                              <p className="desc">These are concept projects, built to demonstrate the approach rather than delivered for a paying client — and labelled that way throughout. No client metrics are claimed. Real case studies will replace them as they become available to publish.</p>
                           </div>
                       </div>
                       <div className="wpr-video-pin">
@@ -383,25 +373,23 @@ export default function HomePage() {
                                               <div className="slide-content">
                                                   <div className="product-intro">
                                                       <div className="top">
-                                                          <h2 className="h3 title"><a href="/work-details">Nova Mobile App</a>
+                                                          <h2 className="h3 title"><a href="/work-details">Front Desk AI</a>
                                                           </h2>
-                                                          <p className="desc">We streamlined user flows, refreshed the visual
-                                                              language, and introduced accessibility-focused design components
-                                                              to improve usability.</p>
+                                                          <p className="desc">A voice and chat assistant that answers routine enquiries in your own wording, qualifies a real one, offers slots from the live calendar, and hands to a person the moment it should.</p>
                                                       </div>
                                                       <div className="bottom">
                                                           <ul>
                                                               <li>
-                                                                  <h3 className="h5">40%</h3>
-                                                                  <p>Faster completion</p>
+                                                                  <h3 className="h5">Voice + chat</h3>
+                                                                  <p>Channels handled</p>
                                                               </li>
                                                               <li>
-                                                                  <h3 className="h5">+25%</h3>
-                                                                  <p>Faster completion</p>
+                                                                  <h3 className="h5">Live calendar</h3>
+                                                                  <p>Booking source</p>
                                                               </li>
                                                               <li>
-                                                                  <h3 className="h5">4.8</h3>
-                                                                  <p>Star rating</p>
+                                                                  <h3 className="h5">Defined</h3>
+                                                                  <p>Human handoff</p>
                                                               </li>
                                                           </ul>
                                                       </div>
@@ -410,7 +398,7 @@ export default function HomePage() {
                                               <div className="hover_mouse">
                                                   <div className="box"></div>
                                                   <a href="/work-details">
-                                                      View Projects
+                                                      View project
                                                       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                           <path d="M18 0V13.4751H16.5083V2.53591L1.0442 18L0 16.9061L15.4144 1.49171H4.47514V0H18Z" fill="#98FF03" />
                                                       </svg>
@@ -428,25 +416,23 @@ export default function HomePage() {
                                               <div className="slide-content">
                                                   <div className="product-intro">
                                                       <div className="top">
-                                                          <h3 className="title"><a href="/work-details">Axis Legal Website</a>
+                                                          <h3 className="title"><a href="/work-details">Lead Relay</a>
                                                           </h3>
-                                                          <p className="desc">We streamlined user flows, refreshed the visual
-                                                              language, and introduced accessibility-focused design components
-                                                              to improve usability.</p>
+                                                          <p className="desc">One intake path for a website form, a shared inbox and a social inbox. Every enquiry is captured once, matched against existing records, and given a dated follow-up task.</p>
                                                       </div>
                                                       <div className="bottom">
                                                           <ul>
                                                               <li>
-                                                                  <h3 className="h5">+70%</h3>
-                                                                  <p>Session duration</p>
+                                                                  <h3 className="h5">3 sources</h3>
+                                                                  <p>Unified intake</p>
                                                               </li>
                                                               <li>
-                                                                  <h3 className="h5">1 unified</h3>
-                                                                  <p>Brand system</p>
+                                                                  <h3 className="h5">Matched</h3>
+                                                                  <p>De-duplication</p>
                                                               </li>
                                                               <li>
-                                                                  <h3 className="h5">4 w</h3>
-                                                                  <p>Delivery time</p>
+                                                                  <h3 className="h5">Dated</h3>
+                                                                  <p>Follow-up tasks</p>
                                                               </li>
                                                           </ul>
                                                       </div>
@@ -455,7 +441,7 @@ export default function HomePage() {
                                               <div className="hover_mouse">
                                                   <div className="box"></div>
                                                   <a href="/work-details">
-                                                      View Projects
+                                                      View project
                                                       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                           <path d="M18 0V13.4751H16.5083V2.53591L1.0442 18L0 16.9061L15.4144 1.49171H4.47514V0H18Z" fill="#98FF03" />
                                                       </svg>
@@ -473,25 +459,22 @@ export default function HomePage() {
                                               <div className="slide-content">
                                                   <div className="product-intro">
                                                       <div className="top">
-                                                          <h3 className="title"><a href="/work-details">Lunaris Co .
-                                                                  Branding</a></h3>
-                                                          <p className="desc">We crafted a modern visual identity for Lunaris
-                                                              Coffee Co., blending organic textures with clean typography to
-                                                              reflect their artisanal roots.</p>
+                                                          <h3 className="title"><a href="/work-details">Clear Path</a></h3>
+                                                          <p className="desc">A responsive business site built around one obvious next step, with a short enquiry form that explains its own errors and delivers straight into the tools the business already works in.</p>
                                                       </div>
                                                       <div className="bottom">
                                                           <ul>
                                                               <li>
-                                                                  <h3 className="h5">+65%</h3>
-                                                                  <p>Brand recognition</p>
+                                                                  <h3 className="h5">One action</h3>
+                                                                  <p>Per page</p>
                                                               </li>
                                                               <li>
-                                                                  <h3 className="h5">12</h3>
-                                                                  <p>New product lines</p>
+                                                                  <h3 className="h5">3 fields</h3>
+                                                                  <p>Enquiry form</p>
                                                               </li>
                                                               <li>
-                                                                  <h3 className="h5">3 mon</h3>
-                                                                  <p>To done project</p>
+                                                                  <h3 className="h5">CRM + inbox</h3>
+                                                                  <p>Delivery target</p>
                                                               </li>
                                                           </ul>
                                                       </div>
@@ -501,7 +484,7 @@ export default function HomePage() {
                                               <div className="hover_mouse">
                                                   <div className="box"></div>
                                                   <a href="/work-details">
-                                                      View Projects
+                                                      View project
                                                       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                           <path d="M18 0V13.4751H16.5083V2.53591L1.0442 18L0 16.9061L15.4144 1.49171H4.47514V0H18Z" fill="#98FF03" />
                                                       </svg>
@@ -539,12 +522,10 @@ export default function HomePage() {
                               <div className="working-process-left">
                                   <div className="section-title-area">
                                       <p className="sub-title">PROCESS</p>
-                                      <h2 className="section-title second-font font-semi-bold text-normal quote">Combine
-                                          Creativity <br />
-                                          With Strategy</h2>
+                                      <h2 className="section-title second-font font-semi-bold text-normal quote">How a project runs, from the first call to handover</h2>
                                   </div>
                                   <div className="text-area">
-                                      <p className="desc">Every step designed to deliver clarity, impact, and results.</p>
+                                      <p className="desc">You always know what is happening, what I need from you next, and what you will have at the end of it.</p>
                                       <a href="/contact" className="wpr-btn btn-primary with-icon">
                                           <div className="inner">
                                               <div className="icon">
@@ -579,9 +560,8 @@ export default function HomePage() {
                                       <div className="content-area">
                                           <div className="number">//01</div>
                                           <div className="wrapper-content">
-                                              <h3 className="title second-font h6">Discover & Define</h3>
-                                              <p className="desc">We start by understanding your goals, audience, and challenges.
-                                                  Through research and workshops, we uncover insights of the project.</p>
+                                              <h3 className="title second-font h6">Understand</h3>
+                                              <p className="desc">We talk through the business problem, the tools already in use, and what a good outcome actually looks like. You get a written summary of the problem as I understand it.</p>
                                           </div>
                                       </div>
                                   </div>
@@ -592,9 +572,8 @@ export default function HomePage() {
                                       <div className="content-area">
                                           <div className="number">//02</div>
                                           <div className="wrapper-content">
-                                              <h3 className="title second-font h6">Concept & Strategy</h3>
-                                              <p className="desc">We explore visual styles, narratives, and user flows to define
-                                                  the strategic and aesthetic direction of your brand or product.</p>
+                                              <h3 className="title second-font h6">Plan</h3>
+                                              <p className="desc">I define the scope, the workflow and what gets delivered — including what is deliberately out of scope — with a timeline and a fixed price attached before anything is built.</p>
                                           </div>
                                       </div>
                                   </div>
@@ -605,9 +584,8 @@ export default function HomePage() {
                                       <div className="content-area">
                                           <div className="number">//03</div>
                                           <div className="wrapper-content">
-                                              <h3 className="title second-font h6">Design & Develop</h3>
-                                              <p className="desc">Every layout, color, and interaction is thoughtfully crafted to
-                                                  ensure your brand feels cohesive, functional, and memorable.</p>
+                                              <h3 className="title second-font h6">Build and test</h3>
+                                              <p className="desc">I build it, share progress at agreed check-ins, and test against realistic scenarios rather than only the happy path. You get working software you can try.</p>
                                           </div>
                                       </div>
                                   </div>
@@ -618,9 +596,8 @@ export default function HomePage() {
                                       <div className="content-area">
                                           <div className="number">//04</div>
                                           <div className="wrapper-content">
-                                              <h3 className="title second-font h6">Launch & Evolve</h3>
-                                              <p className="desc">We guide you through launch and beyond - analyzing performance,
-                                                  gathering feedback, and refining your design.</p>
+                                              <h3 className="title second-font h6">Launch and support</h3>
+                                              <p className="desc">I help put it live, document how it works and what it connects to, and hand it over properly — so ongoing support stays your choice.</p>
                                           </div>
                                       </div>
                                   </div>
@@ -645,50 +622,12 @@ export default function HomePage() {
                   <div className="section-inner overflow-hidden border-1">
                       <div className="text-wrapper first-text">
                           <div className="text-split scrollingtext-1">
-                              <h2 className="title">
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                                  Innovative <span><img src="/assets/images/icon/black-right.svg" alt="" /></span>
-                              </h2>
+                              <h2 className="title">AI AGENTS • WORKFLOW AUTOMATION • WEBSITES • WEB APPS • API INTEGRATIONS • SALESFORCE • AWS • CRM SYNC • VOICE ASSISTANTS • </h2>
                           </div>
                       </div>
                       <div className="text-wrapper">
                           <div className="text-split scrollingtext-2">
-                              <h2 className="title">
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                                  Visionary <span><img src="/assets/images/icon/black-left.svg" alt="" /></span>
-                              </h2>
+                              <h2 className="title">AI AGENTS • WORKFLOW AUTOMATION • WEBSITES • WEB APPS • API INTEGRATIONS • SALESFORCE • AWS • CRM SYNC • VOICE ASSISTANTS • </h2>
                           </div>
                       </div>
                   </div>
@@ -714,42 +653,42 @@ export default function HomePage() {
                                       <div className="section-title-area center-style">
                                           <p className="sub-title">THE DIFFERENCE</p>
                                           <h2 className="section-title second-font font-semi-bold text-normal wpr-text-anime-style-1">
-                                              Why Should You
-                                              Choose Us </h2>
+                                              Why Work With
+                                              One Developer </h2>
                                       </div>
                                       <div className="row g-5">
                                           <div className="col-lg-6 col-md-6">
                                               <div className="why-choose-wrapper ml-auto">
                                                   <div className="wrapper-header">
-                                                      <h3 className="title second-font font-semi-bold text-normal">Other
-                                                          <span>Agenices</span>
+                                                      <h3 className="title second-font font-semi-bold text-normal">An
+                                                          <span>Agency</span>
                                                       </h3>
                                                       <img src="/assets/images/why-choose/grid.svg" alt="" className="shape" />
                                                   </div>
                                                   <ul className="wrapper-list">
                                                       <li>
                                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                                          Operates as a service provider
+                                                          An account manager relays your brief
                                                       </li>
                                                       <li>
                                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                                          Focuses mainly on visual output
+                                                          Rotating staff across your project
                                                       </li>
                                                       <li>
                                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                                          Limited communication and feedback
+                                                          Scope grows, and so does the invoice
                                                       </li>
                                                       <li>
                                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                                          Rotating staff and inconsistent quality
+                                                          Documentation is an optional extra
                                                       </li>
                                                       <li>
                                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                                          Delivers based only on initial brief
+                                                          You chase updates between demos
                                                       </li>
                                                       <li>
                                                           <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                                          Focuses on one-off projects
+                                                          Support covers a thin handover
                                                       </li>
                                                   </ul>
                                               </div>
@@ -763,27 +702,27 @@ export default function HomePage() {
                                                   <ul className="wrapper-list two">
                                                       <li>
                                                           <img src="/assets/images/why-choose/check-02.svg" alt="" />
-                                                          Works as a strategic partner
+                                                          You speak to the person building it
                                                       </li>
                                                       <li>
                                                           <img src="/assets/images/why-choose/check-02.svg" alt="" />
-                                                          Blends creativity with understanding
+                                                          The same developer start to finish
                                                       </li>
                                                       <li>
                                                           <img src="/assets/images/why-choose/check-02.svg" alt="" />
-                                                          Transparent, collaborative workflow
+                                                          Fixed scope and price agreed up front
                                                       </li>
                                                       <li>
                                                           <img src="/assets/images/why-choose/check-02.svg" alt="" />
-                                                          Dedicated senior team on every project
+                                                          Documentation ships as a deliverable
                                                       </li>
                                                       <li>
                                                           <img src="/assets/images/why-choose/check-02.svg" alt="" />
-                                                          Immerses deeply in your brand
+                                                          Written updates at agreed check-ins
                                                       </li>
                                                       <li>
                                                           <img src="/assets/images/why-choose/check-02.svg" alt="" />
-                                                          Designs with measurable outcomes in mind
+                                                          Handover aims to make me optional
                                                       </li>
                                                   </ul>
                                               </div>
@@ -809,263 +748,22 @@ export default function HomePage() {
 
 
 
-          <section className="wpr-team-area mb--16">
-              <div className="container">
-                  <div className="section-inner bg-white border-1">
-                      <div className="content-area">
-                          <div className="section-bg-shape"><img src="/assets/images/team/grid-big.svg" alt="" /></div>
-                          <div className="section-title-area center-style">
-                              <p className="sub-title">TEAM MEMBERS</p>
-                              <h2 className="section-title second-font font-semi-bold text-normal quote">The Minds <br /> Behind the
-                                  Work
-                              </h2>
-                          </div>
-                          <div className="section-bottom-inner">
-                              <div className="row g-24">
-                                  <div className="col-xl-3 col-md-6 wow fadeInDown" data-wow-delay=".2s">
-                                      <div className="team-wrapper ">
-                                          <div className="image-area">
-                                              <img src="/assets/images/team/01.webp" alt="" />
-                                          </div>
-                                          <div className="author-area">
-                                              <h3 className="title h6"> Ethan Brooks </h3>
-                                              <p className="designation">Agenio Founder</p>
-                                              <div className="social">
-                                                  <ul>
-                                                      <li><a href="#"><img src="/assets/images/team/twitter.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/linkedin.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/github.svg" alt="" /></a>
-                                                      </li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                          <div className="shape shape-top-left">
-                                              <img src="/assets/images/team/shape-top-left.svg" alt="" />
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div className="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                                      <div className="team-wrapper down ">
-                                          <div className="image-area">
-                                              <img src="/assets/images/team/02.webp" alt="" />
-                                          </div>
-                                          <div className="author-area">
-                                              <h3 className="title h6"> Liam Anderson </h3>
-                                              <p className="designation">Brand Identity Designer</p>
-                                              <div className="social">
-                                                  <ul>
-                                                      <li><a href="#"><img src="/assets/images/team/twitter.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/linkedin.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/github.svg" alt="" /></a>
-                                                      </li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                          <div className="shape shape-bottom-left">
-                                              <img src="/assets/images/team/shape-bottom-left.svg" alt="" />
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div className="col-xl-3 col-md-6 wow fadeInDown" data-wow-delay=".6s">
-                                      <div className="team-wrapper ">
-                                          <div className="image-area">
-                                              <img src="/assets/images/team/03.webp" alt="" />
-                                          </div>
-                                          <div className="author-area">
-                                              <h3 className="title h6"> Ethan Walker </h3>
-                                              <p className="designation">Creative Director</p>
-                                              <div className="social">
-                                                  <ul>
-                                                      <li><a href="#"><img src="/assets/images/team/twitter.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/linkedin.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/github.svg" alt="" /></a>
-                                                      </li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                          <div className="shape shape-top-right">
-                                              <img src="/assets/images/team/shape-top-right.svg" alt="" />
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div className="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay=".8s">
-                                      <div className="team-wrapper down ">
-                                          <div className="image-area">
-                                              <img src="/assets/images/team/04.webp" alt="" />
-                                          </div>
-                                          <div className="author-area">
-                                              <h3 className="title h6"> Mason Cole </h3>
-                                              <p className="designation">Lead UI/UX Designer</p>
-                                              <div className="social">
-                                                  <ul>
-                                                      <li><a href="#"><img src="/assets/images/team/twitter.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/linkedin.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/github.svg" alt="" /></a>
-                                                      </li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                          <div className="shape shape-bottom-right">
-                                              <img src="/assets/images/team/shape-bottom-right.svg" alt="" />
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div className="col-xl-3 col-md-6 wow fadeInDown" data-wow-delay=".2s">
-                                      <div className="team-wrapper ">
-                                          <div className="image-area">
-                                              <img src="/assets/images/team/05.webp" alt="" />
-                                          </div>
-                                          <div className="author-area">
-                                              <h3 className="title h6"> Noah Reed </h3>
-                                              <p className="designation">Senior Product Designer</p>
-                                              <div className="social">
-                                                  <ul>
-                                                      <li><a href="#"><img src="/assets/images/team/twitter.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/linkedin.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/github.svg" alt="" /></a>
-                                                      </li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                          <div className="shape shape-top-right">
-                                              <img src="/assets/images/team/shape-top-right.svg" alt="" />
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div className="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                                      <div className="team-wrapper down ">
-                                          <div className="image-area">
-                                              <img src="/assets/images/team/06.webp" alt="" />
-                                          </div>
-                                          <div className="author-area">
-                                              <h3 className="title h6"> Oliver Hayes </h3>
-                                              <p className="designation">Design Strategist</p>
-                                              <div className="social">
-                                                  <ul>
-                                                      <li><a href="#"><img src="/assets/images/team/twitter.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/linkedin.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/github.svg" alt="" /></a>
-                                                      </li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                          <div className="shape shape-bottom-left">
-                                              <img src="/assets/images/team/shape-bottom-left.svg" alt="" />
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div className="col-xl-3 col-md-6 wow fadeInDown" data-wow-delay=".6s">
-                                      <div className="team-wrapper">
-                                          <div className="image-area">
-                                              <img src="/assets/images/team/07.webp" alt="" />
-                                          </div>
-                                          <div className="author-area">
-                                              <h3 className="title h6"> James Carter </h3>
-                                              <p className="designation">Art Director</p>
-                                              <div className="social">
-                                                  <ul>
-                                                      <li><a href="#"><img src="/assets/images/team/twitter.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/linkedin.svg" alt="" /></a>
-                                                      </li>
-                                                      <li><a href="#"><img src="/assets/images/team/github.svg" alt="" /></a>
-                                                      </li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                          <div className="shape shape-top-left">
-                                              <img src="/assets/images/team/shape-top-left.svg" alt="" />
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div className="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay=".8s">
-                                      <div className="team-apply-wrapper">
-                                          <div className="top-content">
-                                              <div className="square-dot"></div>
-                                              <h3 className="title h6 text-normal font-semi-bold second-font">We’re Searching <br />
-                                                  For Talents</h3>
-                                              <p className="desc">Join our team of creatives pushing boundaries, experimenting
-                                                  with ideas</p>
-                                          </div>
-                                          <a href="/contact" className="wpr-btn btn-primary with-icon">
-                                              <div className="inner">
-                                                  <div className="icon">
-                                                      <span>
-                                                          <img src="/assets/images/icon/button-arrow-fixed.svg" alt="" />
-                                                      </span>
-                                                      <span>
-                                                          <img src="/assets/images/icon/button-arrow-fixed.svg" alt="" />
-                                                      </span>
-                                                      <span>
-                                                          <img src="/assets/images/icon/button-arrow-fixed.svg" alt="" />
-                                                      </span>
-                                                      <span>
-                                                          <img src="/assets/images/icon/button-arrow-fixed.svg" alt="" />
-                                                      </span>
-                                                      <span>
-                                                          <img src="/assets/images/icon/button-arrow-fixed.svg" alt="" />
-                                                      </span>
-                                                      <span>
-                                                          <img src="/assets/images/icon/button-arrow-fixed.svg" alt="" />
-                                                      </span>
-                                                  </div>
-                                              </div>
-                                              <span>
-                                                  Apply Now
-                                              </span>
-                                          </a>
-                                          <img src="/assets/images/team/grid.svg" alt="" className="shape" />
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div className="bottom-shape-area square-dot">
-                          <img src="/assets/images/about/shape-02.svg" alt="" />
-                          <span className="square-shape top-left"></span>
-                          <span className="square-shape bottom-left"></span>
-                          <span className="square-shape top-right"></span>
-                          <span className="square-shape bottom-right"></span>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-
-
           <section className="wpr-awards-area mb--16">
               <div className="container">
                   <div className="section-inner bg-white border-1">
                       <div className="section-title-area">
-                          <p className="sub-title">AWARDS</p>
-                          <h2 className="section-title second-font font-semi-bold text-normal wpr-text-anime-style-1">Design That
-                              Gets Noticed
-                          </h2>
+                          <p className="sub-title">WHAT YOU GET</p>
+                          <h2 className="section-title second-font font-semi-bold text-normal wpr-text-anime-style-1">Included In Every Build</h2>
                       </div>
                       <div className="award-accordion-area">
                           <div className="award-item active">
                               <div className="award-header">
                                   <div className="left">
-                                      <div className="date">March 2025</div>
+                                      <div className="date">Before we start</div>
                                       <div className="content">
-                                          <h3 className="h6 title">Awwwards – Site of the Day <br /> NovaPay</h3>
+                                          <h3 className="h6 title">Scope in writing</h3>
                                           <p className="desc">
-                                              Our redesign for NovaPay App was recognized for its seamless user flow, bold
-                                              visual
-                                              storytelling, and innovative motion design that set a new standard for fintech
-                                              experiences.
+                                              What is being built, what it connects to, and what is deliberately out of scope — agreed in writing, with a fixed price attached, before any work begins. If the scope changes we agree the change and its cost first.
                                           </p>
                                       </div>
                                   </div>
@@ -1078,12 +776,11 @@ export default function HomePage() {
                           <div className="award-item">
                               <div className="award-header">
                                   <div className="left">
-                                      <div className="date">January 2025</div>
+                                      <div className="date">While building</div>
                                       <div className="content">
-                                          <h3 className="h6 title">Behance - Featured in UX/UI Design <br />Muse Art Fair</h3>
+                                          <h3 className="h6 title">Progress you can see</h3>
                                           <p className="desc">
-                                              The Muse Art Fair 2024 campaign was featured for its clean typography, dynamic
-                                              layout, and cohesive brand system across digital and print platforms.
+                                              Written updates at agreed check-ins rather than silence punctuated by a demo, and working software you can try as it comes together. If something slips you hear about it when I know, not at the deadline.
                                           </p>
                                       </div>
                                   </div>
@@ -1096,13 +793,11 @@ export default function HomePage() {
                           <div className="award-item">
                               <div className="award-header">
                                   <div className="left">
-                                      <div className="date">October 2024</div>
+                                      <div className="date">At handover</div>
                                       <div className="content">
-                                          <h3 className="h6 title">CSS Design Awards - Best UI Design<br />Lunaris Coffee Co.</h3>
+                                          <h3 className="h6 title">Documentation that stands alone</h3>
                                           <p className="desc">
-                                              Our work for Lunaris Coffee Co. earned recognition for intuitive structure,
-                                              refined color palettes, and elevated product presentation that enhanced user
-                                              engagement.
+                                              How the system works, what it connects to, which credentials it uses, and what to do when something breaks — written down and walked through with whoever will own it day to day.
                                           </p>
                                       </div>
                                   </div>
@@ -1115,12 +810,11 @@ export default function HomePage() {
                           <div className="award-item">
                               <div className="award-header">
                                   <div className="left">
-                                      <div className="date">October 2024</div>
+                                      <div className="date">Afterwards</div>
                                       <div className="content">
-                                          <h3 className="h6 title">Webby Awards - Honoree<br />Axis Legal Group</h3>
+                                          <h3 className="h6 title">Support as a choice</h3>
                                           <p className="desc">
-                                              The Axis Legal Group website was awarded for its sophisticated simplicity,
-                                              balancing professional tone with a modern, responsive digital experience.
+                                              Thirty days of post-launch support on every build. Beyond that, ongoing maintenance is available if you want it — but the handover is meant to make it optional, not necessary.
                                           </p>
                                       </div>
                                   </div>
@@ -1144,159 +838,12 @@ export default function HomePage() {
 
 
 
-          <section className="wpr-testimonials-area mb--16">
-              <div className="container">
-                  <div className="section-inner border-1">
-                      <div className="swiper testimonials-image-slider">
-                          <div className="swiper-wrapper">
-                              <div className="swiper-slide">
-                                  <div className="image-area">
-                                      <img src="/assets/images/testimonials/01.webp" alt="" />
-                                  </div>
-                              </div>
-                              <div className="swiper-slide">
-                                  <div className="image-area">
-                                      <img src="/assets/images/testimonials/02.webp" alt="" />
-                                  </div>
-                              </div>
-                              <div className="swiper-slide">
-                                  <div className="image-area">
-                                      <img src="/assets/images/testimonials/03.webp" alt="" />
-                                  </div>
-                              </div>
-                              <div className="swiper-slide">
-                                  <div className="image-area">
-                                      <img src="/assets/images/testimonials/01.webp" alt="" />
-                                  </div>
-                              </div>
-                              <div className="swiper-slide">
-                                  <div className="image-area">
-                                      <img src="/assets/images/testimonials/02.webp" alt="" />
-                                  </div>
-                              </div>
-                              <div className="swiper-slide">
-                                  <div className="image-area">
-                                      <img src="/assets/images/testimonials/03.webp" alt="" />
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div className="swiper testimonials-content-slider">
-                          <div className="swiper-wrapper">
-                              <div className="swiper-slide">
-                                  <div className="testimonials-content">
-                                      <div className="top">
-                                          <h2 className="title h5">Beyond expectations</h2>
-                                          <p className="desc">“Working with this team completely transformed how we present our
-                                              product. Their attention to detail and understanding of user experience helped
-                                              us increase engagement beyond expectations.”</p>
-                                      </div>
-                                      <div className="author-area">
-                                          <h3 className="h6">Daniel Lewis</h3>
-                                          <p>Founder, Lunaris Coffee Co.</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div className="swiper-slide">
-                                  <div className="testimonials-content">
-                                      <div className="top">
-                                          <h2 className="title h5">Professional experience</h2>
-                                          <p className="desc">“They delivered a sophisticated, modern brand that aligns perfectly
-                                              with our values. Communication was seamless from start to finish — truly a
-                                              professional experience.”</p>
-                                      </div>
-                                      <div className="author-area">
-                                          <h3 className="h6">Michael Roberts</h3>
-                                          <p>CEO, Axis Legal Group</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div className="swiper-slide">
-                                  <div className="testimonials-content">
-                                      <div className="top">
-                                          <h2 className="title h5">Genuinely love</h2>
-                                          <p className="desc">“Their design process is smart, collaborative, and strategic. They
-                                              understood our vision quickly and turned it into a product our users genuinely
-                                              love.”</p>
-                                      </div>
-                                      <div className="author-area">
-                                          <h3 className="h6">Jason Ward</h3>
-                                          <p>Product Manager, Brightly Studio</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div className="swiper-slide">
-                                  <div className="testimonials-content">
-                                      <div className="top">
-                                          <h2 className="title h5">Beyond expectations</h2>
-                                          <p className="desc">“Working with this team completely transformed how we present our
-                                              product. Their attention to detail and understanding of user experience helped
-                                              us increase engagement beyond expectations.”</p>
-                                      </div>
-                                      <div className="author-area">
-                                          <h3 className="h6">Daniel Lewis</h3>
-                                          <p>Founder, Lunaris Coffee Co.</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div className="swiper-slide">
-                                  <div className="testimonials-content">
-                                      <div className="top">
-                                          <h2 className="title h5">Professional experience</h2>
-                                          <p className="desc">“They delivered a sophisticated, modern brand that aligns perfectly
-                                              with our values. Communication was seamless from start to finish — truly a
-                                              professional experience.”</p>
-                                      </div>
-                                      <div className="author-area">
-                                          <h3 className="h6">Michael Roberts</h3>
-                                          <p>CEO, Axis Legal Group</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div className="swiper-slide">
-                                  <div className="testimonials-content">
-                                      <div className="top">
-                                          <h2 className="title h5">Genuinely love</h2>
-                                          <p className="desc">“Their design process is smart, collaborative, and strategic. They
-                                              understood our vision quickly and turned it into a product our users genuinely
-                                              love.”</p>
-                                      </div>
-                                      <div className="author-area">
-                                          <h3 className="h6">Jason Ward</h3>
-                                          <p>Product Manager, Brightly Studio</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div className="swiper-navigation">
-                          <div className="swiper-btn swiper-btn-prev">
-                              <svg width="17" height="30" viewBox="0 0 17 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M14.6094 0L0.859375 13.75L0 14.6484L0.859375 15.5469L14.6094 29.2969L16.4062 27.5L3.55469 14.6484L16.4062 1.79688L14.6094 0Z" fill="#F9FAFB" />
-                              </svg>
-                          </div>
-                          <div className="swiper-btn swiper-btn-next">
-                              <svg width="17" height="30" viewBox="0 0 17 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M1.79688 0L0 1.79688L12.8516 14.6484L0 27.5L1.79688 29.2969L15.5469 15.5469L16.4062 14.6484L15.5469 13.75L1.79688 0Z" fill="#F9FAFB" />
-                              </svg>
-                          </div>
-                      </div>
-                      <div className="top-left-shape">
-                          <img src="/assets/images/testimonials/top-left-shape.svg" alt="" />
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-
-
           <section className="wpr-why-choose-us-area2 mb--16">
               <div className="container">
                   <div className="section-inner border-1">
                       <div className="section-title-area">
-                          <p className="sub-title">WHY CHOOSE US</p>
-                          <h2 className="section-title second-font font-semi-bold text-normal">Help Brands <br /> Grow With Clarity
-                          </h2>
+                          <p className="sub-title">HOW I WORK</p>
+                          <h2 className="section-title second-font font-semi-bold text-normal">Built Around <br /> Your Actual Process</h2>
                       </div>
                       <div className="bottom-content-area">
                           <div className="why-choose-wrapper2 square-dot wow fadeInRight" data-wow-delay=".2s">
@@ -1304,9 +851,8 @@ export default function HomePage() {
                                   <img src="/assets/images/why-choose/icon/01.svg" alt="" />
                               </div>
                               <div className="text">
-                                  <h3 className="h6 title second-font font-semi-bold text-normal">Strategy-Driven Design</h3>
-                                  <p className="desc">We combine research, storytelling, and design thinking to build solutions
-                                      that align with your goals — not just trends.</p>
+                                  <h3 className="h6 title second-font font-semi-bold text-normal">Problem first, not tech first</h3>
+                                  <p className="desc">I start from where your process actually breaks on a busy week, not from a technology looking for a use. Sometimes the right answer is smaller than you expected.</p>
                               </div>
                               <span className="square-shape top-left"></span>
                               <span className="square-shape top-right"></span>
@@ -1316,9 +862,8 @@ export default function HomePage() {
                                   <img src="/assets/images/why-choose/icon/02.svg" alt="" />
                               </div>
                               <div className="text">
-                                  <h2 className="h6 title second-font font-semi-bold text-normal">Crafted for Impact</h2>
-                                  <p className="desc">From user experience to brand consistency, every detail is designed to make
-                                      a measurable difference.</p>
+                                  <h2 className="h6 title second-font font-semi-bold text-normal">Scoped, priced, then built</h2>
+                                  <p className="desc">You get a fixed price against a written scope before work starts. No open-ended hourly drift, and no surprise invoice at the end of it.</p>
                               </div>
                               <span className="square-shape top-right"></span>
                           </div>
@@ -1327,9 +872,8 @@ export default function HomePage() {
                                   <img src="/assets/images/why-choose/icon/03.svg" alt="" />
                               </div>
                               <div className="text">
-                                  <h2 className="h6 title second-font font-semi-bold text-normal">Collaborative Process</h2>
-                                  <p className="desc">We work closely with clients at every step, ensuring transparency, feedback,
-                                      and shared success.</p>
+                                  <h2 className="h6 title second-font font-semi-bold text-normal">Tested against real scenarios</h2>
+                                  <p className="desc">Automations are tested on the awkward cases, not just the happy path — duplicate records, failed steps, and the enquiry that arrives at 2am.</p>
                               </div>
                               <span className="square-shape top-right"></span>
                           </div>
@@ -1338,9 +882,8 @@ export default function HomePage() {
                                   <img src="/assets/images/why-choose/icon/04.svg" alt="" />
                               </div>
                               <div className="text">
-                                  <h2 className="h6 title second-font font-semi-bold text-normal">Consistent Excellence</h2>
-                                  <p className="desc">Our team delivers premium quality across every touchpoint - from identity to
-                                      product design.</p>
+                                  <h2 className="h6 title second-font font-semi-bold text-normal">Yours to run afterwards</h2>
+                                  <p className="desc">Credentials stay in your accounts and are revocable at any time. The documentation is written so your team can keep it running without me.</p>
                               </div>
                               <span className="square-shape top-right"></span>
                           </div>
@@ -1364,9 +907,8 @@ export default function HomePage() {
                   <div className="section-inner bg-white border-1">
                       <div className="section-top-area">
                           <div className="section-title-area center-style">
-                              <p className="sub-title">PRICING PLANS</p>
-                              <h2 className="section-title second-font font-semi-bold text-normal">Plans That <br /> Fit You Project
-                              </h2>
+                              <p className="sub-title">GIGS</p>
+                              <h2 className="section-title second-font font-semi-bold text-normal">Fixed-Scope Gigs <br /> With A Price Up Front</h2>
                           </div>
                       </div>
                       <div className="section-mid-area">
@@ -1374,16 +916,15 @@ export default function HomePage() {
                               <div className="pricing-wrapper">
                                   <div className="pricing-header">
                                       <div className="plan-type">
-                                          <h3 className="h6">Starter Plan</h3>
-                                          <p>Available from Dec</p>
+                                          <h3 className="h6">Automation Gig</h3>
+                                          <p>Booking now</p>
                                       </div>
-                                      <h4 className="title h5">Small businesses, startups <br /> <span>or single-brand
-                                              projects.</span>
+                                      <h4 className="title h5">Lead capture, CRM sync <br /> <span>and routine follow-up.</span>
                                       </h4>
                                       <div className="bottom-pricing">
-                                          <h4 className="price">$2,500 <span>/ project</span></h4>
+                                          <h4 className="price">$900 <span>/ from</span></h4>
                                           <div className="button-area">
-                                              <a href="/contact" className="wpr-btn btn-primary">Get Started</a>
+                                              <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
                                           </div>
                                       </div>
                                       <div className="shape-one">
@@ -1397,35 +938,35 @@ export default function HomePage() {
                                       <ul>
                                           <li>
                                               <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Full service creative
+                                              One intake path for every lead source
                                           </li>
                                           <li>
                                               <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Intergration sync
+                                              CRM sync with de-duplication
                                           </li>
                                           <li>
                                               <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Monthly consulting call
+                                              Automated follow-up tasks
                                           </li>
                                           <li>
                                               <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Updates every 2 days
+                                              n8n / Make / Zapier build
                                           </li>
                                           <li>
                                               <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Simple subscription
+                                              Error alerts, not silent failures
                                           </li>
                                           <li>
                                               <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              3 times update
+                                              Written documentation
                                           </li>
                                           <li>
                                               <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Scales with your needs
+                                              Handover session
                                           </li>
                                           <li>
                                               <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Cancel anytime
+                                              14 days post-launch support
                                           </li>
                                       </ul>
                                   </div>
@@ -1438,15 +979,15 @@ export default function HomePage() {
                               <div className="pricing-wrapper dark">
                                   <div className="pricing-header">
                                       <div className="plan-type">
-                                          <h3 className="h6">Growth Plan</h3>
-                                          <p>Available Now</p>
+                                          <h3 className="h6">AI Agent Gig</h3>
+                                          <p>Booking now</p>
                                       </div>
-                                      <h4 className="title h5">Established brands <br /> <span>seeking full-scale design
-                                              support.</span> </h4>
+                                      <h4 className="title h5">A voice or chat assistant <br /> <span>that answers and books.</span>
+                                      </h4>
                                       <div className="bottom-pricing">
-                                          <h4 className="price">$5,500 <span>/ project</span></h4>
+                                          <h4 className="price">$1,800 <span>/ from</span></h4>
                                           <div className="button-area">
-                                              <a href="/contact" className="wpr-btn btn-primary">Get Started</a>
+                                              <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
                                           </div>
                                       </div>
                                       <div className="shape-one">
@@ -1459,36 +1000,36 @@ export default function HomePage() {
                                   <div className="pricing-body">
                                       <ul>
                                           <li>
-                                              <img src="/assets/images/why-choose/check-03.svg" alt="" />
-                                              Full managed project
+                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                              Agent trained on your own answers
                                           </li>
                                           <li>
-                                              <img src="/assets/images/why-choose/check-03.svg" alt="" />
-                                              Access our entire team
+                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                              Lead qualification questions
                                           </li>
                                           <li>
-                                              <img src="/assets/images/why-choose/check-03.svg" alt="" />
-                                              Simple subscription
+                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                              Calendar booking integration
                                           </li>
                                           <li>
-                                              <img src="/assets/images/why-choose/check-03.svg" alt="" />
-                                              Updates every 2 days
+                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                              Defined human handoff
                                           </li>
                                           <li>
-                                              <img src="/assets/images/why-choose/check-03.svg" alt="" />
-                                              Weekly consulting call
+                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                              Call and chat transcripts logged
                                           </li>
                                           <li>
-                                              <img src="/assets/images/why-choose/check-03.svg" alt="" />
-                                              Creative strategy
+                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                              Scenario testing before launch
                                           </li>
                                           <li>
-                                              <img src="/assets/images/why-choose/check-03.svg" alt="" />
-                                              Scales with your needs
+                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                              Written documentation
                                           </li>
                                           <li>
-                                              <img src="/assets/images/why-choose/check-03.svg" alt="" />
-                                              Cancel anytime
+                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                              30 days post-launch support
                                           </li>
                                       </ul>
                                   </div>
@@ -1515,22 +1056,20 @@ export default function HomePage() {
                       <div className="section-content-area">
                           <div className="section-title-area center-style">
                               <p className="sub-title">FAQS</p>
-                              <h2 className="section-title second-font font-semi-bold text-normal">FAQs </h2>
+                              <h2 className="section-title second-font font-semi-bold text-normal">Questions <br /> Before We Start</h2>
                           </div>
                           <div className="accordion-one" id="accordionExample2">
 
                               <div className="accordion-item">
                                   <h2 className="accordion-header" id="headingSix">
                                       <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                          What if I only need one specific service?
+                                          Can I book a single gig instead of a full project?
                                       </button>
                                   </h2>
                                   <div id="collapseSix" className="accordion-collapse collapse" role="region" aria-labelledby="headingSix" data-bs-parent="#accordionExample2">
                                       <div className="accordion-body">
                                           <p className="desc">
-                                              Absolutely — you don’t need to book a full package. Whether it’s a brand
-                                              refresh, a website redesign, or UI/UX for a single product, we tailor our
-                                              approach to match your exact needs and budget.
+                                              Yes. The gigs are fixed-scope on purpose — one automation, one agent, one site — so you can start with the piece that hurts most. If what you need sits outside a listed gig, describe it and I will scope it properly instead of forcing it into a package.
                                           </p>
                                       </div>
                                   </div>
@@ -1539,15 +1078,13 @@ export default function HomePage() {
                               <div className="accordion-item">
                                   <h2 className="accordion-header" id="headingSeven">
                                       <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                          How long does a typical project take?
+                                          How long does a project take?
                                       </button>
                                   </h2>
                                   <div id="collapseSeven" className="accordion-collapse collapse" role="region" aria-labelledby="headingSeven" data-bs-parent="#accordionExample2">
                                       <div className="accordion-body">
                                           <p className="desc">
-                                              Project timelines depend on the scope — most branding projects take 3–4 weeks,
-                                              while full website or product design projects typically range from 6–8 weeks.
-                                              We’ll confirm an exact timeline during the discovery phase.
+                                              It depends on scope, and on how quickly access and feedback come back — those two usually matter more than the build itself. You get an estimated timeline with the written scope, and I would rather give you a realistic date than a flattering one.
                                           </p>
                                       </div>
                                   </div>
@@ -1562,9 +1099,7 @@ export default function HomePage() {
                                   <div id="collapseEight" className="accordion-collapse collapse show" role="region" aria-labelledby="headingEight" data-bs-parent="#accordionExample2">
                                       <div className="accordion-body">
                                           <p className="desc">
-                                              Yes. We collaborate with clients around the world through remote workshops,
-                                              video calls, and real-time communication tools — ensuring a smooth process
-                                              regardless of location.
+                                              Yes — remote by default. I am based in Pakistan and work with businesses worldwide. Calls are scheduled to suit your hours and the rest runs asynchronously, so neither of us is waiting on the other to be awake.
                                           </p>
                                       </div>
                                   </div>
@@ -1573,15 +1108,13 @@ export default function HomePage() {
                               <div className="accordion-item">
                                   <h2 className="accordion-header" id="headingNine">
                                       <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                                          Can you handle both design and development?
+                                          Can you work with the tools we already use?
                                       </button>
                                   </h2>
                                   <div id="collapseNine" className="accordion-collapse collapse" role="region" aria-labelledby="headingNine" data-bs-parent="#accordionExample2">
                                       <div className="accordion-body">
                                           <p className="desc">
-                                              Yes. While our core focus is design, we partner with trusted developers to bring
-                                              your project to life with high-quality, responsive code — ensuring seamless
-                                              design-to-development handoff.
+                                              Usually, yes. Most business tools expose an API, a webhook or an export, and that is normally enough. The first thing I check is what your tools actually allow, because that shapes what is sensible to build — and if something genuinely cannot be connected, you hear that before work starts.
                                           </p>
                                       </div>
                                   </div>
@@ -1590,15 +1123,13 @@ export default function HomePage() {
                               <div className="accordion-item">
                                   <h2 className="accordion-header" id="headingTen">
                                       <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
-                                          How do we start a project with your team?
+                                          How do you handle access and sensitive information?
                                       </button>
                                   </h2>
                                   <div id="collapseTen" className="accordion-collapse collapse" role="region" aria-labelledby="headingTen" data-bs-parent="#accordionExample2">
                                       <div className="accordion-body">
                                           <p className="desc">
-                                              Simply reach out through our contact form or email. We’ll schedule a short
-                                              discovery call to learn about your goals, then provide a proposal tailored to
-                                              your needs.
+                                              I ask for the narrowest access that does the job, and only when it is needed. Credentials stay in your accounts, granted to me rather than copied, and are yours to revoke at any point including the day the project ends. Nothing sensitive goes into frontend code or a repository.
                                           </p>
                                       </div>
                                   </div>
@@ -1662,20 +1193,21 @@ export default function HomePage() {
                           <div className="get-in-touch">
                               <p className="sub-title">CONTACT</p>
                               <ul>
-                                  <li><a href="#">hello@agenio.com</a></li>
-                                  <li><a href="#">(+1) 123 456-7890</a></li>
+                                  {/* TODO(content): add a real, monitored address and it shows here.
+                                      Until then the form is the only route — nothing invented. */}
+                                  <li><a href="/contact">Send an enquiry</a></li>
                               </ul>
                           </div>
                           <div className="location-area">
-                              <p className="sub-title">OFFFICES</p>
+                              <p className="sub-title">WHERE I WORK</p>
                               <ul>
                                   <li>
-                                      <h2 className="h4">Montréal</h2>
-                                      <p>4200 Saint Laurent Blvd, Suite 305 <br /> Montreal, QC H2W 2R2 <br /> Canada</p>
+                                      <h2 className="h4">Remote</h2>
+                                      <p>Based in Pakistan, working with <br /> businesses worldwide — calls <br /> scheduled to suit your hours.</p>
                                   </li>
                                   <li>
-                                      <h2 className="h4">Texas</h2>
-                                      <p>1920 McKinney Avenue, 7th Floor <br /> Dallas, TX 75201 <br /> United States</p>
+                                      <h2 className="h4">Response</h2>
+                                      <p>I read every enquiry myself <br /> and reply to the address <br /> you give, usually within a business day.</p>
                                   </li>
                               </ul>
                           </div>

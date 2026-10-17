@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Work Details",
+  title: "Work Detail",
 };
 
 export default function WorkDetailsPage() {
@@ -11,11 +11,9 @@ export default function WorkDetailsPage() {
               <div className="container">
                   <div className="banner-content-area">
                       <h1 className="section-title text-normal wow scaleIn" data-wow-delay=".7s">
-                          Inside The Project <br /> Creative Breakdown
+                          Inside The Build
                       </h1>
-                      <p className="desc">We streamlined user flows, refreshed the visual
-                          language, and introduced <br /> accessibility-focused design components
-                          to improve usability.</p>
+                      <p className="desc">The problem, the constraints, how it was put together, <br /> and what it does once it is running.</p>
                       <div className="bg-shape">
                           <img src="/assets/images/banner/shape/bg-shape.svg" alt="" />
                       </div>
@@ -298,7 +296,7 @@ export default function WorkDetailsPage() {
                                   <a href="/work-details">
                                       View Projects
                                       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M18 0V13.4751H16.5083V2.53591L1.0442 18L0 16.9061L15.4144 1.49171H4.47514V0H18Z" fill="#98FF03" />
+                                          <path d="M18 0V13.4751H16.5083V2.53591L1.0442 18L0 16.9061L15.4144 1.49171H4.47514V0H18Z" fill="#C3E635" />
                                       </svg>
                                   </a>
                               </div>
@@ -346,20 +344,21 @@ export default function WorkDetailsPage() {
                           <div className="get-in-touch">
                               <p className="sub-title">CONTACT</p>
                               <ul>
-                                  <li><a href="#">hello@agenio.com</a></li>
-                                  <li><a href="#">(+1) 123 456-7890</a></li>
+                                  {/* TODO(content): add a real, monitored address and it shows here.
+                                      Until then the form is the only route — nothing invented. */}
+                                  <li><a href="/contact">Send an enquiry</a></li>
                               </ul>
                           </div>
                           <div className="location-area">
-                              <p className="sub-title">OFFFICES</p>
+                              <p className="sub-title">WHERE I WORK</p>
                               <ul>
                                   <li>
-                                      <h2 className="h4">Montréal</h2>
-                                      <p>4200 Saint Laurent Blvd, Suite 305 <br /> Montreal, QC H2W 2R2 <br /> Canada</p>
+                                      <h2 className="h4">Remote</h2>
+                                      <p>Based in Pakistan, working with <br /> businesses worldwide — calls <br /> scheduled to suit your hours.</p>
                                   </li>
                                   <li>
-                                      <h2 className="h4">Texas</h2>
-                                      <p>1920 McKinney Avenue, 7th Floor <br /> Dallas, TX 75201 <br /> United States</p>
+                                      <h2 className="h4">Response</h2>
+                                      <p>I read every enquiry myself <br /> and reply to the address <br /> you give, usually within a business day.</p>
                                   </li>
                               </ul>
                           </div>

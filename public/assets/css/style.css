@@ -46,7 +46,7 @@
 /* Default  */
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
-  --color-primary: #98FF03;
+  --color-primary: #C3E635;
   --color-secondary: #1F1F25;
   --color-black: #000000;
   --color-bg-1: #F3F4F6;
@@ -12869,7 +12869,7 @@ section .section-inner.border-1 {
   transform: translate(-50%, -50%);
 }
 .wpr-btn.with-icon .icon {
-  background: linear-gradient(178.82deg, #B2FF43 1.01%, #98FF03 105.12%);
+  background: linear-gradient(178.82deg, #B2FF43 1.01%, #C3E635 105.12%);
   box-shadow: 4px 8px 2px rgba(0, 0, 0, 0.08), inset 0px -2px 0.5px #75C500, inset 0px 1px 0px #FFFFFF;
   border-radius: 8px;
   width: 52px;
@@ -17153,7 +17153,7 @@ section .section-inner.border-1 {
   height: 100%;
   width: 0;
   border-radius: 999px;
-  background: #98FF03;
+  background: #C3E635;
   position: relative;
   transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -17166,9 +17166,9 @@ section .section-inner.border-1 {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #98FF03;
+  background: #C3E635;
   border: 2px solid var(--color-white);
-  box-shadow: 0 0 0 1.5px #98FF03;
+  box-shadow: 0 0 0 1.5px #C3E635;
 }
 .wpr-delay-stats-area .section-inner .pct {
   font-family: var(--font-secondary);

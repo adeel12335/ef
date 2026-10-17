@@ -10,9 +10,9 @@ export default function Footer() {
                               <li className="square-dot"></li>
                               <li><a href="/service">Services</a></li>
                               <li className="square-dot"></li>
-                              <li><a href="/work">Projects</a></li>
+                              <li><a href="/work">Work</a></li>
                               <li className="square-dot"></li>
-                              <li><a href="#">Pricing Plan</a></li>
+                              <li><a href="/#pricing">Gigs</a></li>
                           </ul>
                       </div>
                       <div className="footer-logo-area square-dot">
@@ -27,14 +27,14 @@ export default function Footer() {
                       <div className="copyright-area">
                           <div className="left-social-area">
                               <ul>
-                                  <li><a href="#">Instagram</a></li>
-                                  <li><a href="#">Linkedin</a></li>
-                                  <li><a href="#">Dribbble</a></li>
-                                  <li><a href="#">Behance</a></li>
+                                  {/* TODO(content): add verified profiles here (LinkedIn, GitHub,
+                                      Upwork …). The template's placeholder links pointed at "#",
+                                      so they are left out rather than faked. */}
+                                  <li><a href="/contact">Start a project</a></li>
                               </ul>
                           </div>
                           <p className="copyright">
-                              © {new Date().getFullYear()} Agenio. All Rights Reserved
+                              © {new Date().getFullYear()} Emerging Freelancer. All rights reserved
                           </p>
                           <button className="scroll-top-btn">
                               Back to Top

@@ -14,7 +14,7 @@ export default function Header() {
             <img src="/assets/images/icon/green-left.svg" alt="" />
           </div>
           <p className="text">
-            WE ARE AVAILABLE FOR <span>DECEMBER PROJECTS</span>
+            AVAILABLE FOR NEW PROJECTS — <span>AI, AUTOMATION &amp; WEB</span>
           </p>
           <div className="right-icon">
             <img src="/assets/images/icon/green-right.svg" alt="" />

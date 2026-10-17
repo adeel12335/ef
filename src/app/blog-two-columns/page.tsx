@@ -193,20 +193,21 @@ export default function BlogTwoColumnsPage() {
                           <div className="get-in-touch">
                               <p className="sub-title">CONTACT</p>
                               <ul>
-                                  <li><a href="#">hello@agenio.com</a></li>
-                                  <li><a href="#">(+1) 123 456-7890</a></li>
+                                  {/* TODO(content): add a real, monitored address and it shows here.
+                                      Until then the form is the only route — nothing invented. */}
+                                  <li><a href="/contact">Send an enquiry</a></li>
                               </ul>
                           </div>
                           <div className="location-area">
-                              <p className="sub-title">OFFFICES</p>
+                              <p className="sub-title">WHERE I WORK</p>
                               <ul>
                                   <li>
-                                      <h2 className="h4">Montréal</h2>
-                                      <p>4200 Saint Laurent Blvd, Suite 305 <br /> Montreal, QC H2W 2R2 <br /> Canada</p>
+                                      <h2 className="h4">Remote</h2>
+                                      <p>Based in Pakistan, working with <br /> businesses worldwide — calls <br /> scheduled to suit your hours.</p>
                                   </li>
                                   <li>
-                                      <h2 className="h4">Texas</h2>
-                                      <p>1920 McKinney Avenue, 7th Floor <br /> Dallas, TX 75201 <br /> United States</p>
+                                      <h2 className="h4">Response</h2>
+                                      <p>I read every enquiry myself <br /> and reply to the address <br /> you give, usually within a business day.</p>
                                   </li>
                               </ul>
                           </div>

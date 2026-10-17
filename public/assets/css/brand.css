@@ -1,0 +1,279 @@
+/* =========================================================================
+   Emerging Freelancer — brand layer over the Agenio template.
+
+   Loaded AFTER style.css so it overrides by cascade. The template's own
+   stylesheet is left untouched, which keeps this reversible: remove this one
+   file from the <link> list in layout.tsx and the template looks stock again.
+
+   Brand (per the supplied guide):
+     charcoal #252623  ivory #F5F4EF  lime #C3E635  muted #666A61  line #DADDD3
+   Balance aimed at roughly 70% ivory / 25% charcoal / 5% lime.
+   ========================================================================= */
+
+:root {
+  /* --- core palette remap --- */
+  --color-primary: #c3e635;       /* was #98FF03 — brand lime */
+  --color-secondary: #252623;     /* was #1F1F25 — charcoal */
+  --color-black: #252623;
+  --color-bg-1: #f5f4ef;          /* was #F3F4F6 — ivory */
+  --color-bg-5: #f5f4ef;
+  --color-bg-dark: #252623;
+  --color-bg-dark-2: #1c1d1a;
+
+  --color-border: #daddd3;
+  --color-border-dark: #3b3c37;
+
+  --color-heading-1: #252623;
+  --color-title: #252623;
+  --color-title-nav: #252623;
+  --color-body-1: #666a61;        /* muted — 5.06:1 on ivory, passes AA */
+  --color-body-dark: #9ba096;     /* lighter muted for charcoal surfaces */
+  --color-service-heading: #252623;
+  --counter-title: #666a61;
+
+  /* Brand guide: Manrope is the supporting website face. The logo lettering
+     is supplied as outlines and is never set in a font.
+     --font-manrope comes from next/font in layout.tsx (self-hosted). */
+  --font-primary: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-secondary: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --footer-bg: #f5f4ef;
+
+  /* Tints the template derives from the old accent. */
+  --ef-lime-soft: rgba(195, 230, 53, 0.18);
+  --ef-lime-deep: #b4d92b;
+}
+
+body {
+  background-color: var(--color-bg-1);
+  color: var(--color-body-1);
+}
+
+/* -------------------------------------------------------------------------
+   Logo sizing
+
+   The supplied lockup is 1475×170 (aspect 8.68) where the template's own mark
+   was 118×31. Without an explicit height it would render enormous. The brand
+   guide sets a 240px minimum width for the horizontal lockup, so the header
+   height here (30px → ~260px wide) stays above it.
+   ------------------------------------------------------------------------- */
+
+.logo-area .logo img,
+.header-main .logo img,
+.wpr-offcanvas-menu .logo img {
+  height: 30px;
+  width: auto;
+  max-width: none;
+}
+
+.wpr-cta-area .section-inner .logo img {
+  width: auto;
+  height: 34px;
+}
+
+/* Between the desktop-nav breakpoint and ~1400px the wider lockup, a seven-item
+   nav and the header CTA no longer fit on one row, so the nav tightens up.
+   (The template's own mark was 118px wide and never hit this.) */
+@media (min-width: 992px) and (max-width: 1399px) {
+  .main-nav-area ul {
+    gap: 22px;
+  }
+
+  .main-nav-area ul li a {
+    font-size: 13px;
+  }
+
+  .logo-area .logo img,
+  .header-main .logo img {
+    height: 28px; /* 243px wide — still above the 240px minimum */
+  }
+}
+
+/* On phones the 240px-minimum lockup plus the header CTA overflows a 360–390px
+   screen. The brand guide allows the symbol on compact surfaces (24px minimum),
+   so the header swaps to the mark rather than shrinking the lockup below its
+   stated minimum or stretching it out of proportion. */
+@media (max-width: 767px) {
+  .logo-area .logo img,
+  .header-main .logo img {
+    content: url("/brand/symbol.svg");
+    height: 36px;
+    width: 36px;
+  }
+}
+
+.wpr-footer-area .footer-logo-area img {
+  width: min(620px, 72vw);
+  height: auto;
+  margin-inline: auto;
+}
+
+.wpr-footer-area .footer-logo-area {
+  padding: 96px 0;
+}
+
+/* The template's decorative corner shapes were drawn for its own wordmark. */
+.wpr-footer-area .footer-logo-area .shape {
+  opacity: 0.5;
+}
+
+/* -------------------------------------------------------------------------
+   Lime discipline
+
+   Lime on ivory is ~1.2:1 — illegible. It is a FILL colour, never light-background
+   body text. Charcoal on lime is 10.9:1 and is the button pairing.
+   ------------------------------------------------------------------------- */
+
+/* The template's default .wpr-btn is a DARK gradient — its text stays ivory.
+   Only buttons that actually sit on a light or lime fill get charcoal text. */
+.wpr-btn {
+  color: #f5f4ef;
+}
+
+.wpr-btn.btn-white,
+.wpr-btn.btn-white:hover,
+.wpr-btn.btn-primary,
+.wpr-btn.btn-primary:hover {
+  color: #252623;
+}
+
+/* Lime fill, charcoal label — 10.9:1. */
+.wpr-btn.btn-primary {
+  background: var(--color-primary);
+  box-shadow:
+    0 3px 3px rgba(37, 38, 35, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -5px 0 var(--ef-lime-deep);
+}
+
+.wpr-btn.btn-primary:hover {
+  background: var(--ef-lime-deep);
+}
+
+/* Lime text is only safe on charcoal (10.9:1). */
+.bg-dark .sub-title,
+.wpr-cta-area .sub-title,
+[class*="dark"] .sub-title {
+  color: var(--color-primary);
+}
+
+/* The template already draws its own marker on .sub-title via ::after and
+   reserves room for it with padding-left — so this only recolours the text and
+   the background tint. Adding a second marker here duplicated it. */
+.section-title-area .sub-title {
+  color: var(--color-body-1);
+  background: var(--color-bg-1);
+  letter-spacing: 0.08em;
+}
+
+.wpr-cta-area .sub-title,
+.bg-dark .sub-title {
+  color: #9ba096;
+  background: transparent;
+}
+
+/* -------------------------------------------------------------------------
+   Surfaces
+   ------------------------------------------------------------------------- */
+
+.wpr-footer-area {
+  background: var(--color-bg-1);
+}
+
+.section-inner.border-1,
+.border-1 {
+  border-color: var(--color-border);
+}
+
+.wpr-cta-area .section-inner {
+  background-color: var(--color-secondary);
+}
+
+/* Dark panels: keep muted copy legible against charcoal. */
+.wpr-cta-area .section-inner p,
+.wpr-cta-area .section-inner .desc {
+  color: #9ba096;
+}
+
+/* -------------------------------------------------------------------------
+   Pricing → "gigs"
+
+   The template's pricing cards carry the packaged-service list. Lime is used
+   only on the featured card's badge and its button, not across all three.
+   ------------------------------------------------------------------------- */
+
+/* The template gives both gig CTAs a dark gradient from a 5-class selector, so
+   these need the same specificity to win. Lime fill, charcoal label — it is the
+   primary action on the page and the brand's one accent. */
+.pricing-wrapper .pricing-header .bottom-pricing .button-area .wpr-btn,
+.pricing-wrapper.dark .pricing-header .bottom-pricing .button-area .wpr-btn {
+  background: var(--color-primary);
+  color: #252623;
+  box-shadow:
+    0 3px 3px rgba(37, 38, 35, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -4px 0 var(--ef-lime-deep);
+}
+
+.pricing-wrapper .pricing-header .bottom-pricing .button-area .wpr-btn:hover,
+.pricing-wrapper.dark .pricing-header .bottom-pricing .button-area .wpr-btn:hover {
+  background: var(--ef-lime-deep);
+}
+
+/* -------------------------------------------------------------------------
+   Focus visibility — the template ships almost none.
+   ------------------------------------------------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.wpr-cta-area a:focus-visible,
+.wpr-cta-area button:focus-visible {
+  outline-color: var(--color-bg-1);
+}
+
+/* -------------------------------------------------------------------------
+   Preloader — template default is near-black with white lettering.
+   ------------------------------------------------------------------------- */
+
+.preloader {
+  background-color: var(--color-secondary);
+}
+
+.preloader .site-name span {
+  color: var(--color-bg-1);
+}
+
+.preloader .inner-bar {
+  background-color: var(--color-primary);
+}
+
+/* -------------------------------------------------------------------------
+   Motion: the template animates regardless of the OS setting.
+   ------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .wpr-marquee-area .marquee-inner,
+  .marquee-wrapper,
+  [class*="marquee"] * {
+    animation: none !important;
+    transform: none !important;
+  }
+}
