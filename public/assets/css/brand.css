@@ -344,19 +344,100 @@ body {
   border-right: 0;
 }
 
-/* Four gigs: halves, two rows. */
+/* Four gigs: one row, a quarter each. The 2x2 block was twice as tall for the
+   same information. */
 .section-mid-area > .pricing-inner:first-child:nth-last-child(4),
 .section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner {
-  width: 50%;
+  width: 25%;
+  padding: 36px 24px;
+  border-bottom: 0;
 }
 
-.section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner:nth-child(2n),
-.section-mid-area > .pricing-inner:first-child:nth-last-child(4):nth-child(2n) {
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner:last-child {
   border-right: 0;
 }
 
-.section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner:nth-last-child(-n + 2) {
-  border-bottom: 0;
+/* At a quarter width the feature list has to go single file. The template sets
+   the li to width:48% (its two-column trick) and line-height:1, both of which
+   shred the text in a narrow card. */
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) .pricing-body ul,
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner .pricing-body ul {
+  gap: 13px;
+  align-items: stretch;
+}
+
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) .pricing-body ul li,
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner .pricing-body ul li {
+  width: 100%;
+  line-height: 1.45;
+  align-items: flex-start;
+  font-size: 0.9375rem;
+}
+
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) .pricing-body ul li img,
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner .pricing-body ul li img {
+  flex: none;
+  margin-top: 2px;
+}
+
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) .pricing-header .title,
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner .pricing-header .title {
+  font-size: 21px;
+  margin-bottom: 26px;
+}
+
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) .bottom-pricing .price,
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner .bottom-pricing .price {
+  font-size: 38px;
+}
+
+/* Three packages: the feature list also goes single file. The template's
+   li width:48% and line-height:1 were written for a half-width card. */
+.section-mid-area > .pricing-inner:first-child:nth-last-child(3) .pricing-body ul li,
+.section-mid-area > .pricing-inner:first-child:nth-last-child(3) ~ .pricing-inner .pricing-body ul li {
+  width: 100%;
+  line-height: 1.45;
+  align-items: flex-start;
+}
+
+.section-mid-area > .pricing-inner:first-child:nth-last-child(3) .pricing-body ul li img,
+.section-mid-area > .pricing-inner:first-child:nth-last-child(3) ~ .pricing-inner .pricing-body ul li img {
+  flex: none;
+  margin-top: 2px;
+}
+
+/* Equal-height cards. The template lets each wrapper size to its own content,
+   which leaves four ragged bottom edges in a row. */
+.wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner {
+  display: flex;
+}
+
+.wpr-pricing-plans-area .section-mid-area .pricing-inner > .pricing-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.wpr-pricing-plans-area .section-mid-area .pricing-inner > .pricing-wrapper > .pricing-body {
+  flex: 1 1 auto;
+}
+
+/* Two across once a quarter gets too narrow to read. */
+@media (max-width: 1280px) {
+  .section-mid-area > .pricing-inner:first-child:nth-last-child(4),
+  .section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner {
+    width: 50%;
+  }
+
+  .section-mid-area > .pricing-inner:first-child:nth-last-child(4):nth-child(2n),
+  .section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner:nth-child(-n + 2),
+  .section-mid-area > .pricing-inner:first-child:nth-last-child(4):nth-child(-n + 2) {
+    border-bottom: 1px solid var(--color-border);
+  }
 }
 
 @media (max-width: 1199px) {
@@ -392,8 +473,18 @@ body {
 
 .pricing-wrapper .pricing-header .bottom-pricing .price {
   font-size: 44px;
-  line-height: 1;
+  line-height: 1.05;
   white-space: nowrap;
+}
+
+/* "Starting from" sits above the figure rather than trailing it. */
+.pricing-wrapper .pricing-header .bottom-pricing .price span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .pricing-wrapper .pricing-header .bottom-pricing .button-area .wpr-btn {
@@ -410,17 +501,11 @@ body {
 }
 
 /* The delivery chip sits next to the tier name and was being clipped. */
-/* The decorative corner shapes were painting over the delivery chip. */
 .pricing-wrapper .pricing-header .plan-type {
   flex-wrap: wrap;
   gap: 8px 12px;
   position: relative;
-  z-index: 2;
-}
-
-.pricing-wrapper .pricing-header .shape-one,
-.pricing-wrapper .pricing-header .shape-two {
-  z-index: 0;
+  z-index: 1;
 }
 
 .pricing-wrapper .pricing-header .plan-type p {

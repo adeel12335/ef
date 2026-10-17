@@ -26,7 +26,7 @@ export default function GigCard({ gig, dark = false }: { gig: Gig; dark?: boolea
 
           <div className="bottom-pricing">
             <h4 className="price">
-              ${gigFrom(gig)} <span>/ from</span>
+              <span>Starting from</span> ${gigFrom(gig)}
             </h4>
             <div className="button-area">
               <a href={`/service#${gig.slug}`} className="wpr-btn btn-primary">

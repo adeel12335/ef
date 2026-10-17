@@ -41,14 +41,14 @@ export default function GigPackages({ gig }: { gig: Gig }) {
                   <div className="pricing-header">
                     <div className="plan-type">
                       <h3 className="h6">{pkg.tier}</h3>
-                      <p>Delivered in {pkg.delivery}</p>
+                      <p>{pkg.delivery}</p>
                     </div>
 
                     <h4 className="title h5">{pkg.summary}</h4>
 
                     <div className="bottom-pricing">
                       <h4 className="price">
-                        ${pkg.price} <span>/ from</span>
+                        <span>Starting from</span> ${pkg.price}
                       </h4>
                       <div className="button-area">
                         <a href="/contact" className="wpr-btn btn-primary">
