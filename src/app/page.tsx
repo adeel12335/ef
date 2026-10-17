@@ -1,4 +1,8 @@
+import FaqAccordion from "@/components/faq/FaqAccordion";
+import GigCard from "@/components/gigs/GigCard";
 import StructuredData from "@/components/seo/StructuredData";
+import { FAQS } from "@/lib/faq";
+import { GIGS, PRICE_FROM, PRICE_TO } from "@/lib/gigs";
 
 export default function HomePage() {
   return (
@@ -853,204 +857,26 @@ export default function HomePage() {
 
 
 
-          <section id="pricing" className="wpr-pricing-plans-area mb--16">
+          <section id="pricing" className="wpr-pricing-plans-area mb--16" aria-labelledby="gigs-title">
               <div className="container">
                   <div className="section-inner bg-white border-1">
                       <div className="section-top-area">
                           <div className="section-title-area center-style">
                               <p className="sub-title">GIGS &amp; PRICING</p>
-                              <h2 className="section-title second-font font-semi-bold text-normal">Fixed-Scope Gigs <br /> From $120</h2>
+                              <h2 id="gigs-title" className="section-title second-font font-semi-bold text-normal">Four Gigs, <br /> Three Packages Each</h2>
                               {/* Answer-first: the direct reply to "how much does this cost",
                                   in the opening lines where answer engines look for it. */}
-                              <p className="gig-answer">Projects start at <strong>$120</strong> for a single
-                                  automation, landing page or chat widget, <strong>$280</strong> for a full AI
-                                  agent or multi-page site, and <strong>$500</strong> for an agent, automation
-                                  and site working as one system. Every gig is a fixed scope agreed in writing
-                                  before work begins, so the price does not move unless the scope does.</p>
+                              <p className="gig-answer">Every service is a gig with three packages — Basic,
+                                  Standard and Premium — so you can start small and move up on the same
+                                  service. Packages run from <strong>${PRICE_FROM}</strong> to
+                                  <strong> ${PRICE_TO}</strong>, each a fixed scope agreed in writing before
+                                  work begins, so the price does not move unless the scope does.</p>
                           </div>
                       </div>
                       <div className="section-mid-area">
-                          <div className="pricing-inner square-dot">
-                              <div className="pricing-wrapper">
-                                  <div className="pricing-header">
-                                      <div className="plan-type">
-                                          <h3 className="h6">Starter</h3>
-                                          <p>Fastest to start</p>
-                                      </div>
-                                      <h4 className="title h5">One focused job — a single <br /> <span>automation, page or chatbot.</span>
-                                      </h4>
-                                      <div className="bottom-pricing">
-                                          <h4 className="price">$120 <span>/ from</span></h4>
-                                          <div className="button-area">
-                                              <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
-                                          </div>
-                                      </div>
-                                      <div className="shape-one">
-                                          <img src="/assets/images/pricing/shape-1.svg" alt="" />
-                                      </div>
-                                      <div className="shape-two">
-                                          <img src="/assets/images/pricing/grid-1.svg" alt="" />
-                                      </div>
-                                  </div>
-                                  <div className="pricing-body">
-                                      <ul>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          One automation, landing page or chat widget
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Connects two tools you already use
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Mobile-responsive and tested
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Delivered in 3–5 working days
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Written handover notes
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          7 days post-delivery support
-                                      </li>
-                                      </ul>
-                                  </div>
-                              </div>
-                              <span className="square-shape top-left"></span>
-                              <span className="square-shape top-right"></span>
-                              <span className="square-shape bottom-right"></span>
-                          </div>
-                          <div className="pricing-inner square-dot">
-                              <div className="pricing-wrapper dark">
-                                  <div className="pricing-header">
-                                      <div className="plan-type">
-                                          <h3 className="h6">Growth</h3>
-                                          <p>Most asked for</p>
-                                      </div>
-                                      <h4 className="title h5">A complete piece of work — <br /> <span>an AI agent or a full site.</span>
-                                      </h4>
-                                      <div className="bottom-pricing">
-                                          <h4 className="price">$280 <span>/ from</span></h4>
-                                          <div className="button-area">
-                                              <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
-                                          </div>
-                                      </div>
-                                      <div className="shape-one">
-                                          <img src="/assets/images/pricing/shape-2.svg" alt="" />
-                                      </div>
-                                      <div className="shape-two">
-                                          <img src="/assets/images/pricing/grid-2.svg" alt="" />
-                                      </div>
-                                  </div>
-                                  <div className="pricing-body">
-                                      <ul>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Everything in Starter
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          AI agent or voice assistant set up
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Multi-page website or web app
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          CRM sync with de-duplication
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Calendar and booking integration
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Scenario testing before launch
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Written documentation
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          14 days post-launch support
-                                      </li>
-                                      </ul>
-                                  </div>
-                              </div>
-                              <span className="square-shape top-left"></span>
-                              <span className="square-shape top-right"></span>
-                              <span className="square-shape bottom-right"></span>
-                          </div>
-                          <div className="pricing-inner square-dot">
-                              <div className="pricing-wrapper">
-                                  <div className="pricing-header">
-                                      <div className="plan-type">
-                                          <h3 className="h6">Complete</h3>
-                                          <p>Everything wired together</p>
-                                      </div>
-                                      <h4 className="title h5">Agent, automation and site — <br /> <span>working as one system.</span>
-                                      </h4>
-                                      <div className="bottom-pricing">
-                                          <h4 className="price">$500 <span>/ from</span></h4>
-                                          <div className="button-area">
-                                              <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
-                                          </div>
-                                      </div>
-                                      <div className="shape-one">
-                                          <img src="/assets/images/pricing/shape-1.svg" alt="" />
-                                      </div>
-                                      <div className="shape-two">
-                                          <img src="/assets/images/pricing/grid-1.svg" alt="" />
-                                      </div>
-                                  </div>
-                                  <div className="pricing-body">
-                                      <ul>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Everything in Growth
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Multi-step workflow automation
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Mobile app or web app build
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Salesforce objects, flows and reports
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          AWS hosting, deployment and monitoring
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Error alerts, not silent failures
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          Handover session
-                                      </li>
-                                      <li>
-                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                          30 days post-launch support
-                                      </li>
-                                      </ul>
-                                  </div>
-                              </div>
-                              <span className="square-shape top-left"></span>
-                              <span className="square-shape top-right"></span>
-                              <span className="square-shape bottom-right"></span>
-                          </div>
+                          {GIGS.map((gig, i) => (
+                              <GigCard key={gig.slug} gig={gig} dark={i % 3 === 1} />
+                          ))}
                       </div>
                   </div>
               </div>
@@ -1058,110 +884,12 @@ export default function HomePage() {
 
 
 
-          <section className="wpr-faq-area mb--16">
-              <div className="container">
-                  <div className="section-inner bg-white border-1">
-                      <div className="section-content-area">
-                          <div className="section-title-area center-style">
-                              <p className="sub-title">FAQS</p>
-                              <h2 className="section-title second-font font-semi-bold text-normal">Questions <br /> Before We Start</h2>
-                          </div>
-                          <div className="accordion-one" id="accordionExample2">
-
-                              <div className="accordion-item">
-                                  <h2 className="accordion-header" id="headingSix">
-                                      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                          Can I book a single gig instead of a full project?
-                                      </button>
-                                  </h2>
-                                  <div id="collapseSix" className="accordion-collapse collapse" role="region" aria-labelledby="headingSix" data-bs-parent="#accordionExample2">
-                                      <div className="accordion-body">
-                                          <p className="desc">
-                                              Yes. The gigs are fixed-scope on purpose — one automation, one agent, one site — so you can start with the piece that hurts most. If what you need sits outside a listed gig, describe it and I will scope it properly instead of forcing it into a package.
-                                          </p>
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div className="accordion-item">
-                                  <h2 className="accordion-header" id="headingSeven">
-                                      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                          How long does a project take?
-                                      </button>
-                                  </h2>
-                                  <div id="collapseSeven" className="accordion-collapse collapse" role="region" aria-labelledby="headingSeven" data-bs-parent="#accordionExample2">
-                                      <div className="accordion-body">
-                                          <p className="desc">
-                                              It depends on scope, and on how quickly access and feedback come back — those two usually matter more than the build itself. You get an estimated timeline with the written scope, and I would rather give you a realistic date than a flattering one.
-                                          </p>
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div className="accordion-item">
-                                  <h2 className="accordion-header" id="headingEight">
-                                      <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
-                                          Do you work with clients internationally?
-                                      </button>
-                                  </h2>
-                                  <div id="collapseEight" className="accordion-collapse collapse show" role="region" aria-labelledby="headingEight" data-bs-parent="#accordionExample2">
-                                      <div className="accordion-body">
-                                          <p className="desc">
-                                              Yes — remote by default. I am based in Pakistan and work with businesses worldwide. Calls are scheduled to suit your hours and the rest runs asynchronously, so neither of us is waiting on the other to be awake.
-                                          </p>
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div className="accordion-item">
-                                  <h2 className="accordion-header" id="headingNine">
-                                      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                                          Can you work with the tools we already use?
-                                      </button>
-                                  </h2>
-                                  <div id="collapseNine" className="accordion-collapse collapse" role="region" aria-labelledby="headingNine" data-bs-parent="#accordionExample2">
-                                      <div className="accordion-body">
-                                          <p className="desc">
-                                              Usually, yes. Most business tools expose an API, a webhook or an export, and that is normally enough. The first thing I check is what your tools actually allow, because that shapes what is sensible to build — and if something genuinely cannot be connected, you hear that before work starts.
-                                          </p>
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div className="accordion-item">
-                                  <h2 className="accordion-header" id="headingTen">
-                                      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
-                                          How do you handle access and sensitive information?
-                                      </button>
-                                  </h2>
-                                  <div id="collapseTen" className="accordion-collapse collapse" role="region" aria-labelledby="headingTen" data-bs-parent="#accordionExample2">
-                                      <div className="accordion-body">
-                                          <p className="desc">
-                                              I ask for the narrowest access that does the job, and only when it is needed. Credentials stay in your accounts, granted to me rather than copied, and are yours to revoke at any point including the day the project ends. Nothing sensitive goes into frontend code or a repository.
-                                          </p>
-                                      </div>
-                                  </div>
-                              </div>
-
-                          </div>
-
-                          <div className="top-left-shape">
-                              <img src="/assets/images/faq/top-left-shape.svg" alt="" />
-                          </div>
-                          <div className="bg-shape">
-                              <img src="/assets/images/faq/grid.svg" alt="" />
-                          </div>
-                      </div>
-                      <div className="bottom-shape-area square-dot">
-                          <img src="/assets/images/about/shape-02.svg" alt="" />
-                          <span className="square-shape top-left"></span>
-                          <span className="square-shape bottom-left"></span>
-                          <span className="square-shape top-right"></span>
-                          <span className="square-shape bottom-right"></span>
-                      </div>
-                  </div>
-              </div>
-          </section>
+          <FaqAccordion
+              items={FAQS}
+              id="homeFaq"
+              title={<>Questions <br /> Before We Start</>}
+              intro="Pricing, timelines, access and what happens after handover — the things people ask before the first call."
+          />
 
 
 

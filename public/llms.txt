@@ -3,7 +3,7 @@
 > Independent developer building AI agents and voice assistants, workflow
 > automation, websites and mobile applications, and Salesforce and AWS
 > integrations for small and medium-sized businesses. Remote, based in
-> Pakistan, working worldwide. Fixed-scope gigs from $120.
+> Pakistan, working worldwide. Four gigs, three packages each, from $120 to $500.
 
 One person scopes, builds and supports every project — there is no agency,
 account manager or delivery team. Scope and price are agreed in writing before
@@ -26,23 +26,46 @@ build.
 - **Salesforce and AWS** — Salesforce objects, fields, flows and reports, plus
   AWS servers, storage, deployment and monitoring.
 
-## Pricing
+## Gigs and pricing
 
-Three fixed-scope gigs, priced before work begins:
+Each service is a gig, and each gig has three packages: Basic, Standard and
+Premium. Every package is a fixed scope agreed in writing before work begins.
+Prices are starting points for the stated scope, not fixed totals.
 
-- **Starter — from $120.** One automation, landing page or chat widget,
-  connected to two existing tools, delivered in 3–5 working days, with 7 days
-  of post-delivery support.
-- **Growth — from $280.** An AI agent or voice assistant, or a multi-page
-  website or web app, with CRM sync, booking integration, scenario testing and
-  14 days of post-launch support.
-- **Complete — from $500.** Agent, automation and site working as one system,
-  including multi-step workflows, Salesforce configuration, AWS hosting and
-  monitoring, and 30 days of post-launch support.
+### AI Agents & Voice Assistants
+- Basic $150 — chat assistant on your site, trained on up to 20 of your own
+  answers, delivered in 3–5 working days, 7 days support.
+- Standard $300 — adds calendar booking with live availability, lead
+  qualification and a defined human handoff. 7–10 working days, 14 days support.
+- Premium $500 — adds a voice agent on a phone number, CRM record per call and
+  out-of-scope escalation. 2–3 weeks, 30 days support.
 
-Anything outside a listed gig is scoped individually and quoted in writing.
-There are no day rates or retainers published, because a number set before
-understanding the problem is either padded or wrong.
+### Workflow Automation
+- Basic $120 — one workflow connecting two tools, built in n8n, Make or Zapier.
+  2–4 working days, 7 days support.
+- Standard $250 — up to three lead sources unified, CRM sync with
+  de-duplication, automated follow-up. 1–2 weeks, 14 days support.
+- Premium $450 — multi-step branching workflows, idempotent writes, replayable
+  failed payloads. 2–3 weeks, 30 days support.
+
+### Websites & Mobile Apps
+- Basic $180 — one responsive landing page with an enquiry form. 4–7 working
+  days, 7 days support.
+- Standard $350 — up to six pages, CRM integration, structured data,
+  accessibility and performance pass. 2–3 weeks, 14 days support.
+- Premium $500 — web application or mobile app with authentication, dashboard
+  and API integrations. 3–5 weeks, 30 days support.
+
+### Salesforce & AWS
+- Basic $150 — custom fields and layouts, or one service deployed to AWS.
+  3–5 working days, 7 days support.
+- Standard $300 — custom objects, flows and assignment rules, or AWS hosting
+  and storage. 1–2 weeks, 14 days support.
+- Premium $480 — Salesforce connected to your other tools, deployment pipeline
+  and monitoring. 2–4 weeks, 30 days support.
+
+Overall range: $120 to $500. Anything outside a listed package is scoped
+individually and quoted in writing. No day rates or retainers are published.
 
 ## How a project runs
 

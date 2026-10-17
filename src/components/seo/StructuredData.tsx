@@ -1,6 +1,6 @@
 import { FAQS } from "@/lib/faq";
 import { CURRENCY, GIGS, PRICE_FROM, PRICE_TO } from "@/lib/gigs";
-import { BRAND, SERVICES, SITE_URL } from "@/lib/seo";
+import { BRAND, SITE_URL } from "@/lib/seo";
 
 /**
  * JSON-LD for the home page.
@@ -71,32 +71,44 @@ export default function StructuredData() {
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Services",
-        itemListElement: SERVICES.map((s) => ({
+        itemListElement: GIGS.map((gig) => ({
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: s.name,
-            description: s.description,
+            name: gig.name,
+            description: gig.description,
+            provider: { "@id": `${SITE_URL}/#business` },
+            areaServed: "Worldwide",
+            url: `${SITE_URL}/service#${gig.slug}`,
+          },
+        })),
+      },
+      // One Offer per package, so an assistant asked "how much is an AI agent"
+      // can quote the actual tier rather than a vague range.
+      makesOffer: GIGS.flatMap((gig) =>
+        gig.packages.map((pkg) => ({
+          "@type": "Offer",
+          name: `${gig.name} — ${pkg.tier}`,
+          description: pkg.summary,
+          price: pkg.price,
+          priceCurrency: CURRENCY,
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            minPrice: pkg.price,
+            priceCurrency: CURRENCY,
+            valueAddedTaxIncluded: false,
+          },
+          availability: "https://schema.org/InStock",
+          url: `${SITE_URL}/service#${gig.slug}`,
+          itemOffered: {
+            "@type": "Service",
+            name: gig.name,
+            description: gig.description,
             provider: { "@id": `${SITE_URL}/#business` },
             areaServed: "Worldwide",
           },
         })),
-      },
-      makesOffer: GIGS.map((g) => ({
-        "@type": "Offer",
-        name: `${g.name} gig`,
-        description: g.description,
-        price: g.price,
-        priceCurrency: CURRENCY,
-        priceSpecification: {
-          "@type": "PriceSpecification",
-          minPrice: g.price,
-          priceCurrency: CURRENCY,
-          valueAddedTaxIncluded: false,
-        },
-        availability: "https://schema.org/InStock",
-        url: `${SITE_URL}/#pricing`,
-      })),
+      ),
     },
     {
       "@type": "FAQPage",

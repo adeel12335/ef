@@ -318,21 +318,45 @@ body {
    only on the featured card's badge and its button, not across all three.
    ------------------------------------------------------------------------- */
 
-/* Three gig tiers instead of the template's two, so the row is a 3-across
-   grid rather than two halves. Borders are redrawn per cell to keep the ruled
-   look, and the stack collapses to one column on tablet and below. */
+/* The gig / package grid.
+
+   Home shows four gig cards (2x2); /service shows three packages per gig
+   (3-across). One set of rules covers both by sizing on child count, and the
+   whole thing collapses to a single column on tablet and below. */
 .wpr-pricing-plans-area .section-inner .section-mid-area {
   flex-wrap: wrap;
 }
 
 .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner {
-  width: 33.3333%;
   padding: 48px 36px;
   border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner:last-child {
+/* Three packages: a third each, one row. */
+.section-mid-area > .pricing-inner:first-child:nth-last-child(3),
+.section-mid-area > .pricing-inner:first-child:nth-last-child(3) ~ .pricing-inner {
+  width: 33.3333%;
+  border-bottom: 0;
+}
+
+.section-mid-area > .pricing-inner:first-child:nth-last-child(3) ~ .pricing-inner:last-child {
   border-right: 0;
+}
+
+/* Four gigs: halves, two rows. */
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4),
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner {
+  width: 50%;
+}
+
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner:nth-child(2n),
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4):nth-child(2n) {
+  border-right: 0;
+}
+
+.section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner:nth-last-child(-n + 2) {
+  border-bottom: 0;
 }
 
 @media (max-width: 1199px) {
@@ -342,7 +366,11 @@ body {
 }
 
 @media (max-width: 991px) {
-  .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner {
+  .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner,
+  .section-mid-area > .pricing-inner:first-child:nth-last-child(3),
+  .section-mid-area > .pricing-inner:first-child:nth-last-child(3) ~ .pricing-inner,
+  .section-mid-area > .pricing-inner:first-child:nth-last-child(4),
+  .section-mid-area > .pricing-inner:first-child:nth-last-child(4) ~ .pricing-inner {
     width: 100%;
     border-right: 0;
     border-bottom: 1px solid var(--color-border);
@@ -353,14 +381,9 @@ body {
   }
 }
 
-/* The middle tier is the one most people want — lift it slightly. */
-.wpr-pricing-plans-area .pricing-wrapper.dark .plan-type p {
-  color: var(--color-primary);
-}
-
-/* At a third of the row the template's side-by-side price and button no longer
-   fit, and the price was breaking mid-number ("$12 / 0"). Stack them, keep the
-   figure on one line, and let the button fill the card. */
+/* At a third (or a half) of the row the template's side-by-side price and
+   button no longer fit, and the figure was breaking mid-number ("$15 / 0").
+   Stack them, keep the price on one line, and let the button fill the card. */
 .pricing-wrapper .pricing-header .bottom-pricing {
   flex-direction: column;
   align-items: stretch;
@@ -368,7 +391,7 @@ body {
 }
 
 .pricing-wrapper .pricing-header .bottom-pricing .price {
-  font-size: 46px;
+  font-size: 44px;
   line-height: 1;
   white-space: nowrap;
 }
@@ -381,13 +404,36 @@ body {
 }
 
 .pricing-wrapper .pricing-header .title {
-  font-size: 25px;
-  margin-bottom: 36px;
+  font-size: 24px;
+  margin-bottom: 32px;
   text-wrap: balance;
+}
+
+/* The delivery chip sits next to the tier name and was being clipped. */
+/* The decorative corner shapes were painting over the delivery chip. */
+.pricing-wrapper .pricing-header .plan-type {
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.pricing-wrapper .pricing-header .shape-one,
+.pricing-wrapper .pricing-header .shape-two {
+  z-index: 0;
+}
+
+.pricing-wrapper .pricing-header .plan-type p {
+  white-space: normal;
 }
 
 .pricing-wrapper .pricing-body ul li {
   text-wrap: pretty;
+}
+
+/* The middle package is the one most people take — mark it. */
+.wpr-pricing-plans-area .pricing-wrapper.dark .plan-type p {
+  color: var(--color-primary);
 }
 
 /* Gig CTAs keep the template's dark gradient too. Only the label colour is
