@@ -1,3 +1,5 @@
+import StructuredData from "@/components/seo/StructuredData";
+
 export default function HomePage() {
   return (
     <>
@@ -49,7 +51,7 @@ export default function HomePage() {
                           </span>
                       </h1>
                       <div className="text-area wow fadeInUp" data-wow-delay="1s">
-                          <p className="desc">AI agents, automations, websites and cloud integrations <br /> that make your business easier to run.</p>
+                          <p className="desc">AI agents, automations, websites, mobile apps and cloud <br /> integrations that make your business easier to run.</p>
                           <div className="button-area">
                               <a href="#pricing" className="wpr-btn btn-white">See my gigs</a>
                               <a href="#services" className="wpr-btn btn-primary with-icon">
@@ -129,15 +131,15 @@ export default function HomePage() {
                                   <li className="border-top with-icon">
                                       <div className="icon"><img src="/assets/images/about/icon/03.svg" alt="" /></div>
                                       <div className="text">
-                                          <h2 className="h4 title">Web &amp; cloud</h2>
-                                          <p className="desc">Websites, applications, Salesforce and AWS — built and wired together</p>
+                                          <h2 className="h4 title">Web, apps &amp; cloud</h2>
+                                          <p className="desc">Websites, mobile apps, Salesforce and AWS — built and wired together</p>
                                       </div>
                                   </li>
                               </ul>
                           </div>
                           <div className="right-area">
                               <div className="image-area">
-                                  <img src="/assets/images/about/01.webp" width="802" alt="" />
+                                  <img src="/assets/images/about/01.webp" width="802" alt="Working remotely with business owners on automation projects" />
                                   <img className="image-shape-right-bottom" src="/assets/images/about/shape-01.svg" alt="" />
                               </div>
                           </div>
@@ -172,7 +174,7 @@ export default function HomePage() {
                       <div className="section-bottom-content square-dot">
                           <div className="service-wrapper wow fadeInRight" data-wow-delay=".2s">
                               <div className="image-area">
-                                  <img src="/assets/images/service/01.webp" alt="" />
+                                  <img src="/assets/images/service/01.webp" alt="AI agent answering a customer enquiry and offering appointment times" />
                               </div>
                               <div className="content">
                                   <div className="top">
@@ -199,7 +201,7 @@ export default function HomePage() {
                           </div>
                           <div className="service-wrapper wow fadeInRight" data-wow-delay=".4s">
                               <div className="image-area">
-                                  <img src="/assets/images/service/02.webp" alt="" />
+                                  <img src="/assets/images/service/02.webp" alt="Automated workflow moving a lead from a form into a CRM record" />
                               </div>
                               <div className="content">
                                   <div className="top">
@@ -226,12 +228,12 @@ export default function HomePage() {
                           </div>
                           <div className="service-wrapper wow fadeInRight" data-wow-delay=".6s">
                               <div className="image-area">
-                                  <img src="/assets/images/service/03.webp" alt="" />
+                                  <img src="/assets/images/service/03.webp" alt="Responsive business website shown on desktop and mobile" />
                               </div>
                               <div className="content">
                                   <div className="top">
-                                      <p className="tag">WEBSITES &amp; APPLICATIONS</p>
-                                      <p className="desc">Responsive business sites, landing pages, dashboards and internal tools — built around one clear action and wired into the systems behind them.</p>
+                                      <p className="tag">WEBSITES &amp; MOBILE APPS</p>
+                                      <p className="desc">Responsive business sites, web applications and mobile apps — each built around one clear action and wired into the systems behind it.</p>
                                   </div>
                                   <div className="mid">
                                       <h2>03</h2>
@@ -239,7 +241,7 @@ export default function HomePage() {
                                   <div className="bottom">
                                       <ul>
                                           <li>Business websites</li>
-                                          <li>Web applications</li>
+                                          <li>Web &amp; mobile apps</li>
                                           <li>Dashboards &amp; portals</li>
                                           <li>API integrations</li>
                                       </ul>
@@ -253,7 +255,7 @@ export default function HomePage() {
                           </div>
                           <div className="service-wrapper wow fadeInRight" data-wow-delay=".8s">
                               <div className="image-area">
-                                  <img src="/assets/images/service/04.webp" alt="" />
+                                  <img src="/assets/images/service/04.webp" alt="Salesforce and AWS dashboards configured for a business" />
                               </div>
                               <div className="content">
                                   <div className="top">
@@ -315,7 +317,7 @@ export default function HomePage() {
                                       <div className="swiper-slide">
                                           <div className="slide feature-project">
                                               <div className="image-area">
-                                                  <img src="/assets/images/portfolio/01.webp" alt="" className="video-img" />
+                                                  <img src="/assets/images/portfolio/01.webp" alt="Front Desk AI concept build — assistant handling an after-hours enquiry" className="video-img" />
                                                   <img src="/assets/images/portfolio/shape-top-left.svg" alt="" className="shape top-left-shape" />
                                                   <img src="/assets/images/portfolio/shape-top-right.svg" alt="" className="shape top-right-shape" />
                                               </div>
@@ -358,7 +360,7 @@ export default function HomePage() {
                                       <div className="swiper-slide">
                                           <div className="slide feature-project">
                                               <div className="image-area">
-                                                  <img src="/assets/images/portfolio/02.webp" alt="" className="video-img" />
+                                                  <img src="/assets/images/portfolio/02.webp" alt="Lead Relay concept build — one intake path feeding a CRM" className="video-img" />
                                                   <img src="/assets/images/portfolio/shape-top-left.svg" alt="" className="shape top-left-shape" />
                                                   <img src="/assets/images/portfolio/shape-top-right.svg" alt="" className="shape top-right-shape" />
                                               </div>
@@ -401,7 +403,7 @@ export default function HomePage() {
                                       <div className="swiper-slide">
                                           <div className="slide feature-project">
                                               <div className="image-area">
-                                                  <img src="/assets/images/portfolio/03.webp" alt="" className="video-img" />
+                                                  <img src="/assets/images/portfolio/03.webp" alt="Clear Path concept build — business site with a single clear action" className="video-img" />
                                                   <img src="/assets/images/portfolio/shape-top-left.svg" alt="" className="shape top-left-shape" />
                                                   <img src="/assets/images/portfolio/shape-top-right.svg" alt="" className="shape top-right-shape" />
                                               </div>
@@ -504,7 +506,7 @@ export default function HomePage() {
                               <div className="right-content-area">
                                   <div className="working-process-wrapper">
                                       <div className="image-area">
-                                          <img src="/assets/images/working-process/01.webp" alt="" />
+                                          <img src="/assets/images/working-process/01.webp" alt="Step one — understanding the business problem on a call" />
                                       </div>
                                       <div className="content-area">
                                           <div className="number">//01</div>
@@ -516,7 +518,7 @@ export default function HomePage() {
                                   </div>
                                   <div className="working-process-wrapper">
                                       <div className="image-area">
-                                          <img src="/assets/images/working-process/02.webp" alt="" />
+                                          <img src="/assets/images/working-process/02.webp" alt="Step two — writing the scope, workflow and fixed price" />
                                       </div>
                                       <div className="content-area">
                                           <div className="number">//02</div>
@@ -528,7 +530,7 @@ export default function HomePage() {
                                   </div>
                                   <div className="working-process-wrapper">
                                       <div className="image-area">
-                                          <img src="/assets/images/working-process/03.webp" alt="" />
+                                          <img src="/assets/images/working-process/03.webp" alt="Step three — building and testing against realistic scenarios" />
                                       </div>
                                       <div className="content-area">
                                           <div className="number">//03</div>
@@ -540,7 +542,7 @@ export default function HomePage() {
                                   </div>
                                   <div className="working-process-wrapper">
                                       <div className="image-area">
-                                          <img src="/assets/images/working-process/04.webp" alt="" />
+                                          <img src="/assets/images/working-process/04.webp" alt="Step four — launch, documentation and handover" />
                                       </div>
                                       <div className="content-area">
                                           <div className="number">//04</div>
@@ -571,12 +573,12 @@ export default function HomePage() {
                   <div className="section-inner overflow-hidden border-1">
                       <div className="text-wrapper first-text">
                           <div className="text-split scrollingtext-1">
-                              <h2 className="title">AI AGENTS • WORKFLOW AUTOMATION • WEBSITES • WEB APPS • API INTEGRATIONS • SALESFORCE • AWS • CRM SYNC • VOICE ASSISTANTS • </h2>
+                              <h2 className="title">AI AGENTS • WORKFLOW AUTOMATION • MOBILE APPS • WEBSITES • WEB APPS • API INTEGRATIONS • SALESFORCE • AWS • CRM SYNC • VOICE ASSISTANTS • </h2>
                           </div>
                       </div>
                       <div className="text-wrapper">
                           <div className="text-split scrollingtext-2">
-                              <h2 className="title">AI AGENTS • WORKFLOW AUTOMATION • WEBSITES • WEB APPS • API INTEGRATIONS • SALESFORCE • AWS • CRM SYNC • VOICE ASSISTANTS • </h2>
+                              <h2 className="title">AI AGENTS • WORKFLOW AUTOMATION • MOBILE APPS • WEBSITES • WEB APPS • API INTEGRATIONS • SALESFORCE • AWS • CRM SYNC • VOICE ASSISTANTS • </h2>
                           </div>
                       </div>
                   </div>
@@ -719,7 +721,7 @@ export default function HomePage() {
                                   <div className="toggle"><span className="plus">+</span> <span className="minus">-</span></div>
                               </div>
                               <div className="image-area">
-                                  <img src="/assets/images/awards/01.webp" width="306" alt="" />
+                                  <img src="/assets/images/awards/01.webp" width="306" alt="Scope agreed in writing before any work begins" />
                               </div>
                           </div>
                           <div className="award-item">
@@ -736,7 +738,7 @@ export default function HomePage() {
                                   <div className="toggle"><span className="plus">+</span> <span className="minus">-</span></div>
                               </div>
                               <div className="image-area">
-                                  <img src="/assets/images/awards/02.webp" width="306" alt="" />
+                                  <img src="/assets/images/awards/02.webp" width="306" alt="Progress shared at agreed check-ins during the build" />
                               </div>
                           </div>
                           <div className="award-item">
@@ -753,7 +755,7 @@ export default function HomePage() {
                                   <div className="toggle"><span className="plus">+</span> <span className="minus">-</span></div>
                               </div>
                               <div className="image-area">
-                                  <img src="/assets/images/awards/03.webp" width="306" alt="" />
+                                  <img src="/assets/images/awards/03.webp" width="306" alt="Written documentation handed over at the end of a project" />
                               </div>
                           </div>
                           <div className="award-item">
@@ -770,7 +772,7 @@ export default function HomePage() {
                                   <div className="toggle"><span className="plus">+</span> <span className="minus">-</span></div>
                               </div>
                               <div className="image-area">
-                                  <img src="/assets/images/awards/04.webp" width="306" alt="" />
+                                  <img src="/assets/images/awards/04.webp" width="306" alt="Post-launch support period included with every build" />
                               </div>
                           </div>
                       </div>
@@ -865,13 +867,13 @@ export default function HomePage() {
                               <div className="pricing-wrapper">
                                   <div className="pricing-header">
                                       <div className="plan-type">
-                                          <h3 className="h6">Automation Gig</h3>
+                                          <h3 className="h6">AI Agent Gig</h3>
                                           <p>Booking now</p>
                                       </div>
-                                      <h4 className="title h5">Lead capture, CRM sync <br /> <span>and routine follow-up.</span>
+                                      <h4 className="title h5">A voice or chat assistant <br /> <span>that answers and books.</span>
                                       </h4>
                                       <div className="bottom-pricing">
-                                          <h4 className="price">$900 <span>/ from</span></h4>
+                                          <h4 className="price">$1,800 <span>/ from</span></h4>
                                           <div className="button-area">
                                               <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
                                           </div>
@@ -885,38 +887,38 @@ export default function HomePage() {
                                   </div>
                                   <div className="pricing-body">
                                       <ul>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              One intake path for every lead source
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              CRM sync with de-duplication
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Automated follow-up tasks
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              n8n / Make / Zapier build
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Error alerts, not silent failures
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Written documentation
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Handover session
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              14 days post-launch support
-                                          </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Agent trained on your own answers
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Lead qualification questions
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Calendar booking integration
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Defined human handoff
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Call and chat transcripts logged
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Scenario testing before launch
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Written documentation
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          30 days post-launch support
+                                      </li>
                                       </ul>
                                   </div>
                               </div>
@@ -928,13 +930,13 @@ export default function HomePage() {
                               <div className="pricing-wrapper dark">
                                   <div className="pricing-header">
                                       <div className="plan-type">
-                                          <h3 className="h6">AI Agent Gig</h3>
+                                          <h3 className="h6">Automation Gig</h3>
                                           <p>Booking now</p>
                                       </div>
-                                      <h4 className="title h5">A voice or chat assistant <br /> <span>that answers and books.</span>
+                                      <h4 className="title h5">Lead capture, CRM sync <br /> <span>and routine follow-up.</span>
                                       </h4>
                                       <div className="bottom-pricing">
-                                          <h4 className="price">$1,800 <span>/ from</span></h4>
+                                          <h4 className="price">$900 <span>/ from</span></h4>
                                           <div className="button-area">
                                               <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
                                           </div>
@@ -948,50 +950,171 @@ export default function HomePage() {
                                   </div>
                                   <div className="pricing-body">
                                       <ul>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Agent trained on your own answers
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Lead qualification questions
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Calendar booking integration
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Defined human handoff
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Call and chat transcripts logged
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Scenario testing before launch
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              Written documentation
-                                          </li>
-                                          <li>
-                                              <img src="/assets/images/why-choose/check-01.svg" alt="" />
-                                              30 days post-launch support
-                                          </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          One intake path for every lead source
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          CRM sync with de-duplication
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Automated follow-up tasks
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          n8n / Make / Zapier build
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Error alerts, not silent failures
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Written documentation
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Handover session
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          14 days post-launch support
+                                      </li>
                                       </ul>
                                   </div>
                               </div>
+                              <span className="square-shape top-left"></span>
                               <span className="square-shape top-right"></span>
+                              <span className="square-shape bottom-right"></span>
                           </div>
-                      </div>
-                      <div className="bottom-shape-area square-dot">
-                          <img src="/assets/images/about/shape-02.svg" alt="" />
-                          <span className="square-shape top-left"></span>
-                          <span className="square-shape bottom-left"></span>
-                          <span className="square-shape top-right"></span>
-                          <span className="square-shape bottom-right"></span>
+                          <div className="pricing-inner square-dot">
+                              <div className="pricing-wrapper dark">
+                                  <div className="pricing-header">
+                                      <div className="plan-type">
+                                          <h3 className="h6">Web &amp; Mobile Gig</h3>
+                                          <p>Booking now</p>
+                                      </div>
+                                      <h4 className="title h5">A site or app built around <br /> <span>one clear next step.</span>
+                                      </h4>
+                                      <div className="bottom-pricing">
+                                          <h4 className="price">$1,500 <span>/ from</span></h4>
+                                          <div className="button-area">
+                                              <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
+                                          </div>
+                                      </div>
+                                      <div className="shape-one">
+                                          <img src="/assets/images/pricing/shape-1.svg" alt="" />
+                                      </div>
+                                      <div className="shape-two">
+                                          <img src="/assets/images/pricing/grid-1.svg" alt="" />
+                                      </div>
+                                  </div>
+                                  <div className="pricing-body">
+                                      <ul>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Responsive site, web app or mobile app
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Built around a single clear action
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Short forms that explain their errors
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Submissions delivered to your tools
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Performance and accessibility pass
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Written documentation
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Handover session
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          30 days post-launch support
+                                      </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <span className="square-shape top-left"></span>
+                              <span className="square-shape top-right"></span>
+                              <span className="square-shape bottom-right"></span>
+                          </div>
+                          <div className="pricing-inner square-dot">
+                              <div className="pricing-wrapper">
+                                  <div className="pricing-header">
+                                      <div className="plan-type">
+                                          <h3 className="h6">Salesforce &amp; AWS Gig</h3>
+                                          <p>Booking now</p>
+                                      </div>
+                                      <h4 className="title h5">Your CRM and your cloud, <br /> <span>configured and connected.</span>
+                                      </h4>
+                                      <div className="bottom-pricing">
+                                          <h4 className="price">$1,200 <span>/ from</span></h4>
+                                          <div className="button-area">
+                                              <a href="/contact" className="wpr-btn btn-primary">Start this gig</a>
+                                          </div>
+                                      </div>
+                                      <div className="shape-one">
+                                          <img src="/assets/images/pricing/shape-2.svg" alt="" />
+                                      </div>
+                                      <div className="shape-two">
+                                          <img src="/assets/images/pricing/grid-2.svg" alt="" />
+                                      </div>
+                                  </div>
+                                  <div className="pricing-body">
+                                      <ul>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Salesforce objects, fields and flows
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Reports and dashboards you asked for
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          AWS servers, storage and hosting
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Deployment and monitoring set up
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Access scoped to what is needed
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Written documentation
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          Handover session
+                                      </li>
+                                      <li>
+                                          <img src="/assets/images/why-choose/check-01.svg" alt="" />
+                                          30 days post-launch support
+                                      </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <span className="square-shape top-left"></span>
+                              <span className="square-shape top-right"></span>
+                              <span className="square-shape bottom-right"></span>
+                          </div>
                       </div>
                   </div>
               </div>
@@ -1190,6 +1313,7 @@ export default function HomePage() {
                   </div>
               </div>
           </section>
+      <StructuredData />
     </>
   );
 }

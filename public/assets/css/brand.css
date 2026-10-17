@@ -161,6 +161,62 @@ body {
 }
 
 /* -------------------------------------------------------------------------
+   Availability ticker (header top)
+
+   Reuses the template's own @keyframes marquee. Two identical tracks sit side
+   by side and the pair translates by one full track width, so the seam never
+   shows. Lime is used for the separator dots only — the copy stays ivory,
+   because lime on charcoal at 14px is an accent, not body text.
+   ------------------------------------------------------------------------- */
+
+.header-style-one .header-top .header-top-inner {
+  gap: 0;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.ef-ticker {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.ef-ticker__track {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}
+
+.ef-ticker__item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  padding-inline: 26px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+  font-family: var(--font-primary);
+}
+
+.ef-ticker__item::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin-right: 26px;
+  background: var(--color-primary);
+  flex: none;
+}
+
+.ef-ticker:hover .ef-ticker__track {
+  animation-play-state: paused;
+}
+
+/* -------------------------------------------------------------------------
    Surfaces
    ------------------------------------------------------------------------- */
 
@@ -189,6 +245,42 @@ body {
    The template's pricing cards carry the packaged-service list. Lime is used
    only on the featured card's badge and its button, not across all three.
    ------------------------------------------------------------------------- */
+
+/* Four gigs instead of the template's two, so the row has to wrap into a 2x2.
+   The template set width:50% with no wrap, which would have squeezed four onto
+   one line. Borders are redrawn per cell so the grid keeps its ruled look. */
+.wpr-pricing-plans-area .section-inner .section-mid-area {
+  flex-wrap: wrap;
+}
+
+.wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner {
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Right-hand column of each row, and the final row, lose their outer rules. */
+.wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner:nth-child(2n) {
+  border-right: 0;
+}
+
+.wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner {
+    width: 100%;
+    border-right: 0;
+  }
+
+  .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner:nth-last-child(-n + 2) {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner:last-child {
+    border-bottom: 0;
+  }
+}
 
 /* Gig CTAs keep the template's dark gradient too. Only the label colour is
    pinned, because the 5-class template selector sets the background. */
@@ -229,6 +321,15 @@ select:focus-visible,
   color: var(--color-bg-1);
 }
 
+/* The template sized the site name as 80px text; the lockup is an SVG, so it
+   needs explicit sizing or it renders at its intrinsic 1475px width. */
+.preloader .site-name img {
+  display: block;
+  width: min(520px, 62vw);
+  height: auto;
+  margin-inline: auto;
+}
+
 .preloader .inner-bar {
   background-color: var(--color-primary);
 }
@@ -252,5 +353,20 @@ select:focus-visible,
   [class*="marquee"] * {
     animation: none !important;
     transform: none !important;
+  }
+
+  /* The ticker stops rather than snapping through its loop, and the duplicate
+     track is hidden so the copy is not repeated on screen. */
+  .ef-ticker__track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .ef-ticker__track[aria-hidden="true"] {
+    display: none;
+  }
+
+  .ef-ticker {
+    overflow-x: auto;
   }
 }

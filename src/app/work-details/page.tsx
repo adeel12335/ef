@@ -1,8 +1,11 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Work Detail",
-};
+  description:
+    "Inside one build: the business problem, the constraints, how it was put together and what it does once it is running.",
+  path: "/work-details",
+});
 
 export default function WorkDetailsPage() {
   return (

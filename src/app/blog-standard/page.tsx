@@ -1,8 +1,11 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Blog",
-};
+export const metadata = pageMeta({
+  title: "Notes",
+  description:
+    "Notes on AI agents, workflow automation and building business software as an independent developer.",
+  path: "/blog-standard",
+});
 
 export default function BlogStandardPage() {
   return (

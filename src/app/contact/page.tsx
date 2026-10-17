@@ -1,8 +1,11 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Contact",
-};
+  description:
+    "Tell me what you would like to make easier. Describe the problem and I will reply personally, usually within one business day.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

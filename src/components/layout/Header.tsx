@@ -3,21 +3,45 @@
 import { usePathname } from "next/navigation";
 import { NAV, collapseId, isActive } from "@/lib/nav";
 
+/** Availability ticker copy — what I am currently taking on. */
+const TICKER = [
+  "AVAILABLE FOR NEW PROJECTS",
+  "AI AGENTS",
+  "VOICE ASSISTANTS",
+  "WORKFLOW AUTOMATION",
+  "MOBILE APPLICATIONS",
+  "WEBSITES & WEB APPS",
+  "API INTEGRATIONS",
+  "SALESFORCE",
+  "AWS",
+];
+
 export default function Header() {
   const pathname = usePathname();
 
   return (
     <header className="header-style-one">
+      {/* Availability ticker. The track is rendered twice and the pair scrolls
+          by exactly one track width, which makes the loop seamless. The copy is
+          one string so the two tracks can never drift apart. aria-hidden on the
+          duplicate stops screen readers reading the list twice. */}
       <div className="header-top">
         <div className="header-top-inner">
-          <div className="left-icon">
-            <img src="/assets/images/icon/green-left.svg" alt="" />
-          </div>
-          <p className="text">
-            AVAILABLE FOR NEW PROJECTS — <span>AI, AUTOMATION &amp; WEB</span>
-          </p>
-          <div className="right-icon">
-            <img src="/assets/images/icon/green-right.svg" alt="" />
+          <div className="ef-ticker">
+            <div className="ef-ticker__track">
+              {TICKER.map((item) => (
+                <span className="ef-ticker__item" key={item}>
+                  {item}
+                </span>
+              ))}
+            </div>
+            <div className="ef-ticker__track" aria-hidden="true">
+              {TICKER.map((item) => (
+                <span className="ef-ticker__item" key={item}>
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>

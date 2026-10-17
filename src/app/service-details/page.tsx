@@ -1,8 +1,11 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Service Detail",
-};
+  description:
+    "What gets scoped, what gets delivered and what you have in your hands once a build is live, including documentation and handover.",
+  path: "/service-details",
+});
 
 export default function ServiceDetailsPage() {
   return (

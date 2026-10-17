@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Manrope } from "next/font/google";
 
+import { BRAND, SITE_URL } from "@/lib/seo";
+
 import Footer from "@/components/layout/Footer";
 import GoTop from "@/components/layout/GoTop";
 import Header from "@/components/layout/Header";
@@ -40,26 +42,35 @@ const STYLESHEETS = [
   "/assets/css/brand.css",
 ];
 
+/**
+ * Root metadata. The home title stays under ~60 characters and the description
+ * under ~155 so neither is cut off in search results; `template` appends the
+ * brand to every inner page, which is why those titles are short.
+ */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://emergingfreelancer.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Emerging Freelancer — AI agents, automation and web development",
-    template: "%s | Emerging Freelancer",
+    default: "AI Agents, Automation, Web Development | Emerging Freelancer",
+    template: `%s | ${BRAND}`,
   },
   description:
-    "I build AI agents, automations, websites and cloud integrations that make your business easier to run. Independent developer working with businesses worldwide.",
+    "I build AI agents, workflow automation, websites and mobile apps that make your business easier to run. Fixed-scope gigs, priced up front.",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    siteName: "Emerging Freelancer",
-    title: "Emerging Freelancer — Make room for better work.",
+    siteName: BRAND,
+    url: SITE_URL,
+    title: "AI Agents, Automation, Web Development | Emerging Freelancer",
     description:
-      "AI agents, workflow automation, websites and applications, Salesforce and AWS — built and supported by one developer.",
-    images: [{ url: "/brand/og.png", width: 1200, height: 630 }],
+      "AI agents, workflow automation, websites and mobile apps, Salesforce and AWS — built and supported by one developer.",
+    images: [{ url: "/brand/og.png", width: 1200, height: 630, alt: BRAND }],
   },
   twitter: {
     card: "summary_large_image",
+    title: "AI Agents, Automation, Web Development | Emerging Freelancer",
     images: ["/brand/og.png"],
   },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
