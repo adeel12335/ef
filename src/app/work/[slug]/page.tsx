@@ -26,6 +26,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: project.shortTitle ?? project.name,
     description: project.blurb,
     path: `/work/${project.slug}`,
+    keywords: project.keywords,
+    image: project.image,
   });
 }
 
@@ -66,6 +68,7 @@ export default async function ProjectPage({ params }: Params) {
         headline: `${project.name} — ${project.kind}`,
         description: project.summary,
         genre: project.category,
+        ...(project.keywords?.length ? { keywords: project.keywords.join(", ") } : {}),
         creativeWorkStatus: project.kind,
         about: gig ? gig.name : project.category,
         author: { "@id": `${SITE_URL}/#business` },

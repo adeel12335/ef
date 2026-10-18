@@ -16,6 +16,8 @@ export type Project = {
   gigSlug: string;
   category: string;
   kind: string;
+  /** Search phrases supported by the public site and the case copy. */
+  keywords?: string[];
   /** Under ~50 characters. Used as the page title before the brand suffix. */
   shortTitle?: string;
   /** One line, used on cards and in metadata. */

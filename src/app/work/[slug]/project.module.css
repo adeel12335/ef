@@ -16,20 +16,24 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-.casePage :global(.wpr-banner-area.breadcrumb .section-title) {
+.casePage :global(.wpr-banner-area.breadcrumb .banner-content-area .section-title) {
+  display: block;
+  width: 100%;
   max-width: 1000px;
   margin: 0;
   color: var(--color-heading-1);
+  text-align: left;
   font-size: clamp(48px, 7.4vw, 106px);
   font-weight: 600;
   line-height: 0.94;
   letter-spacing: -0.06em;
 }
 
-.casePage :global(.wpr-banner-area.breadcrumb .desc) {
+.casePage :global(.wpr-banner-area.breadcrumb .banner-content-area .desc) {
   max-width: 830px;
   margin: 26px 0 0;
   color: var(--color-body-1);
+  text-align: left;
   font-size: clamp(17px, 1.7vw, 22px);
   line-height: 1.65;
 }
@@ -277,7 +281,7 @@
     padding-top: 42px;
   }
 
-  .casePage :global(.wpr-banner-area.breadcrumb .section-title) {
+  .casePage :global(.wpr-banner-area.breadcrumb .banner-content-area .section-title) {
     font-size: clamp(43px, 14vw, 66px);
   }
 

@@ -56,21 +56,26 @@ export default function WorkPage() {
 
         <section className={styles.gallery} aria-labelledby="work-title-clean">
           <div className="container">
-            <div className={styles.galleryHead}>
-              <h2 id="work-title-clean">The project ledger</h2>
-              <p>
-                Filter by work type or service. Every card opens a full case study;
-                client cases also link to the public site.
-              </p>
-            </div>
-            <WorkGallery />
-            <div className={styles.note}>
-              <strong>About the covers</strong>
-              <p>
-                Covers are AI-generated editorial images made for this portfolio.
-                They are not screenshots or client photography. Each client case links
-                to the actual live site.
-              </p>
+            <div className={styles.galleryShell}>
+              <div className={styles.galleryHead}>
+                <div>
+                  <p className={styles.galleryEyebrow}>Project archive · 17 builds</p>
+                  <h2 id="work-title-clean">Choose the kind of work you need.</h2>
+                </div>
+                <p>
+                  Filter by work type or service. Every client case links to its
+                  public website, while concepts remain clearly labelled.
+                </p>
+              </div>
+              <WorkGallery />
+              <div className={styles.note}>
+                <strong>About the covers</strong>
+                <p>
+                  Covers are AI-generated editorial images made for this portfolio,
+                  not client photography or screenshots. Open a client case to visit
+                  the live website.
+                </p>
+              </div>
             </div>
           </div>
         </section>

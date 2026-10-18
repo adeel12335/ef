@@ -92,9 +92,20 @@ export default function WorkGallery() {
                 <Link href={`/work/${project.slug}`}>{project.name}</Link>
               </h2>
               <p>{project.blurb}</p>
+              <ul className={styles.capabilities} aria-label={`${project.name} capabilities`}>
+                {project.capabilities.slice(0, 3).map((capability) => (
+                  <li key={capability}>{capability}</li>
+                ))}
+              </ul>
               <div className={styles.cardFooter}>
                 <Link href={`/work/${project.slug}`}>Read case study</Link>
-                {project.liveUrl ? <span>Live site linked</span> : <span>Concept</span>}
+                {project.liveUrl ? (
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    Visit live site ↗
+                  </a>
+                ) : (
+                  <span>Concept</span>
+                )}
               </div>
             </div>
           </article>

@@ -13,11 +13,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "Studio website · Key art",
     kind: "Client project",
+    keywords: ["movie poster design", "key art design", "film poster website"],
     blurb:
       "A movie-poster studio site: services, a portfolio grid, a four-step process, and an FAQ for filmmakers.",
     summary:
       "Drix Agency is a cinematic movie poster and key art studio. The site leads with the offer, then services (concept, photo manipulation, title treatments, campaign adaptations), a selected portfolio, the path from brief to files, and the questions filmmakers ask before they start.",
-    image: "/assets/images/portfolio/cases/drix-agency.jpg",
+    image: "/assets/images/portfolio/cases/drix-agency-premium.jpg",
     liveUrl: "https://drix.agency/",
     relatedAnswer: "landing-page-or-web-app",
     problem:
@@ -75,11 +76,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "ai-agents",
     category: "AI agent · Signed-in product",
     kind: "Client project",
+    keywords: ["AI calling agent", "voice AI web application", "secure AI agent login"],
     blurb:
       "A signed-in product for an AI calling agent. The public URL opens on login, so private call data stays private.",
     summary:
       "AI Calling Agent is a product console. The public address opens on a sign-in screen. This case describes that entry point. Scripts, recordings, and account data are behind login and are not published here.",
-    image: "/assets/images/portfolio/cases/ai-calling-agent.jpg",
+    image: "/assets/images/portfolio/cases/ai-calling-agent-realistic.jpg",
     liveUrl: "https://ai-calling-agent-frontend.onrender.com/login",
     relatedAnswer: "what-an-ai-receptionist-can-and-cannot-do",
     problem:
@@ -132,11 +134,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "SaaS website · Employee advocacy",
     kind: "Client project",
+    keywords: ["employee advocacy platform", "social media management software", "team content distribution"],
     blurb:
       "A product site for creating a social post once and distributing it through a team's connected accounts.",
     summary:
       "PostAutoPilot is social media management and team content distribution. The site explains creating a post once, adapting it, and publishing through business accounts and connected employee accounts, with AutoPilot and Co-Pilot as the two ways a post goes out.",
-    image: "/assets/images/portfolio/cases/postautopilot.jpg",
+    image: "/assets/images/portfolio/cases/postautopilot-premium.jpg",
     liveUrl: "https://www.postautopilot.com/",
     relatedAnswer: "landing-page-or-web-app",
     problem:
@@ -193,11 +196,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "Nonprofit website · Adaptive sports",
     kind: "Client project",
+    keywords: ["adaptive sports nonprofit", "inclusive youth sports", "adaptive sports scholarships"],
     blurb:
       "A nonprofit site for adaptive sports: programs, events, scholarships, and a donation path.",
     summary:
       "Able Athletics is a nonprofit site about education and adaptive sports for youth who need accommodations. A visitor can read the mission, see upcoming events, apply for a scholarship, and donate.",
-    image: "/assets/images/portfolio/cases/able-athletics.jpg",
+    image: "/assets/images/portfolio/cases/able-athletics-realistic.jpg",
     liveUrl: "https://ableathletics.org/",
     relatedAnswer: "landing-page-or-web-app",
     problem:
@@ -251,11 +255,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "Education website · Vancouver",
     kind: "Client project",
+    keywords: ["English courses Vancouver", "international business programs", "university pathways Canada"],
     blurb:
       "A college site for English and international business programs in downtown Vancouver, with a brochure download.",
     summary:
       "VGC International College is in downtown Vancouver. The site presents English programs, business certificates, diplomas and co-op, and university pathways, plus a brochure download and two campus addresses.",
-    image: "/assets/images/portfolio/cases/vgc-college.jpg",
+    image: "/assets/images/portfolio/cases/vgc-college-realistic.jpg",
     liveUrl: "https://vgc.ca/",
     relatedAnswer: "landing-page-or-web-app",
     problem:
@@ -309,11 +314,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "Financial services website",
     kind: "Client project",
+    keywords: ["financial services website", "wealth management", "investment banking"],
     blurb:
       "A services site for a California broker-dealer: wealth, banking, retirement, and a consultation form.",
     summary:
       "Finjet Capital's public site presents wealth management, investment banking, real estate, institutional trading, retirement planning, stocks, fixed income, and a consultation form. The office address and support email are on the page.",
-    image: "/assets/images/portfolio/cases/finjet-capital.jpg",
+    image: "/assets/images/portfolio/cases/finjet-capital-realistic.jpg",
     liveUrl: "https://finjetcapital.com/",
     relatedAnswer: "landing-page-or-web-app",
     problem:
@@ -367,11 +373,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "Client portal · Attendance and production",
     kind: "Client project",
+    keywords: ["production team portal", "attendance portal", "private client portal"],
     blurb:
       "A sign-in portal for The Wiki Studio covering attendance, production, and the team.",
     summary:
       "The Wiki Studio portal is a signed-in tool. The public page is the sign-in, labelled for attendance, production, and the team. Day-to-day records stay behind that login.",
-    image: "/assets/images/portfolio/cases/wiki-studio-portal.jpg",
+    image: "/assets/images/portfolio/cases/wiki-studio-portal-realistic.jpg",
     liveUrl: "http://portal.thewikistudio.com/",
     relatedAnswer: "landing-page-or-web-app",
     problem:
@@ -418,11 +425,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "Campaign product · The Wiki Studio",
     kind: "Client project",
+    keywords: ["SendPilot", "campaign product", "The Wiki Studio campaigns"],
     blurb:
       "SendPilot, the campaigns product on The Wiki Studio's campaigns subdomain.",
     summary:
       "campaigns.thewikistudio.com presents SendPilot, The Wiki Studio's campaign product. It is the public companion to the studio's signed-in portal. A plain fetch of the page exposes the product name and little else, so this case does not invent a feature list.",
-    image: "/assets/images/portfolio/cases/wiki-studio-campaigns.jpg",
+    image: "/assets/images/portfolio/cases/wiki-studio-campaigns-realistic.jpg",
     liveUrl: "https://campaigns.thewikistudio.com/",
     relatedAnswer: "landing-page-or-web-app",
     problem:
@@ -469,11 +477,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "Booking website · Paris chauffeur",
     kind: "Client project",
+    keywords: ["chauffeur privé Paris", "Paris airport transfer", "luxury VTC booking"],
     blurb:
       "A French booking site for a Paris chauffeur: vehicle classes, an instant fare, airport transfer, and an FAQ.",
     summary:
       "JW Prestige is a private chauffeur service in Paris. The site, in French, offers an instant fare, Mercedes vehicle classes with starting prices, airport and station transfers, hourly hire, and an FAQ on booking and cost.",
-    image: "/assets/images/portfolio/cases/jw-prestige.jpg",
+    image: "/assets/images/portfolio/cases/jw-prestige-premium.jpg",
     liveUrl: "https://jwprivatecar.com/",
     relatedAnswer: "landing-page-or-web-app",
     problem:
@@ -528,11 +537,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "Actor portfolio",
     kind: "Client project",
+    keywords: ["Aaron Christian Paderewski", "actor portfolio website", "film actor credits"],
     blurb:
       "An actor portfolio for Aaron Christian Paderewski, with film projects and a contact email.",
     summary:
       "aaronpaderewski.com is an actor portfolio. The public page names Aaron Christian Paderewski and points at film projects including Red Right Hand, The Inspectors, and Halloween, with a contact email.",
-    image: "/assets/images/portfolio/cases/aaron-paderewski.jpg",
+    image: "/assets/images/portfolio/cases/aaron-paderewski-realistic.jpg",
     liveUrl: "https://aaronpaderewski.com/",
     relatedAnswer: "landing-page-or-web-app",
     problem:
@@ -579,11 +589,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "Local service website · Movers",
     kind: "Client project",
+    keywords: ["movers Surrey BC", "Lower Mainland moving company", "junk removal Surrey"],
     blurb:
       "A movers site for Surrey and the Lower Mainland: moving, junk removal, packing, cleaning, and a quote.",
     summary:
       "Make A Move Ltd is a moving company in Surrey, British Columbia. The site covers residential and commercial moving, junk removal, packing, cleaning, and storage, and asks the visitor to request a quote.",
-    image: "/assets/images/portfolio/cases/make-a-move.jpg",
+    image: "/assets/images/portfolio/cases/make-a-move-realistic.jpg",
     liveUrl: "https://makeamoveltd.com/",
     relatedAnswer: "do-i-need-automation-or-a-better-form",
     problem:
@@ -634,11 +645,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "Auto transport website · United States",
     kind: "Client project",
+    keywords: ["enclosed auto transport", "door-to-door car shipping", "classic car transport USA"],
     blurb:
       "An enclosed auto transport site: quote steps, door-to-door and terminal options, and a phone path.",
     summary:
       "Signal Auto Movers is an enclosed car shipping company in the United States. The site explains enclosed and open transport, door-to-door and terminal-to-terminal, and the steps from quote to dispatch. The phone number is on the page.",
-    image: "/assets/images/portfolio/cases/signal-auto-movers.jpg",
+    image: "/assets/images/portfolio/cases/signal-auto-movers-realistic.jpg",
     liveUrl: "https://signalmovers.com/",
     relatedAnswer: "landing-page-or-web-app",
     problem:
@@ -689,11 +701,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "Freight website · Florida to Jamaica",
     kind: "Client project",
+    keywords: ["Florida to Jamaica shipping", "package forwarding Jamaica", "air and sea freight Jamaica"],
     blurb:
       "A freight-forwarding site: a Florida delivery address, air and sea to Jamaica, tracking, and a quote form.",
     summary:
       "iIcon Shipping gives shoppers a Florida delivery address and forwards packages to Jamaica by air or sea. The site explains signup, shopping to that address, forwarding, tracking, invoice upload, and a quote form.",
-    image: "/assets/images/portfolio/cases/iicon-shipping.jpg",
+    image: "/assets/images/portfolio/cases/iicon-shipping-realistic.jpg",
     liveUrl: "https://iiconshipping.com/",
     relatedAnswer: "landing-page-or-web-app",
     problem:
@@ -748,11 +761,12 @@ export const CLIENT_WORK: Project[] = [
     gigSlug: "web-mobile",
     category: "Entertainer website · Live shows",
     kind: "Client project",
+    keywords: ["Michael Minor Entertainment", "ventriloquist shows", "live entertainment booking"],
     blurb:
       "A show site for a singer, actor, and ventriloquist: clips, characters, and a booking contact.",
     summary:
       "Michael Minor Entertainment books live shows built from singing, ventriloquism, and comedy. The site presents featured shows, clips, and characters including Screetch, Grandpa, Clarence the Moose, and Guido the Rat, with an email and phone for bookings.",
-    image: "/assets/images/portfolio/cases/michael-minor.jpg",
+    image: "/assets/images/portfolio/cases/michael-minor-realistic.jpg",
     liveUrl: "https://michaelminor.com/",
     relatedAnswer: "landing-page-or-web-app",
     problem:

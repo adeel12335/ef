@@ -7,6 +7,14 @@ import GigCard from "@/components/gigs/GigCard";
 import StructuredData from "@/components/seo/StructuredData";
 import { FAQS } from "@/lib/faq";
 import { GIGS, PRICE_FROM, PRICE_TO } from "@/lib/gigs";
+import { projectBySlug } from "@/lib/projects";
+import workStyles from "./home-work.module.css";
+
+const FEATURED_PROJECTS = ["drix-agency", "postautopilot", "jw-prestige"].map((slug) => {
+  const project = projectBySlug(slug);
+  if (!project) throw new Error(`Missing featured project: ${slug}`);
+  return project;
+});
 
 export default function HomePage() {
   return (
@@ -177,170 +185,60 @@ export default function HomePage() {
 
 
 
-          <section className="wpr-project-area mb--16">
+          <section className={workStyles.section} aria-labelledby="featured-work-title">
               <div className="container">
-                  <div className="section-inner border-1">
-                      <div className="space"></div>
-                      <div className="floating-content">
-                          <div className="section-title-area center-style">
-                              <p className="sub-title bg-white">SELECTED WORK</p>
-                              <h2 className="section-title second-font font-semi-bold text-normal">Client sites and the <br />
-                                  <span>builds that <span><img src="/assets/images/portfolio/sm.webp" width="147" alt="" /></span>
-                                  show the</span> <br /> work
+                  <div className={workStyles.shell}>
+                      <div className={workStyles.header}>
+                          <div>
+                              <p className={workStyles.eyebrow}>Selected client work · 03</p>
+                              <h2 id="featured-work-title" className={workStyles.title}>
+                                  Three businesses. Three different jobs.
                               </h2>
-                              {/* The work index itself had no link from any page body. */}
-                              <p className="gig-answer"><Link href="/work">See all client sites and concept builds<span aria-hidden="true"> →</span></Link></p>
-                              <p className="desc">Three of the live sites are below. The full set, plus the labelled concept builds, is on the work page. No client revenue or review is claimed.</p>
+                          </div>
+                          <div>
+                              <p className={workStyles.intro}>
+                                  A film needs an image. A team needs distribution. A passenger
+                                  needs a flawless arrival. Each site is shaped around that real job.
+                              </p>
+                              <Link className={workStyles.allWork} href="/work">
+                                  Explore all 17 projects <span aria-hidden="true">→</span>
+                              </Link>
                           </div>
                       </div>
-                      <div className="wpr-video-pin">
-                          <div className="wpr-video-wrapper">
-                              <div className="swiper project-slider">
-                                  <div className="swiper-wrapper">
-                                      <div className="swiper-slide">
-                                          <div className="slide feature-project">
-                                              <div className="image-area">
-                                                  <img src="/assets/images/portfolio/cases/drix-agency.jpg" alt="Drix Agency — movie poster and key art studio website" className="video-img" />
-                                                  <img src="/assets/images/portfolio/shape-top-left.svg" alt="" className="shape top-left-shape" />
-                                                  <img src="/assets/images/portfolio/shape-top-right.svg" alt="" className="shape top-right-shape" />
-                                              </div>
-                                              <div className="slide-content">
-                                                  <div className="product-intro">
-                                                      <div className="top">
-                                                          <h2 className="h3 title"><Link href="/work/drix-agency">Drix Agency</Link>
-                                                          </h2>
-                                                          <p className="desc">A movie poster and key art studio site: services, a portfolio, a four-step process, and an FAQ that ends on one enquiry.</p>
-                                                      </div>
-                                                      <div className="bottom">
-                                                          <ul>
-                                                              <li>
-                                                                  <h3 className="h5">Key art</h3>
-                                                                  <p>Studio services</p>
-                                                              </li>
-                                                              <li>
-                                                                  <h3 className="h5">Portfolio</h3>
-                                                                  <p>Selected posters</p>
-                                                              </li>
-                                                              <li>
-                                                                  <h3 className="h5">One enquiry</h3>
-                                                                  <p>Next step</p>
-                                                              </li>
-                                                          </ul>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div className="hover_mouse">
-                                                  <div className="box"></div>
-                                                  <Link href="/work/drix-agency">
-                                                      View project
-                                                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                          <path d="M18 0V13.4751H16.5083V2.53591L1.0442 18L0 16.9061L15.4144 1.49171H4.47514V0H18Z" fill="#98FF03" />
-                                                      </svg>
-                                                  </Link>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div className="swiper-slide">
-                                          <div className="slide feature-project">
-                                              <div className="image-area">
-                                                  <img src="/assets/images/portfolio/cases/postautopilot.jpg" alt="PostAutoPilot — social posts distributed through a team's accounts" className="video-img" />
-                                                  <img src="/assets/images/portfolio/shape-top-left.svg" alt="" className="shape top-left-shape" />
-                                                  <img src="/assets/images/portfolio/shape-top-right.svg" alt="" className="shape top-right-shape" />
-                                              </div>
-                                              <div className="slide-content">
-                                                  <div className="product-intro">
-                                                      <div className="top">
-                                                          <h3 className="title"><Link href="/work/postautopilot">PostAutoPilot</Link>
-                                                          </h3>
-                                                          <p className="desc">A product site for writing a social post once, adapting it, and publishing through a business account or a teammate&apos;s connected account.</p>
-                                                      </div>
-                                                      <div className="bottom">
-                                                          <ul>
-                                                              <li>
-                                                                  <h3 className="h5">One post</h3>
-                                                                  <p>Created once</p>
-                                                              </li>
-                                                              <li>
-                                                                  <h3 className="h5">Team accounts</h3>
-                                                                  <p>Distribution</p>
-                                                              </li>
-                                                              <li>
-                                                                  <h3 className="h5">Approval</h3>
-                                                                  <p>Where it is required</p>
-                                                              </li>
-                                                          </ul>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div className="hover_mouse">
-                                                  <div className="box"></div>
-                                                  <Link href="/work/postautopilot">
-                                                      View project
-                                                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                          <path d="M18 0V13.4751H16.5083V2.53591L1.0442 18L0 16.9061L15.4144 1.49171H4.47514V0H18Z" fill="#98FF03" />
-                                                      </svg>
-                                                  </Link>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div className="swiper-slide">
-                                          <div className="slide feature-project">
-                                              <div className="image-area">
-                                                  <img src="/assets/images/portfolio/cases/jw-prestige.jpg" alt="JW Prestige — Paris chauffeur booking site" className="video-img" />
-                                                  <img src="/assets/images/portfolio/shape-top-left.svg" alt="" className="shape top-left-shape" />
-                                                  <img src="/assets/images/portfolio/shape-top-right.svg" alt="" className="shape top-right-shape" />
-                                              </div>
-                                              <div className="slide-content">
-                                                  <div className="product-intro">
-                                                      <div className="top">
-                                                          <h3 className="title"><Link href="/work/jw-prestige">JW Prestige</Link></h3>
-                                                          <p className="desc">A French booking site for a Paris chauffeur: an instant fare, Mercedes classes, airport transfer, and an FAQ.</p>
-                                                      </div>
-                                                      <div className="bottom">
-                                                          <ul>
-                                                              <li>
-                                                                  <h3 className="h5">Instant fare</h3>
-                                                                  <p>First action</p>
-                                                              </li>
-                                                              <li>
-                                                                  <h3 className="h5">Vehicle classes</h3>
-                                                                  <p>Mercedes fleet</p>
-                                                              </li>
-                                                              <li>
-                                                                  <h3 className="h5">French</h3>
-                                                                  <p>Paris chauffeur search</p>
-                                                              </li>
-                                                          </ul>
-                                                      </div>
-                                                  </div>
 
-                                              </div>
-                                              <div className="hover_mouse">
-                                                  <div className="box"></div>
-                                                  <Link href="/work/jw-prestige">
-                                                      View project
-                                                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                          <path d="M18 0V13.4751H16.5083V2.53591L1.0442 18L0 16.9061L15.4144 1.49171H4.47514V0H18Z" fill="#98FF03" />
-                                                      </svg>
-                                                  </Link>
-                                              </div>
-                                          </div>
+                      <div className={workStyles.grid}>
+                          {FEATURED_PROJECTS.map((project, index) => (
+                              <article className={workStyles.card} key={project.slug}>
+                                  <Link
+                                      className={workStyles.imageLink}
+                                      href={`/work/${project.slug}`}
+                                      aria-label={`Read the ${project.name} case study`}
+                                  >
+                                      <img
+                                          className={workStyles.image}
+                                          src={project.image}
+                                          alt=""
+                                          decoding="async"
+                                      />
+                                      <span className={workStyles.imageLabel}>Editorial cover</span>
+                                  </Link>
+                                  <div className={workStyles.body}>
+                                      <div className={workStyles.meta}>
+                                          <span className={workStyles.number}>
+                                              {String(index + 1).padStart(2, "0")}
+                                          </span>
+                                          <span>{project.category}</span>
                                       </div>
+                                      <h3 className={workStyles.cardTitle}>
+                                          <Link href={`/work/${project.slug}`}>{project.name}</Link>
+                                      </h3>
+                                      <p className={workStyles.description}>{project.blurb}</p>
+                                      <Link className={workStyles.caseLink} href={`/work/${project.slug}`}>
+                                          Read case study
+                                      </Link>
                                   </div>
-                                  <div className="swiper-navigation">
-                                      <div className="swiper-btn slider-prev">
-                                          <svg width="17" height="30" viewBox="0 0 17 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                              <path d="M14.6094 0L0.859375 13.75L0 14.6484L0.859375 15.5469L14.6094 29.2969L16.4062 27.5L3.55469 14.6484L16.4062 1.79688L14.6094 0Z" fill="#F9FAFB" />
-                                          </svg>
-                                      </div>
-                                      <div className="swiper-btn slider-next">
-                                          <svg width="17" height="30" viewBox="0 0 17 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                              <path d="M1.79688 0L0 1.79688L12.8516 14.6484L0 27.5L1.79688 29.2969L15.5469 15.5469L16.4062 14.6484L15.5469 13.75L1.79688 0Z" fill="#F9FAFB" />
-                                          </svg>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+                              </article>
+                          ))}
                       </div>
                   </div>
               </div>
