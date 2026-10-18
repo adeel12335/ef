@@ -1040,35 +1040,43 @@ select:focus-visible,
   counter-reset: efstep;
 }
 
+/* Markers are positioned rather than laid out as grid/flex items. A list item
+   containing mixed inline content — "<strong>Label.</strong> then text" —
+   turns each text run into its own grid item, which shredded the copy into a
+   narrow column. Padding plus an absolute marker handles any content. */
 .ef-prose ol li {
-  display: grid;
-  grid-template-columns: 30px minmax(0, 1fr);
-  gap: 14px;
+  position: relative;
+  padding-left: 44px;
   color: var(--color-body-1);
+  line-height: 1.7;
 }
 
 .ef-prose ol li::before {
   counter-increment: efstep;
   content: counter(efstep, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.15em;
   font-size: 13px;
   font-weight: 700;
   color: var(--color-title);
-  padding-top: 0.25em;
 }
 
 .ef-prose ul li {
-  display: grid;
-  grid-template-columns: 14px minmax(0, 1fr);
-  gap: 12px;
+  position: relative;
+  padding-left: 26px;
   color: var(--color-body-1);
+  line-height: 1.7;
 }
 
 .ef-prose ul li::before {
   content: "";
+  position: absolute;
+  left: 0;
+  top: 0.78em;
   width: 9px;
   height: 2px;
   background: var(--color-primary);
-  margin-top: 0.75em;
 }
 
 .ef-note {
@@ -1263,4 +1271,72 @@ ul.ef-highlights {
   .ef-answer__text {
     font-size: 17px;
   }
+}
+
+/* ---------- legal pages ---------- */
+
+.ef-legal {
+  max-width: 76ch;
+}
+
+.ef-legal section {
+  padding-bottom: 6px;
+}
+
+.ef-legal ul li strong {
+  color: var(--color-title);
+  font-weight: 700;
+}
+
+.ef-legal code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  background: var(--color-bg-1);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+.ef-legal a {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ef-legal a:hover {
+  border-bottom-color: var(--color-title);
+}
+
+/* Unresolved decisions are marked so they cannot be published unnoticed. */
+.ef-legal-todo {
+  border-left: 3px solid #d9822b;
+  background: #fdf5ec;
+  padding: 14px 18px;
+  border-radius: 0 10px 10px 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6b4517;
+}
+
+.ef-legal-todo strong {
+  color: #8a5212;
+}
+
+/* Footer legal row */
+.ef-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 14px;
+}
+
+.ef-legal-links a {
+  color: inherit;
+  opacity: 0.85;
+}
+
+.ef-legal-links a:hover {
+  opacity: 1;
+  color: var(--color-primary);
 }

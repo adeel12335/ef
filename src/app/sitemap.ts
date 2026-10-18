@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { GIGS } from "@/lib/gigs";
 import { ANSWERS } from "@/lib/answers";
+import { LEGAL_PAGES } from "@/lib/legal";
 import { PROJECTS } from "@/lib/projects";
 import { SITE_URL } from "@/lib/seo";
 
@@ -40,6 +41,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(a.updated),
       changeFrequency: "monthly" as const,
       priority: 0.75,
+    })),
+    // Legal pages: indexable as trust signals, but low priority.
+    ...LEGAL_PAGES.map((p) => ({
+      url: `${SITE_URL}/${p.slug}`,
+      lastModified: now,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
     })),
     ...PROJECTS.map((p) => ({
       url: `${SITE_URL}/work/${p.slug}`,

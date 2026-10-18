@@ -1,3 +1,4 @@
+import { LEGAL_PAGES } from "@/lib/legal";
 import { socials } from "@/lib/person";
 
 export default function Footer() {
@@ -46,6 +47,13 @@ export default function Footer() {
                                   <li><a href="/contact">Start a project</a></li>
                               </ul>
                           </div>
+                          <ul className="ef-legal-links">
+                              {LEGAL_PAGES.map((page) => (
+                                  <li key={page.slug}>
+                                      <a href={`/${page.slug}`}>{page.nav}</a>
+                                  </li>
+                              ))}
+                          </ul>
                           <p className="copyright">
                               © {new Date().getFullYear()} Emerging Freelancer. All rights reserved
                           </p>
