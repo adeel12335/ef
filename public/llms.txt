@@ -91,10 +91,23 @@ individually and quoted in writing. No day rates or retainers are published.
 ## Pages
 
 - [Home](https://emergingfreelancer.com/): services, gigs and pricing, process, FAQ
-- [Services](https://emergingfreelancer.com/service): the four service areas in detail
+- [Services](https://emergingfreelancer.com/service): the four gigs at a glance
 - [Work](https://emergingfreelancer.com/work): concept builds demonstrating the approach
 - [About](https://emergingfreelancer.com/about): how I work and what to expect
 - [Contact](https://emergingfreelancer.com/contact): enquiry form
+
+### Gig pages — each carries its three packages and prices
+
+- [AI Agents & Voice Assistants](https://emergingfreelancer.com/service/ai-agents) — from $150
+- [Workflow Automation](https://emergingfreelancer.com/service/workflow-automation) — from $120
+- [Websites & Mobile Apps](https://emergingfreelancer.com/service/web-mobile) — from $180
+- [Salesforce & AWS](https://emergingfreelancer.com/service/salesforce-aws) — from $150
+
+### Concept builds
+
+- [Front Desk AI](https://emergingfreelancer.com/work/front-desk-ai) — AI receptionist, demonstrates the AI agents gig
+- [Lead Relay](https://emergingfreelancer.com/work/lead-relay) — lead intake pipeline, demonstrates the automation gig
+- [Clear Path](https://emergingfreelancer.com/work/clear-path) — business site with one clear action, demonstrates the web gig
 
 ## Notes for accurate citation
 

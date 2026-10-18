@@ -1,6 +1,6 @@
+import ProjectEnquiry from "@/components/contact/ProjectEnquiry";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import ServiceSchema from "@/components/seo/ServiceSchema";
-import GigPackages from "@/components/gigs/GigPackages";
 import { SERVICE_FAQS } from "@/lib/faq";
 import { GIGS, PRICE_FROM, PRICE_TO } from "@/lib/gigs";
 import { pageMeta } from "@/lib/seo";
@@ -67,7 +67,7 @@ export default function ServicePage() {
                                                   <li key={h}>{h}</li>
                                               ))}
                                           </ul>
-                                          <a href={`#${gig.slug}`} className="service-btn-area" aria-label={`See ${gig.name} packages`}>
+                                          <a href={`/service/${gig.slug}`} className="service-btn-area" aria-label={`See ${gig.name} packages`}>
                                               <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                   <path d="M1.07812 0L0 1.07812L7.71094 8.78906L0 16.5L1.07812 17.5781L9.32812 9.32812L9.84375 8.78906L9.32812 8.25L1.07812 0Z" fill="black" />
                                               </svg>
@@ -255,11 +255,7 @@ export default function ServicePage() {
 
 
 
-          {/* One section per gig, each with its three packages. Anchored on the
-              gig slug so the home page cards link straight here. */}
-          {GIGS.map((gig) => (
-              <GigPackages key={gig.slug} gig={gig} />
-          ))}
+          
 
 
 
@@ -302,62 +298,8 @@ export default function ServicePage() {
 
 
 
-          <section id="contact" className="wpr-contact-area mb--16">
-              <div className="container">
-                  <div className="section-inner">
-                      <div className="left-content-area">
-                          <div className="get-in-touch">
-                              <p className="sub-title">CONTACT</p>
-                              <ul>
-                                  {/* TODO(content): add a real, monitored address and it shows here.
-                                      Until then the form is the only route — nothing invented. */}
-                                  <li><a href="/contact">Send an enquiry</a></li>
-                              </ul>
-                          </div>
-                          <div className="location-area">
-                              <p className="sub-title">WHERE I WORK</p>
-                              <ul>
-                                  <li>
-                                      <h2 className="h4">Remote</h2>
-                                      <p>Based in Pakistan, working with <br /> businesses worldwide — calls <br /> scheduled to suit your hours.</p>
-                                  </li>
-                                  <li>
-                                      <h2 className="h4">Response</h2>
-                                      <p>I read every enquiry myself <br /> and reply to the address <br /> you give, usually within a business day.</p>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                      <div className="contact-form-area">
-                          <form id="contact-form" action="/api/contact" method="POST" encType="multipart/form-data">
-                              <div className="single-input">
-                                  <label htmlFor="name">/YOUR NAME</label>
-                                  <input type="text" id="name" name="name" placeholder="Enter your full name" />
-                              </div>
-                              <div className="single-input">
-                                  <label htmlFor="email">/YOUR E-MAIL</label>
-                                  <input type="email" id="email" name="email" placeholder="Enter your e-mail" />
-                              </div>
-                              <div className="single-input">
-                                  <label htmlFor="message">/MORE ABOUT THE PROJECT</label>
-                                  <textarea id="message" name="message" placeholder="Leave us message" required></textarea>
-                              </div>
-                              <div className="single-input last">
-                                  <label htmlFor="upload-attachment">
-                                      <i className="fa-sharp-duotone fa-light fa-paperclip"></i> Add an Attachment
-                                      <input type="file" name="file" id="upload-attachment" />
-                                  </label>
-                              </div>
-                              <div className="form-btn-area">
-                                  <button type="submit" className="wpr-btn">Submit Message</button>
-                              </div>
-                              <div id="form-messages"></div>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-          </section>
-      <ServiceSchema />
+          <ProjectEnquiry />
+<ServiceSchema />
     </>
   );
 }

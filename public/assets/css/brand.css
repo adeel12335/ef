@@ -725,6 +725,22 @@ select:focus-visible,
   padding: 64px 0 40px;
 }
 
+/* The detail pages reuse these shells but their headings are left-aligned
+   prose, so they need the horizontal inset the template gives .about. */
+.wpr-project-area.inner .section-top-area,
+.wpr-services-area.inner .section-top-area,
+.wpr-next-project-area .section-top-area {
+  padding: 56px 56px 32px;
+}
+
+@media (max-width: 767px) {
+  .wpr-project-area.inner .section-top-area,
+  .wpr-services-area.inner .section-top-area,
+  .wpr-next-project-area .section-top-area {
+    padding: 40px 24px 24px;
+  }
+}
+
 .wpr-about-area .section-inner .section-top-area {
   padding: 64px 56px 48px;
 }
@@ -815,10 +831,15 @@ select:focus-visible,
    The template fixes the hero at 800px with 172px of top padding, sized for a
    two-line headline. The headline is one line now, so most of that was empty. */
 
-.wpr-banner-area .banner-content-area {
+.wpr-banner-area:not(.breadcrumb) .banner-content-area {
   height: auto;
   min-height: 560px;
   padding: 96px 0 72px;
+}
+
+/* Inner pages: title and standfirst only, so they need far less room. */
+.wpr-banner-area.breadcrumb .banner-content-area {
+  padding: 64px 0 56px;
 }
 
 .wpr-banner-area .banner-content-area .text-area {
@@ -826,9 +847,13 @@ select:focus-visible,
 }
 
 @media (max-width: 991px) {
-  .wpr-banner-area .banner-content-area {
+  .wpr-banner-area:not(.breadcrumb) .banner-content-area {
     min-height: 0;
     padding: 56px 0 48px;
+  }
+
+  .wpr-banner-area.breadcrumb .banner-content-area {
+    padding: 44px 0 36px;
   }
 }
 
@@ -877,4 +902,315 @@ select:focus-visible,
   max-height: 210px;
   width: 100%;
   object-fit: cover;
+}
+
+/* =========================================================================
+   Detail pages (/service/[slug] and /work/[slug])
+
+   These reuse the theme's section shells; only the inner blocks are new, and
+   they are kept deliberately plain so they inherit the page's type and rules.
+   ========================================================================= */
+
+.ef-detail {
+  display: grid;
+  gap: 40px;
+  padding: 0 56px 56px;
+}
+
+@media (min-width: 992px) {
+  .ef-detail {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 56px;
+    align-items: start;
+  }
+}
+
+.ef-detail__media {
+  margin: 0;
+}
+
+.ef-detail__media img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+}
+
+.ef-detail__media figcaption {
+  margin-top: 12px;
+  font-size: 0.8125rem;
+  color: var(--color-body-1);
+}
+
+.ef-facts {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.ef-facts > div {
+  display: grid;
+  gap: 4px;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 560px) {
+  .ef-facts > div {
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 18px;
+    align-items: baseline;
+  }
+}
+
+.ef-facts dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-body-1);
+}
+
+.ef-facts dd {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.ef-inline-link {
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ef-inline-link:hover {
+  border-bottom-color: var(--color-title);
+}
+
+/* ---------- prose ---------- */
+
+.ef-prose {
+  max-width: 68ch;
+  padding: 0 56px 72px;
+  display: grid;
+  gap: 16px;
+}
+
+/* The theme uppercases and shrinks bare h3s, which made these read as labels
+   rather than section headings. */
+.ef-prose h3,
+.ef-detail + .ef-prose h3 {
+  margin-top: 22px;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--color-title);
+  font-family: var(--font-secondary);
+}
+
+/* The problem statement is the page's opening paragraph, not a caption. */
+.wpr-project-area.inner .section-top-area .gig-answer,
+.wpr-services-area.inner .section-top-area .gig-answer {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  max-width: 68ch;
+}
+
+.ef-prose p {
+  color: var(--color-body-1);
+  line-height: 1.7;
+}
+
+.ef-prose ul,
+.ef-prose ol {
+  display: grid;
+  gap: 10px;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.ef-prose ol {
+  counter-reset: efstep;
+}
+
+.ef-prose ol li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 14px;
+  color: var(--color-body-1);
+}
+
+.ef-prose ol li::before {
+  counter-increment: efstep;
+  content: counter(efstep, decimal-leading-zero);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-title);
+  padding-top: 0.25em;
+}
+
+.ef-prose ul li {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr);
+  gap: 12px;
+  color: var(--color-body-1);
+}
+
+.ef-prose ul li::before {
+  content: "";
+  width: 9px;
+  height: 2px;
+  background: var(--color-primary);
+  margin-top: 0.75em;
+}
+
+.ef-note {
+  border-left: 2px solid var(--color-primary);
+  padding: 6px 0 6px 16px;
+  font-size: 0.9375rem;
+  color: var(--color-body-1);
+}
+
+/* ---------- highlights ---------- */
+
+/* The theme zeroes list padding with `padding: 0 !important`, so matching it
+   is the only way to inset this list. Everywhere else `ul` padding is meant to
+   be zero, which is why this is the one place that needs it. */
+ul.ef-highlights {
+  display: grid;
+  gap: 14px;
+  padding: 0 56px 64px !important;
+  margin: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .ef-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 48px;
+  }
+}
+
+.ef-highlights li {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+.ef-highlights li img {
+  margin-top: 3px;
+}
+
+/* ---------- "other things" list ---------- */
+
+.ef-next-list {
+  display: grid;
+  margin: 0 56px;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.ef-next-list li {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ef-next-list a {
+  display: grid;
+  gap: 5px;
+  padding-block: 22px;
+  transition: padding-inline-start var(--transition);
+}
+
+.ef-next-list a:hover {
+  padding-inline-start: 10px;
+}
+
+.ef-next-list__cat {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-body-1);
+}
+
+.ef-next-list__name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.ef-next-list__name span {
+  transition: transform var(--transition);
+}
+
+.ef-next-list a:hover .ef-next-list__name span {
+  transform: translateX(5px);
+}
+
+.ef-next-list__blurb {
+  color: var(--color-body-1);
+  font-size: 1rem;
+  max-width: 62ch;
+}
+
+.ef-next-cta {
+  padding: 32px 56px 56px;
+}
+
+.ef-next-cta .wpr-btn {
+  display: inline-flex;
+}
+
+/* ---------- work card facts ---------- */
+
+.ef-work-facts li h4 {
+  font-size: 0.75rem !important;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-body-1);
+  margin-bottom: 4px;
+}
+
+.ef-work-facts li p {
+  font-size: 0.9375rem;
+  color: var(--color-title);
+}
+
+@media (max-width: 767px) {
+  .ef-detail,
+  .ef-prose {
+    padding-inline: 24px;
+  }
+
+  ul.ef-highlights {
+    padding: 0 24px 48px !important;
+  }
+
+  .ef-next-list {
+    margin-inline: 24px;
+  }
+
+  .ef-next-cta {
+    padding-inline: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ef-next-list a:hover {
+    padding-inline-start: 0;
+  }
+
+  .ef-next-list a:hover .ef-next-list__name span {
+    transform: none;
+  }
 }

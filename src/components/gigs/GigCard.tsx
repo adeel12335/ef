@@ -29,7 +29,7 @@ export default function GigCard({ gig, dark = false }: { gig: Gig; dark?: boolea
               <span>Starting from</span> ${gigFrom(gig)}
             </h4>
             <div className="button-area">
-              <a href={`/service#${gig.slug}`} className="wpr-btn btn-primary">
+              <a href={`/service/${gig.slug}`} className="wpr-btn btn-primary">
                 See the 3 packages
               </a>
             </div>
