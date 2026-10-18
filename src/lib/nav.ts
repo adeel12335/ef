@@ -9,36 +9,27 @@ export type NavItem = {
   children?: NavChild[];
 };
 
+/**
+ * Primary navigation.
+ *
+ * Flat on purpose. The template's dropdowns existed to show off its demo
+ * pages — "SERVICE DETAIL", "BLOG GRID 2", "WORK DETAIL" — which are layout
+ * samples, not destinations a client would pick from a menu. A six-item flat
+ * bar is also faster to use than three menus that each hold one real link.
+ *
+ * Ordered by what a visitor wants: what you do, what it costs, proof, who you
+ * are, how to start.
+ *
+ * TODO(content): BLOG is left out until there are real posts. The blog routes
+ * still exist and still carry the template's sample articles — add the entry
+ * back once they are replaced.
+ */
 export const NAV: NavItem[] = [
   { label: "HOME", href: "/" },
-  { label: "ABOUT", href: "/about" },
-  {
-    label: "SERVICES",
-    href: "/service",
-    children: [
-      { label: "ALL SERVICES", href: "/service" },
-      { label: "SERVICE DETAIL", href: "/service-details" },
-    ],
-  },
-  {
-    label: "WORKS",
-    href: "/work",
-    children: [
-      { label: "ALL WORK", href: "/work" },
-      { label: "WORK DETAIL", href: "/work-details" },
-    ],
-  },
-  {
-    label: "BLOG",
-    href: "/blog-standard",
-    children: [
-      { label: "BLOG STANDARD", href: "/blog-standard" },
-      { label: "BLOG GRID 2", href: "/blog-two-columns" },
-      { label: "BLOG GRID 3", href: "/blog-three-columns" },
-      { label: "BLOG SINGLE", href: "/blog-single" },
-    ],
-  },
+  { label: "SERVICES", href: "/service" },
   { label: "GIGS", href: "/#pricing" },
+  { label: "WORK", href: "/work" },
+  { label: "ABOUT", href: "/about" },
   { label: "CONTACT", href: "/contact" },
 ];
 
@@ -47,6 +38,8 @@ export function isActive(item: NavItem, pathname: string): boolean {
   if (item.children?.length) {
     return item.children.some((child) => child.href === pathname);
   }
+  // Anchor links belong to the home page.
+  if (item.href.startsWith("/#")) return false;
   return item.href === pathname;
 }
 

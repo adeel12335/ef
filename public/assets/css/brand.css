@@ -676,3 +676,205 @@ select:focus-visible,
     animation: none;
   }
 }
+
+/* =========================================================================
+   Density pass
+
+   The theme was built for an agency site with long scroll and big empty
+   bands. Trimmed here rather than in style.css so it stays one file to undo.
+   ========================================================================= */
+
+/* ---------- hero ----------
+
+   "AUTOMATIONS" needs 537px at 88px type and the right half is 552px, so at
+   the template's 120px it broke mid-word ("AUTOMATI / ONS"). At 88px every
+   rotating word fits on one line, which also drops the hero by roughly a
+   line-height. The vw term keeps that relationship as the column scales. */
+
+.wpr-banner-area .banner-content-area .section-title {
+  font-size: clamp(2.25rem, 6.1vw, 88px);
+}
+
+.wpr-banner-area .banner-content-area .section-title .text,
+.ef-rotate__word {
+  /* Never split a word across lines, whatever the width. */
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+/* One line now, so the slot no longer reserves two. */
+.ef-rotate {
+  min-height: 1.18em;
+}
+
+.wpr-banner-area .banner-content-area .section-title .left-area,
+.wpr-banner-area .banner-content-area .section-title .right-area {
+  padding: 22px 0;
+}
+
+.wpr-banner-area .banner-content-area {
+  padding-bottom: 24px;
+}
+
+/* ---------- section bands ---------- */
+
+.wpr-pricing-plans-area .section-inner .section-top-area,
+.wpr-services-area .section-top-area,
+.wpr-project-area .section-top-area {
+  padding: 64px 0 40px;
+}
+
+.wpr-about-area .section-inner .section-top-area {
+  padding: 64px 56px 48px;
+}
+
+.wpr-working-process .section-inner {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.wpr-cta-area .section-inner {
+  padding-top: 64px;
+  padding-bottom: 72px;
+}
+
+.wpr-faq-area .section-inner .section-content-area {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+/* ---------- footer ----------
+
+   The logo band was a 96px-tall stripe with the mark floating in it, and the
+   template's corner shapes sit at z-index 1 — above the logo — which is what
+   washed it out. */
+
+.wpr-footer-area .footer-logo-area {
+  padding: 56px 0;
+}
+
+.wpr-footer-area .footer-logo-area img {
+  width: min(460px, 62vw);
+  position: relative;
+  z-index: 2;
+}
+
+.wpr-footer-area .footer-logo-area .shape {
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.wpr-footer-area .footer-top {
+  padding: 32px 56px;
+}
+
+.wpr-footer-area .copyright-area {
+  padding: 20px 56px;
+}
+
+@media (max-width: 767px) {
+  .wpr-footer-area .footer-top,
+  .wpr-footer-area .copyright-area {
+    padding-inline: 24px;
+  }
+
+  .wpr-footer-area .footer-logo-area {
+    padding: 40px 0;
+  }
+}
+
+/* The footer nav used space-between across the full width, which stranded four
+   links in the corners with the dot separators adrift between them. Centred
+   with a real gap instead, so the dots read as separators. */
+.wpr-footer-area .footer-top ul {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+
+.wpr-footer-area .footer-top ul li.square-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--color-border);
+  flex: none;
+}
+
+@media (max-width: 575px) {
+  .wpr-footer-area .footer-top ul li.square-dot {
+    display: none;
+  }
+
+  .wpr-footer-area .footer-top ul {
+    gap: 12px 20px;
+  }
+}
+
+/* ---------- hero band ----------
+
+   The template fixes the hero at 800px with 172px of top padding, sized for a
+   two-line headline. The headline is one line now, so most of that was empty. */
+
+.wpr-banner-area .banner-content-area {
+  height: auto;
+  min-height: 560px;
+  padding: 96px 0 72px;
+}
+
+.wpr-banner-area .banner-content-area .text-area {
+  margin-top: 36px;
+}
+
+@media (max-width: 991px) {
+  .wpr-banner-area .banner-content-area {
+    min-height: 0;
+    padding: 56px 0 48px;
+  }
+}
+
+/* ---------- process steps ----------
+
+   Four full-height step images made this the tallest section on the page by a
+   wide margin. Capping the image and tightening the rows roughly halves it
+   without losing a step. */
+
+.wpr-working-process .image-area img {
+  max-height: 280px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.wpr-working-process .row {
+  --bs-gutter-y: 32px;
+}
+
+.wpr-working-process .right-content-area .content-area {
+  padding-block: 20px;
+}
+
+/* ---------- footer decoration ----------
+
+   The corner shapes were drawn around the template's own wordmark and now
+   read as stray light blocks behind the logo. */
+
+.wpr-footer-area .footer-logo-area .shape {
+  display: none;
+}
+
+/* The template puts a hardcoded 188px gap between the process heading and its
+   supporting text, sized for a much longer heading than ours — it rendered as
+   a dead band down the left column. The column is already sticky, so the three
+   pieces simply group together. */
+.wpr-working-process .working-process-left {
+  gap: 32px;
+  top: 120px;
+}
+
+/* Four full-bleed step illustrations stacked made this the tallest section on
+   the page; capping them keeps all four steps without the scroll. */
+.wpr-working-process .right-content-area .image-area img {
+  max-height: 210px;
+  width: 100%;
+  object-fit: cover;
+}
