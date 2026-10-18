@@ -1881,3 +1881,16 @@ ul.ef-highlights {
   color: var(--color-title);
   border-bottom-color: var(--color-title);
 }
+
+/* ---------- reveal-animation overflow ----------
+
+   The theme's entrance animations start elements off-screen to the right and
+   slide them in. Between 992px and the next breakpoint that briefly pushed a
+   horizontal scrollbar onto /service for the first few seconds of a visit.
+
+   `clip` rather than `hidden`: hidden would make the body a scroll container
+   and break the three position:sticky elements the site uses, where clip
+   leaves them pinned. */
+body.overflow-x-visible {
+  overflow-x: clip;
+}
