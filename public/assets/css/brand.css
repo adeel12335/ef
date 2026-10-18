@@ -1,3 +1,8 @@
+/* NOTE: this stylesheet uses px, not rem.
+   The Agenio theme sets html { font-size: 10px }, so 1rem is 10px here. Values
+   written against the usual 16px root render at ~62% of their intended size,
+   which is why everything below is absolute. */
+
 /* =========================================================================
    Emerging Freelancer — brand layer over the Agenio template.
 
@@ -263,7 +268,7 @@ body {
   margin: 10px auto 0;
   max-width: 52ch;
   color: #c3c8bc;
-  font-size: 1.0625rem;
+  font-size: 17px;
   line-height: 1.65;
   text-align: center;
 }
@@ -286,7 +291,7 @@ body {
 .wpr-cta-area .cta-link {
   color: var(--color-primary);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 16px;
   border-bottom: 1px solid transparent;
   transition: border-color var(--transition);
 }
@@ -371,7 +376,7 @@ body {
   width: 100%;
   line-height: 1.45;
   align-items: flex-start;
-  font-size: 0.9375rem;
+  font-size: 15px;
 }
 
 .section-mid-area > .pricing-inner:first-child:nth-last-child(4) .pricing-body ul li img,
@@ -622,7 +627,7 @@ select:focus-visible,
   max-width: 68ch;
   margin: 22px auto 0;
   text-align: center;
-  font-size: 1.0625rem;
+  font-size: 17px;
   line-height: 1.65;
   color: var(--color-body-1);
 }
@@ -692,7 +697,7 @@ select:focus-visible,
    line-height. The vw term keeps that relationship as the column scales. */
 
 .wpr-banner-area .banner-content-area .section-title {
-  font-size: clamp(2.25rem, 6.1vw, 88px);
+  font-size: clamp(36px, 6.1vw, 88px);
 }
 
 .wpr-banner-area .banner-content-area .section-title .text,
@@ -938,7 +943,7 @@ select:focus-visible,
 
 .ef-detail__media figcaption {
   margin-top: 12px;
-  font-size: 0.8125rem;
+  font-size: 13px;
   color: var(--color-body-1);
 }
 
@@ -965,7 +970,7 @@ select:focus-visible,
 }
 
 .ef-facts dt {
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -974,7 +979,7 @@ select:focus-visible,
 
 .ef-facts dd {
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: 15px;
 }
 
 .ef-inline-link {
@@ -1000,7 +1005,7 @@ select:focus-visible,
 .ef-prose h3,
 .ef-detail + .ef-prose h3 {
   margin-top: 22px;
-  font-size: 1.5rem;
+  font-size: 24px;
   line-height: 1.25;
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -1012,7 +1017,7 @@ select:focus-visible,
 /* The problem statement is the page's opening paragraph, not a caption. */
 .wpr-project-area.inner .section-top-area .gig-answer,
 .wpr-services-area.inner .section-top-area .gig-answer {
-  font-size: 1.0625rem;
+  font-size: 17px;
   line-height: 1.7;
   max-width: 68ch;
 }
@@ -1045,7 +1050,7 @@ select:focus-visible,
 .ef-prose ol li::before {
   counter-increment: efstep;
   content: counter(efstep, decimal-leading-zero);
-  font-size: 0.8125rem;
+  font-size: 13px;
   font-weight: 700;
   color: var(--color-title);
   padding-top: 0.25em;
@@ -1069,7 +1074,7 @@ select:focus-visible,
 .ef-note {
   border-left: 2px solid var(--color-primary);
   padding: 6px 0 6px 16px;
-  font-size: 0.9375rem;
+  font-size: 15px;
   color: var(--color-body-1);
 }
 
@@ -1098,7 +1103,7 @@ ul.ef-highlights {
   grid-template-columns: 20px minmax(0, 1fr);
   gap: 12px;
   align-items: start;
-  font-size: 1.0625rem;
+  font-size: 17px;
   line-height: 1.5;
 }
 
@@ -1132,7 +1137,7 @@ ul.ef-highlights {
 }
 
 .ef-next-list__cat {
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1143,7 +1148,7 @@ ul.ef-highlights {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
@@ -1158,7 +1163,7 @@ ul.ef-highlights {
 
 .ef-next-list__blurb {
   color: var(--color-body-1);
-  font-size: 1rem;
+  font-size: 16px;
   max-width: 62ch;
 }
 
@@ -1173,7 +1178,7 @@ ul.ef-highlights {
 /* ---------- work card facts ---------- */
 
 .ef-work-facts li h4 {
-  font-size: 0.75rem !important;
+  font-size: 12px !important;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1182,7 +1187,7 @@ ul.ef-highlights {
 }
 
 .ef-work-facts li p {
-  font-size: 0.9375rem;
+  font-size: 15px;
   color: var(--color-title);
 }
 
@@ -1212,5 +1217,50 @@ ul.ef-highlights {
 
   .ef-next-list a:hover .ef-next-list__name span {
     transform: none;
+  }
+}
+
+/* ---------- answer pages ----------
+
+   The short answer sits above the body so it is the first thing read, and the
+   first thing an assistant lifts. */
+
+.ef-answer {
+  margin: 0 56px 40px;
+  padding: 26px 30px;
+  background: var(--color-bg-1);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 12px 12px 0;
+}
+
+.ef-answer__label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-body-1);
+  margin-bottom: 10px;
+}
+
+.ef-answer__text {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--color-title);
+  max-width: 62ch;
+}
+
+.ef-prose > section {
+  display: grid;
+  gap: 16px;
+}
+
+@media (max-width: 767px) {
+  .ef-answer {
+    margin: 0 24px 32px;
+    padding: 20px 22px;
+  }
+
+  .ef-answer__text {
+    font-size: 17px;
   }
 }

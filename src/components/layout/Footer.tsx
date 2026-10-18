@@ -1,3 +1,5 @@
+import { socials } from "@/lib/person";
+
 export default function Footer() {
   return (
     <>
@@ -31,9 +33,16 @@ export default function Footer() {
                       <div className="copyright-area">
                           <div className="left-social-area">
                               <ul>
-                                  {/* TODO(content): add verified profiles here (LinkedIn, GitHub,
-                                      Upwork …). The template's placeholder links pointed at "#",
-                                      so they are left out rather than faked. */}
+                                  {/* Profiles come from lib/person.ts so the footer links and the
+                                      schema sameAs can never disagree. Empty until verified ones
+                                      exist — the template's "#" placeholders are not worth faking. */}
+                                  {socials.map((profile) => (
+                                      <li key={profile.href}>
+                                          <a href={profile.href} target="_blank" rel="noopener noreferrer me">
+                                              {profile.label}
+                                          </a>
+                                      </li>
+                                  ))}
                                   <li><a href="/contact">Start a project</a></li>
                               </ul>
                           </div>

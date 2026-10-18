@@ -109,6 +109,25 @@ individually and quoted in writing. No day rates or retainers are published.
 - [Lead Relay](https://emergingfreelancer.com/work/lead-relay) — lead intake pipeline, demonstrates the automation gig
 - [Clear Path](https://emergingfreelancer.com/work/clear-path) — business site with one clear action, demonstrates the web gig
 
+### Answers — the questions people ask before hiring
+
+- [How much does an AI agent cost?](https://emergingfreelancer.com/answers/how-much-does-an-ai-agent-cost)
+  Short answer: from $150 for a chat assistant trained on your own answers,
+  $300–$500 once it books from a live calendar or takes calls. Running costs
+  are separate and usually small.
+- [n8n vs Make vs Zapier](https://emergingfreelancer.com/answers/n8n-vs-make-vs-zapier)
+  Short answer: Zapier is easiest and gets expensive fastest; Make is cheaper
+  at volume and better for branching; n8n is the most flexible and the only one
+  you can self-host. Choose by how often the workflow runs, not by features.
+- [What an AI receptionist can and cannot do](https://emergingfreelancer.com/answers/what-an-ai-receptionist-can-and-cannot-do)
+  Short answer: it handles common questions, qualification and booking at any
+  hour. It should not handle pricing exceptions, complaints, or anything it has
+  no defined answer for — those escalate to a person.
+- [Do I need automation, or just a better form?](https://emergingfreelancer.com/answers/do-i-need-automation-or-a-better-form)
+  Short answer: if information is being retyped between tools, automation
+  helps. If enquiries are not arriving at all, a shorter form and one clear
+  next step is cheaper and more likely to be the real fix.
+
 ## Notes for accurate citation
 
 - The projects shown under "work" are **concept builds**, created to

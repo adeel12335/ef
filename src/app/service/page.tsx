@@ -3,6 +3,7 @@ import FaqAccordion from "@/components/faq/FaqAccordion";
 import ServiceSchema from "@/components/seo/ServiceSchema";
 import { SERVICE_FAQS } from "@/lib/faq";
 import { GIGS, PRICE_FROM, PRICE_TO } from "@/lib/gigs";
+import { PROCESS } from "@/lib/process";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -194,9 +195,8 @@ export default function ServicePage() {
                                       <div className="content-area">
                                           <div className="number">//01</div>
                                           <div className="wrapper-content">
-                                              <h3 className="title second-font h6">Discover & Define</h3>
-                                              <p className="desc">We start by understanding your goals, audience, and challenges.
-                                                  Through research and workshops, we uncover insights of the project.</p>
+                                              <h3 className="title second-font h6">{PROCESS[0].title}</h3>
+                                              <p className="desc">{PROCESS[0].description}</p>
                                           </div>
                                       </div>
                                   </div>
@@ -207,9 +207,8 @@ export default function ServicePage() {
                                       <div className="content-area">
                                           <div className="number">//02</div>
                                           <div className="wrapper-content">
-                                              <h3 className="title second-font h6">Concept & Strategy</h3>
-                                              <p className="desc">We explore visual styles, narratives, and user flows to define
-                                                  the strategic and aesthetic direction of your brand or product.</p>
+                                              <h3 className="title second-font h6">{PROCESS[1].title}</h3>
+                                              <p className="desc">{PROCESS[1].description}</p>
                                           </div>
                                       </div>
                                   </div>
@@ -220,9 +219,8 @@ export default function ServicePage() {
                                       <div className="content-area">
                                           <div className="number">//03</div>
                                           <div className="wrapper-content">
-                                              <h3 className="title second-font h6">Design & Develop</h3>
-                                              <p className="desc">Every layout, color, and interaction is thoughtfully crafted to
-                                                  ensure your brand feels cohesive, functional, and memorable.</p>
+                                              <h3 className="title second-font h6">{PROCESS[2].title}</h3>
+                                              <p className="desc">{PROCESS[2].description}</p>
                                           </div>
                                       </div>
                                   </div>
@@ -233,9 +231,8 @@ export default function ServicePage() {
                                       <div className="content-area">
                                           <div className="number">//04</div>
                                           <div className="wrapper-content">
-                                              <h3 className="title second-font h6">Launch & Evolve</h3>
-                                              <p className="desc">We guide you through launch and beyond - analyzing performance,
-                                                  gathering feedback, and refining your design.</p>
+                                              <h3 className="title second-font h6">{PROCESS[3].title}</h3>
+                                              <p className="desc">{PROCESS[3].description}</p>
                                           </div>
                                       </div>
                                   </div>

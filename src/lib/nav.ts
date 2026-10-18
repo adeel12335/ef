@@ -20,15 +20,16 @@ export type NavItem = {
  * Ordered by what a visitor wants: what you do, what it costs, proof, who you
  * are, how to start.
  *
- * TODO(content): BLOG is left out until there are real posts. The blog routes
- * still exist and still carry the template's sample articles — add the entry
- * back once they are replaced.
+ * ANSWERS replaces the template's sample blog: short pieces answering what
+ * people type before hiring, which is the content search engines and
+ * assistants can actually quote.
  */
 export const NAV: NavItem[] = [
   { label: "HOME", href: "/" },
   { label: "SERVICES", href: "/service" },
   { label: "GIGS", href: "/#pricing" },
   { label: "WORK", href: "/work" },
+  { label: "ANSWERS", href: "/answers" },
   { label: "ABOUT", href: "/about" },
   { label: "CONTACT", href: "/contact" },
 ];

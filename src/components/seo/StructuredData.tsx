@@ -1,6 +1,7 @@
 import { FAQS } from "@/lib/faq";
 import { CURRENCY, GIGS, PRICE_FROM, PRICE_TO } from "@/lib/gigs";
 import { BRAND, SITE_URL } from "@/lib/seo";
+import { PERSON_NAME_CONFIRMED, hasSocials, personBio, personName, socials } from "@/lib/person";
 
 /**
  * JSON-LD for the home page.
@@ -49,9 +50,13 @@ export default function StructuredData() {
       image: `${SITE_URL}/brand/og.png`,
       description:
         "Independent developer building AI agents and voice assistants, workflow automation, websites and mobile applications, and Salesforce and AWS integrations for small and medium-sized businesses.",
+      ...(PERSON_NAME_CONFIRMED ? { founder: { "@id": `${SITE_URL}/#person` } } : {}),
       areaServed: { "@type": "Place", name: "Worldwide" },
       availableLanguage: ["English"],
       currenciesAccepted: CURRENCY,
+      // sameAs is how a search engine ties this domain to the profiles that
+      // describe the same entity. Empty until verified links exist.
+      ...(hasSocials ? { sameAs: socials.map((p) => p.href) } : {}),
       // A range, not a rating — these are the real published gig prices.
       priceRange: `$${PRICE_FROM}–$${PRICE_TO}`,
       knowsAbout: [
@@ -110,6 +115,20 @@ export default function StructuredData() {
         })),
       ),
     },
+    ...(PERSON_NAME_CONFIRMED
+      ? [
+          {
+            "@type": "Person",
+            "@id": `${SITE_URL}/#person`,
+            name: personName,
+            description: personBio,
+            url: SITE_URL,
+            jobTitle: "Independent developer",
+            worksFor: { "@id": `${SITE_URL}/#business` },
+            ...(hasSocials ? { sameAs: socials.map((p) => p.href) } : {}),
+          },
+        ]
+      : []),
     {
       "@type": "FAQPage",
       "@id": `${SITE_URL}/#faq`,
