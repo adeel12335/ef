@@ -1,4 +1,5 @@
 import FaqAccordion from "@/components/faq/FaqAccordion";
+import RotatingWord from "@/components/hero/RotatingWord";
 import GigCard from "@/components/gigs/GigCard";
 import StructuredData from "@/components/seo/StructuredData";
 import { FAQS } from "@/lib/faq";
@@ -11,7 +12,8 @@ export default function HomePage() {
               <div className="container">
                   <div className="banner-content-area">
                       <div className="top-shape wow fadeIn" data-wow-delay=".7s"></div>
-                      <h1 className="section-title">
+                      <h1 className="section-title"
+                          aria-label="I build AI systems, AI agents, automations, web apps and mobile apps">
                           <span className="left-area square-dot wow fadeInLeft" data-wow-delay=".7s">
                               <span className="text">I BUILD</span>
                           <span className="square-shape top-right"></span>
@@ -32,7 +34,10 @@ export default function HomePage() {
                           </span>
                           <span className="mid-icon wow scaleIn" data-wow-delay=".7s">
                               <span className="inner">
-                                  <img src="/brand/symbol.svg" width="303" height="303" alt="Emerging Freelancer" />
+                                  {/* Decorative inside the h1: the brand name is already in the header
+                                      logo, and alt text here made the heading read
+                                      "I BUILD Emerging Freelancer AI systems...". */}
+                                  <img src="/brand/symbol.svg" width="303" height="303" alt="" />
                               </span>
                           </span>
                           <span className="right-area square-dot wow fadeInRight" data-wow-delay=".7s">
@@ -49,7 +54,7 @@ export default function HomePage() {
                           <span className="arrow"><img src="/assets/images/banner/icon/arrow-left.svg" alt="" /></span>
                           <span className="arrow"><img src="/assets/images/banner/icon/arrow-left.svg" alt="" /></span>
                           </span>
-                          <span className="text">AI SYSTEMS</span>
+                          <RotatingWord />
                           <span className="square-shape top-left"></span>
                           <span className="square-shape bottom-left"></span>
                           </span>

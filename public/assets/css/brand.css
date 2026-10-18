@@ -631,3 +631,48 @@ select:focus-visible,
   color: var(--color-title);
   font-weight: 700;
 }
+
+/* -------------------------------------------------------------------------
+   Rotating hero word
+
+   "I BUILD" stays; the right half cycles through the services. The slot is
+   height-locked to two lines so a longer word cannot make the hero jump as it
+   swaps — the template's two halves are already fixed at 50%, so nothing moves
+   horizontally either.
+   ------------------------------------------------------------------------- */
+
+.ef-rotate {
+  display: block;
+  position: relative;
+  min-height: 2.2em; /* clears the tallest (two-line) word, so nothing shifts */
+  overflow: hidden;
+}
+
+.ef-rotate__word {
+  display: block;
+  animation: ef-word-in 520ms cubic-bezier(0.22, 0.8, 0.3, 1) both;
+}
+
+@keyframes ef-word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.42em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 991px) {
+  .ef-rotate {
+    min-height: 1.15em;
+  }
+}
+
+/* The words still change — that is content. Only the movement goes. */
+@media (prefers-reduced-motion: reduce) {
+  .ef-rotate__word {
+    animation: none;
+  }
+}
