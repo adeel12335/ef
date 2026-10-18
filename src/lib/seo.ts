@@ -1,6 +1,17 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://emergingfreelancer.com";
+/**
+ * The address this build is served from.
+ *
+ * Canonical URLs, the sitemap and the generated share images are all built on
+ * it. It defaults to the production domain, so nothing changes once the domain
+ * is connected. Set NEXT_PUBLIC_SITE_URL when serving the same build anywhere
+ * else — a vercel.app preview, say — because otherwise every canonical would
+ * point search engines at a domain that is not serving this build.
+ */
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://emergingfreelancer.com"
+).replace(/\/$/, "");
 export const BRAND = "Emerging Freelancer";
 
 /**
@@ -15,11 +26,15 @@ export function pageMeta({
   title,
   description,
   path,
+  keywords,
+  image,
   ownImage = false,
 }: {
   title: string;
   description: string;
   path: string;
+  keywords?: string[];
+  image?: string;
   /**
    * Set on routes that ship their own opengraph-image file. Next only falls
    * back to the file convention when the metadata does not name an image, so
@@ -29,12 +44,18 @@ export function pageMeta({
   ownImage?: boolean;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
+  const socialImage = image ?? "/brand/og.png";
   const shared = {
-    images: [{ url: "/brand/og.png", width: 1200, height: 630, alt: BRAND }],
+    images: [
+      image
+        ? { url: socialImage, alt: `${title} — ${BRAND}` }
+        : { url: socialImage, width: 1200, height: 630, alt: BRAND },
+    ],
   };
   return {
     title,
     description,
+    ...(keywords?.length ? { keywords } : {}),
     alternates: { canonical: url },
     openGraph: {
       type: "website",
@@ -48,7 +69,7 @@ export function pageMeta({
       card: "summary_large_image",
       title: `${title} | ${BRAND}`,
       description,
-      ...(ownImage ? {} : { images: ["/brand/og.png"] }),
+      ...(ownImage ? {} : { images: [socialImage] }),
     },
   };
 }

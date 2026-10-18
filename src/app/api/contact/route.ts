@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -15,10 +15,16 @@ export const dynamic = "force-dynamic";
  * message was not sent. It never prints a confirmation for an enquiry that
  * went nowhere.
  *
- * Required environment (see .env.example):
- *   RESEND_API_KEY      server-only, never exposed to the client
+ * Delivery goes over the mailbox's own SMTP rather than a third-party API, so
+ * the enquiry never leaves the domain's own mail host.
+ *
+ * Required environment (see .env.example), all server-only:
+ *   SMTP_HOST           e.g. smtp.hostinger.com
+ *   SMTP_PORT           465 for implicit TLS, 587 for STARTTLS
+ *   SMTP_USER           the full mailbox address
+ *   SMTP_PASS           that mailbox's password
  *   CONTACT_TO_EMAIL    where enquiries land
- *   CONTACT_FROM_EMAIL  a sender on a domain verified in Resend
+ *   CONTACT_FROM_EMAIL  the sender; most hosts require this to be SMTP_USER
  */
 
 const text = (body: string, status = 200) =>
@@ -82,13 +88,16 @@ export async function POST(request: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const host = process.env.SMTP_HOST;
+  const port = Number(process.env.SMTP_PORT ?? 465);
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
   const to = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL;
+  const from = process.env.CONTACT_FROM_EMAIL ?? user;
 
-  if (!apiKey || !to || !from) {
+  if (!host || !user || !pass || !to || !from) {
     console.error(
-      "[contact] Not configured. Set RESEND_API_KEY, CONTACT_TO_EMAIL and CONTACT_FROM_EMAIL.",
+      "[contact] Not configured. Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS and CONTACT_TO_EMAIL.",
     );
     return text(
       "This form isn't connected to a mail service yet, so your message was NOT sent. Nothing was delivered — please try again once it's configured.",
@@ -97,10 +106,23 @@ export async function POST(request: Request) {
   }
 
   try {
-    const resend = new Resend(apiKey);
-    const { data, error } = await resend.emails.send({
+    // Built per request. A serverless invocation does not outlive the call, so
+    // a pooled connection would be thrown away anyway; the timeouts matter
+    // more, because a silently hung SMTP socket would otherwise sit there
+    // until the function itself is killed and the visitor sees nothing.
+    const transport = nodemailer.createTransport({
+      host,
+      port,
+      secure: port === 465, // 465 is implicit TLS; 587 upgrades with STARTTLS
+      auth: { user, pass },
+      connectionTimeout: 10_000,
+      greetingTimeout: 10_000,
+      socketTimeout: 20_000,
+    });
+
+    const info = await transport.sendMail({
       from,
-      to: [to],
+      to,
       replyTo: email,
       subject: `New enquiry — ${name}`,
       html:
@@ -109,12 +131,17 @@ export async function POST(request: Request) {
         `<strong>Email:</strong> ${esc(email)}</p>` +
         `<h3 style="font:600 14px system-ui;margin:20px 0 6px">Message</h3>` +
         `<p style="font:14px/1.6 system-ui;white-space:pre-wrap">${esc(message)}</p>`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      text: `Name: ${name}
+Email: ${email}
+
+Message:
+${message}`,
     });
 
-    // Resend reports failure in `error` rather than throwing.
-    if (error || !data?.id) {
-      console.error("[contact] Delivery rejected:", error);
+    // An SMTP server can accept the session and still refuse the recipient, so
+    // "it did not throw" is not the same as "it was delivered".
+    if (!info.accepted?.length || info.rejected?.length) {
+      console.error("[contact] Recipient refused:", info.rejected, info.response);
       return text(
         "Your message could not be delivered just now, so nothing was sent. Please try again shortly.",
         502,

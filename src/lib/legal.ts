@@ -61,19 +61,18 @@ export const lastUpdated = "18 October 2026";
  */
 export const processors = [
   {
-    name: "Resend",
-    role: "Delivers enquiry emails",
+    name: "Hostinger",
+    role: "Hosts the mailbox that enquiries are sent from and delivered to",
     data: "Your name, email address and message",
-    where: "United States",
-    url: "https://resend.com/legal/privacy-policy",
+    where: "European Union",
+    url: "https://www.hostinger.com/privacy-policy",
   },
   {
-    // TODO(legal): replace with your actual host once deployed.
-    name: "[Your hosting provider]",
+    name: "Vercel",
     role: "Serves the website and runs the contact route",
     data: "Server logs, which typically include IP address and page requested",
-    where: "[Region]",
-    url: null,
+    where: "United States, with edge locations worldwide",
+    url: "https://vercel.com/legal/privacy-policy",
   },
 ];
 
