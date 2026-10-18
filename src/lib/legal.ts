@@ -12,8 +12,26 @@
  * document: it is a false statement about a legal relationship.
  */
 
-/** TODO(legal): the name that appears on your invoices and contracts. */
-export const legalName = "[Your Legal Name]";
+import { BRAND } from "@/lib/seo";
+
+/**
+ * The name that appears on invoices and contracts.
+ *
+ * Set to the brand on the owner's instruction. Worth knowing what that
+ * implies: a legal name is the entity a client would actually be contracting
+ * with. If the business is not a registered company, that entity is the owner
+ * personally and "Emerging Freelancer" is a trading name rather than a legal
+ * one — in which case this should be the owner's own name and `businessStatus`
+ * should say "sole trader". Change this and both documents follow.
+ */
+export const legalName = "Emerging Freelancer";
+
+/**
+ * The brand to disclose a "trading as" for, or null when there is nothing to
+ * disclose because the legal name and the brand are the same. Without this the
+ * documents read "Emerging Freelancer, trading as Emerging Freelancer".
+ */
+export const tradingAs = legalName === BRAND ? null : BRAND;
 
 /**
  * TODO(legal): a monitored address for privacy requests.
@@ -64,3 +82,60 @@ export const LEGAL_PAGES = [
   { slug: "terms", title: "Terms of Service", nav: "Terms" },
   { slug: "refunds", title: "Refund & Cancellation Policy", nav: "Refunds" },
 ];
+
+/**
+ * Refund milestones.
+ *
+ * Deliberately tied to the same four stages the site already shows on the
+ * process section, so a client can see in advance exactly where their money
+ * stands at any point. `charged` is the percentage of the project fee that
+ * becomes payable once that stage is complete — the rest is refundable.
+ *
+ * Most of the value in a project is created in the build, which is why the
+ * jump from stage 2 to stage 3 is the big one.
+ */
+export type RefundStage = {
+  num: string;
+  stage: string;
+  reached: string;
+  charged: number;
+};
+
+export const REFUND_STAGES: RefundStage[] = [
+  {
+    num: "00",
+    stage: "Not started",
+    reached: "Scope agreed and advance paid, but no work begun",
+    charged: 0,
+  },
+  {
+    num: "01",
+    stage: "Understand",
+    reached: "Discovery call held and the written problem summary delivered",
+    charged: 15,
+  },
+  {
+    num: "02",
+    stage: "Plan",
+    reached: "Written scope, workflow and timeline delivered",
+    charged: 30,
+  },
+  {
+    num: "03",
+    stage: "Build and test",
+    reached: "Working software delivered for you to try",
+    charged: 80,
+  },
+  {
+    num: "04",
+    stage: "Launch and support",
+    reached: "Live, documented and handed over",
+    charged: 100,
+  },
+];
+
+/** TODO(legal): confirm this matches what you actually ask for. */
+export const advancePercent = 50;
+
+/** Working days to issue an agreed refund. */
+export const refundDays = 14;

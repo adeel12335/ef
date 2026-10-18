@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { gigFrom, type Gig } from "@/lib/gigs";
 
 /**
@@ -29,9 +30,9 @@ export default function GigCard({ gig, dark = false }: { gig: Gig; dark?: boolea
               <span>Starting from</span> ${gigFrom(gig)}
             </h4>
             <div className="button-area">
-              <a href={`/service/${gig.slug}`} className="wpr-btn btn-primary">
+              <Link href={`/service/${gig.slug}`} className="wpr-btn btn-primary">
                 See the 3 packages
-              </a>
+              </Link>
             </div>
           </div>
 

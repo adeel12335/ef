@@ -1,15 +1,13 @@
 /**
  * Selected work.
  *
- * Every entry is a CONCEPT build: made to demonstrate an approach, not
- * delivered for a paying client. `kind` is rendered on the card and on the
- * detail page so nothing can read as client work, and `result` carries no
- * numbers because none have been measured against a real deployment.
- *
- * To add a real case study: copy an entry, set kind to "Client project",
- * replace the image with a real screenshot, and fill in `result` with the
- * measured outcome and where it came from.
+ * Concept builds stay labelled "Concept project" and carry no client metrics.
+ * Client projects in client-work.ts are live sites. Their pages describe what
+ * a visitor can do on the public URL. They do not repeat the client's own
+ * marketing statistics, reviews, or revenue claims as a result of the build.
  */
+
+import { CLIENT_WORK } from "./client-work";
 
 export type Project = {
   slug: string;
@@ -18,8 +16,15 @@ export type Project = {
   gigSlug: string;
   category: string;
   kind: string;
+  /** Under ~50 characters. Used as the page title before the brand suffix. */
+  shortTitle?: string;
   /** One line, used on cards and in metadata. */
   blurb: string;
+  /** Public site, when this is a client project. */
+  liveUrl?: string;
+  /** Answer article this case should pass equity to. */
+  relatedAnswer?: string;
+  faqs?: { q: string; a: string }[];
   /** Answer-first paragraph: what it is, in the opening lines. */
   summary: string;
   image: string;
@@ -36,10 +41,11 @@ export type Project = {
   result: string | null;
 };
 
-export const PROJECTS: Project[] = [
+const CONCEPT_PROJECTS: Project[] = [
   {
     slug: "front-desk-ai",
     name: "Front Desk AI",
+    shortTitle: "Front Desk AI — Real Calendar Slots",
     gigSlug: "ai-agents",
     category: "AI agent · Voice and chat",
     kind: "Concept project",
@@ -47,7 +53,7 @@ export const PROJECTS: Project[] = [
       "An assistant that answers routine enquiries, offers a real appointment slot, and hands over to a person when it should.",
     summary:
       "A voice and chat assistant for a small service business. It answers the twenty questions customers actually ask, works out whether an enquiry is real, offers times read from the live calendar, and books one — then stops and hands to a person the moment a conversation moves outside its agreed scope.",
-    image: "/assets/images/portfolio/01.webp",
+    image: "/assets/images/portfolio/concept-front-desk-ai.jpg",
     problem:
       "Calls and form enquiries arrive while the business is mid-job or closed. Routine questions — hours, coverage, availability, roughly what something costs — take the same attention as the enquiries that genuinely need a person. Some go to voicemail, some get a reply two days later, and by then the caller has usually phoned somebody else.",
     built:
@@ -97,6 +103,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "lead-relay",
     name: "Lead Relay",
+    shortTitle: "Lead Relay — One CRM Record",
     gigSlug: "workflow-automation",
     category: "Workflow automation",
     kind: "Concept project",
@@ -104,7 +111,7 @@ export const PROJECTS: Project[] = [
       "One intake path for every lead source, so nothing is retyped and follow-up does not rely on memory.",
     summary:
       "An intake pipeline for a business taking leads from a website form, a shared inbox and a social inbox. Every enquiry is captured once, matched against existing records, written to the CRM with its source and owner, and given a dated follow-up task. Duplicates merge instead of multiplying, and a failed step says so.",
-    image: "/assets/images/portfolio/02.webp",
+    image: "/assets/images/portfolio/concept-lead-relay.jpg",
     problem:
       "Leads arrive from a website form, a shared inbox and a social inbox. Someone retypes each one into a spreadsheet, and sometimes into the CRM as well. The same person appears as three records with three different spellings, nobody is certain which list is current, and follow-up happens when a person remembers — which, in a busy week, means it does not.",
     built:
@@ -148,6 +155,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "clear-path",
     name: "Clear Path",
+    shortTitle: "Clear Path — One Clear Next Step",
     gigSlug: "web-mobile",
     category: "Website and integrations",
     kind: "Concept project",
@@ -155,7 +163,7 @@ export const PROJECTS: Project[] = [
       "A business site built around one obvious next step, with a short form that lands where the work happens.",
     summary:
       "A responsive business site organised around a single action. The enquiry route appears wherever someone is likely to decide, the form asks only what is needed to start a useful conversation, and submissions are delivered into the tools the business already works in.",
-    image: "/assets/images/portfolio/03.webp",
+    image: "/assets/images/portfolio/concept-clear-path.jpg",
     problem:
       "The site explains the business perfectly well, and then gives the visitor nothing obvious to do. The enquiry form sits on a contact page two clicks away, asks nine questions of someone who has not decided yet, and emails its results to an address nobody has opened in a month.",
     built:
@@ -203,6 +211,26 @@ export const PROJECTS: Project[] = [
   },
 ];
 
+export const PROJECTS: Project[] = [...CLIENT_WORK, ...CONCEPT_PROJECTS];
+
 export function projectBySlug(slug: string) {
   return PROJECTS.find((p) => p.slug === slug);
+}
+
+export function projectsForGig(gigSlug: string) {
+  return PROJECTS.filter((p) => p.gigSlug === gigSlug);
+}
+
+export function projectsForAnswer(answerSlug: string) {
+  return PROJECTS.filter((p) => p.relatedAnswer === answerSlug);
+}
+
+/** Same gig first, then the rest, capped so a page does not link to every case. */
+export function relatedProjects(slug: string, limit = 3) {
+  const current = projectBySlug(slug);
+  if (!current) return [];
+  const others = PROJECTS.filter((p) => p.slug !== slug);
+  const same = others.filter((p) => p.gigSlug === current.gigSlug);
+  const rest = others.filter((p) => p.gigSlug !== current.gigSlug);
+  return [...same, ...rest].slice(0, limit);
 }

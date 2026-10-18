@@ -1,14 +1,21 @@
+import Link from "next/link";
 import { ANSWERS } from "@/lib/answers";
+import { groupByGig } from "@/lib/groupByGig";
 import { pageMeta, SITE_URL, BRAND } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "Answers",
+  title: "AI Agent Cost and Automation Answers",
   description:
-    "Straight answers to what people ask before hiring: what an AI agent costs, n8n vs Make vs Zapier, what an AI receptionist can really do.",
+    "Answers on AI agent cost, handover, after-hours calls, scheduling, email automation, n8n, WhatsApp, and Salesforce or AWS. Prices checked October 2026.",
   path: "/answers",
 });
 
 export default function AnswersPage() {
+  // Twenty-four articles in one list is not a list anyone reads. They are
+  // grouped under the service each belongs to, which is the same grouping the
+  // services and the work use.
+  const groups = groupByGig(ANSWERS);
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -46,7 +53,7 @@ export default function AnswersPage() {
       <section className="wpr-banner-area breadcrumb">
         <div className="container">
           <div className="banner-content-area">
-            <h1 className="section-title text-normal">Answers</h1>
+            <h1 className="section-title text-normal">Answers People <br /> Search Before Hiring</h1>
             <p className="desc">
               The questions people ask before hiring someone — answered straight, with
               the numbers where I have them and a plain “it depends” where I do not.
@@ -70,32 +77,68 @@ export default function AnswersPage() {
                 >
                   Before you hire anyone
                 </h2>
+                <p className="gig-answer">
+                  {ANSWERS.length} answers, grouped by the kind of work they are
+                  about. Each one opens with the short version, so most questions
+                  are settled without clicking.
+                </p>
               </div>
             </div>
 
-            <ul className="ef-next-list">
-              {ANSWERS.map((a) => (
-                <li key={a.slug}>
-                  <a href={`/answers/${a.slug}`}>
-                    <span className="ef-next-list__cat">
-                      {a.readingMinutes} min read · updated {a.updated}
-                    </span>
-                    <span className="ef-next-list__name">
-                      {a.title}
-                      <span aria-hidden="true">→</span>
-                    </span>
-                    {/* The direct answer shows on the index too — most people
-                        only need this much, and the ones who need more click. */}
-                    <span className="ef-next-list__blurb">{a.answer}</span>
-                  </a>
-                </li>
+            {/* Jump links: with this many groups the headings are below the
+                fold, and a reader who came for one topic should not scroll
+                past three others to find it. */}
+            <nav className="ef-jump" aria-label="Jump to a topic">
+              {groups.map((group) => (
+                <a key={group.slug ?? "general"} href={`#${group.slug ?? "general"}`}>
+                  {group.shortName}
+                  <span className="ef-jump__count">{group.items.length}</span>
+                </a>
               ))}
-            </ul>
+            </nav>
+
+            {groups.map((group) => (
+              <section
+                key={group.slug ?? "general"}
+                id={group.slug ?? "general"}
+                className="ef-group"
+                aria-labelledby={`h-${group.slug ?? "general"}`}
+              >
+                <div className="ef-group__head">
+                  <h3 id={`h-${group.slug ?? "general"}`}>{group.name}</h3>
+                  {group.slug ? (
+                    <Link href={`/service/${group.slug}`}>
+                      See the service and packages
+                      <span aria-hidden="true"> →</span>
+                    </Link>
+                  ) : null}
+                </div>
+
+                <ul className="ef-next-list">
+                  {group.items.map((a) => (
+                    <li key={a.slug}>
+                      <Link href={`/answers/${a.slug}`}>
+                        <span className="ef-next-list__cat">
+                          {a.readingMinutes} min read · updated {a.updated}
+                        </span>
+                        <span className="ef-next-list__name">
+                          {a.title}
+                          <span aria-hidden="true">→</span>
+                        </span>
+                        {/* The direct answer shows on the index too — most people
+                            only need this much, and the ones who need more click. */}
+                        <span className="ef-next-list__blurb">{a.answer}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
 
             <p className="ef-next-cta">
-              <a href="/contact" className="wpr-btn btn-primary">
+              <Link href="/contact" className="wpr-btn btn-primary">
                 Ask me something else
-              </a>
+              </Link>
             </p>
           </div>
         </div>

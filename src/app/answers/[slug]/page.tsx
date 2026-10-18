@@ -1,8 +1,10 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { ANSWERS, answerBySlug } from "@/lib/answers";
+import { projectsForAnswer } from "@/lib/projects";
 import { gigBySlug, gigFrom } from "@/lib/gigs";
 import { pageMeta, SITE_URL, BRAND } from "@/lib/seo";
 
@@ -21,6 +23,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: answer.shortTitle,
     description: answer.description,
     path: `/answers/${answer.slug}`,
+    // This route has an opengraph-image.tsx of its own.
+    ownImage: true,
   });
 }
 
@@ -30,7 +34,10 @@ export default async function AnswerPage({ params }: Params) {
   if (!answer) notFound();
 
   const gig = answer.gigSlug ? gigBySlug(answer.gigSlug) : undefined;
-  const others = ANSWERS.filter((a) => a.slug !== answer.slug);
+  const cases = projectsForAnswer(answer.slug);
+  const rest = ANSWERS.filter((a) => a.slug !== answer.slug);
+  const sameGig = answer.gigSlug ? rest.filter((a) => a.gigSlug === answer.gigSlug) : [];
+  const others = [...sameGig, ...rest.filter((a) => a.gigSlug !== answer.gigSlug)].slice(0, 3);
 
   /**
    * Article + FAQPage. `dateModified` is a real field here because these are
@@ -141,9 +148,9 @@ export default async function AnswerPage({ params }: Params) {
               {gig && (
                 <p className="ef-note">
                   This is what I do:{" "}
-                  <a className="ef-inline-link" href={`/service/${gig.slug}`}>
+                  <Link className="ef-inline-link" href={`/service/${gig.slug}`}>
                     {gig.name} — three packages from ${gigFrom(gig)}
-                  </a>
+                  </Link>
                   .
                 </p>
               )}
@@ -163,6 +170,40 @@ export default async function AnswerPage({ params }: Params) {
         }
       />
 
+      {cases.length > 0 && (
+        <section className="wpr-next-project-area mb--16" aria-labelledby="answer-work">
+          <div className="container">
+            <div className="section-inner bg-white border-1">
+              <div className="section-top-area">
+                <div className="section-title-area">
+                  <p className="sub-title">In the work</p>
+                  <h2
+                    id="answer-work"
+                    className="section-title second-font font-semi-bold text-normal"
+                  >
+                    Where this shows up
+                  </h2>
+                </div>
+              </div>
+              <ul className="ef-next-list">
+                {cases.map((project) => (
+                  <li key={project.slug}>
+                    <Link href={`/work/${project.slug}`}>
+                      <span className="ef-next-list__cat">{project.kind}</span>
+                      <span className="ef-next-list__name">
+                        {project.name}
+                        <span aria-hidden="true">→</span>
+                      </span>
+                      <span className="ef-next-list__blurb">{project.blurb}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="wpr-next-project-area mb--16" aria-labelledby="more-answers">
         <div className="container">
           <div className="section-inner bg-white border-1">
@@ -180,13 +221,13 @@ export default async function AnswerPage({ params }: Params) {
             <ul className="ef-next-list">
               {others.map((o) => (
                 <li key={o.slug}>
-                  <a href={`/answers/${o.slug}`}>
+                  <Link href={`/answers/${o.slug}`}>
                     <span className="ef-next-list__cat">{o.readingMinutes} min read</span>
                     <span className="ef-next-list__name">
                       {o.title}
                       <span aria-hidden="true">→</span>
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

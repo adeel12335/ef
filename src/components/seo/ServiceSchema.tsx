@@ -31,7 +31,7 @@ export default function ServiceSchema() {
         "@type": "ListItem",
         position: i + 1,
         name: gig.name,
-        url: `${SITE_URL}/service#${gig.slug}`,
+        url: `${SITE_URL}/service/${gig.slug}`,
       })),
     },
     ...GIGS.map((gig) => ({
@@ -42,7 +42,7 @@ export default function ServiceSchema() {
       serviceType: gig.name,
       provider: { "@id": `${SITE_URL}/#business` },
       areaServed: { "@type": "Place", name: "Worldwide" },
-      url: `${SITE_URL}/service#${gig.slug}`,
+      url: `${SITE_URL}/service/${gig.slug}`,
       offers: gig.packages.map((pkg) => ({
         "@type": "Offer",
         name: `${gig.name} — ${pkg.tier}`,
@@ -56,7 +56,7 @@ export default function ServiceSchema() {
           valueAddedTaxIncluded: false,
         },
         availability: "https://schema.org/InStock",
-        url: `${SITE_URL}/service#${gig.slug}`,
+        url: `${SITE_URL}/service/${gig.slug}`,
         seller: { "@id": `${SITE_URL}/#business` },
       })),
     })),

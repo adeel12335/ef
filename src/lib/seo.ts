@@ -15,12 +15,23 @@ export function pageMeta({
   title,
   description,
   path,
+  ownImage = false,
 }: {
   title: string;
   description: string;
   path: string;
+  /**
+   * Set on routes that ship their own opengraph-image file. Next only falls
+   * back to the file convention when the metadata does not name an image, so
+   * declaring the site-wide card here would quietly override the generated
+   * one and every article would share a single picture again.
+   */
+  ownImage?: boolean;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
+  const shared = {
+    images: [{ url: "/brand/og.png", width: 1200, height: 630, alt: BRAND }],
+  };
   return {
     title,
     description,
@@ -31,13 +42,13 @@ export function pageMeta({
       title: `${title} | ${BRAND}`,
       description,
       url,
-      images: [{ url: "/brand/og.png", width: 1200, height: 630, alt: BRAND }],
+      ...(ownImage ? {} : shared),
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} | ${BRAND}`,
       description,
-      images: ["/brand/og.png"],
+      ...(ownImage ? {} : { images: ["/brand/og.png"] }),
     },
   };
 }

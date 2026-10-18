@@ -1,11 +1,13 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import GigPackages from "@/components/gigs/GigPackages";
 import FaqAccordion from "@/components/faq/FaqAccordion";
-import { SERVICE_FAQS } from "@/lib/faq";
+import { answersForGig } from "@/lib/answers";
+import { faqsForGig, GIG_NOTES } from "@/lib/faq";
 import { CURRENCY, GIGS, gigBySlug, gigFrom } from "@/lib/gigs";
-import { PROJECTS } from "@/lib/projects";
+import { projectsForGig } from "@/lib/projects";
 import { pageMeta, SITE_URL } from "@/lib/seo";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -34,7 +36,8 @@ export default async function GigPage({ params }: Params) {
   const gig = gigBySlug(slug);
   if (!gig) notFound();
 
-  const related = PROJECTS.find((p) => p.gigSlug === gig.slug);
+  const relatedProjects = projectsForGig(gig.slug);
+  const relatedAnswers = answersForGig(gig.slug);
   const others = GIGS.filter((g) => g.slug !== gig.slug);
 
   const schema = {
@@ -82,7 +85,7 @@ export default async function GigPage({ params }: Params) {
       {
         "@type": "FAQPage",
         "@id": `${SITE_URL}/service/${gig.slug}#faq`,
-        mainEntity: SERVICE_FAQS.map((f) => ({
+        mainEntity: faqsForGig(gig.slug).map((f) => ({
           "@type": "Question",
           name: f.q,
           acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -121,6 +124,11 @@ export default async function GigPage({ params }: Params) {
                 >
                   What You Get
                 </h2>
+                <p className="gig-answer">
+                  Scoped, built and supported by one developer — no account
+                  manager, no handover to someone you have not met.{" "}
+                  <Link href="/about">More about how I work</Link>.
+                </p>
               </div>
             </div>
             <ul className="ef-highlights">
@@ -135,47 +143,107 @@ export default async function GigPage({ params }: Params) {
         </div>
       </section>
 
+      {GIG_NOTES[gig.slug] && (
+        <section className="wpr-project-area inner mb--16" aria-labelledby={`${gig.slug}-notes`}>
+          <div className="container">
+            <div className="section-inner bg-white border-1">
+              <div className="ef-prose">
+                <h2 id={`${gig.slug}-notes`}>Before you compare prices</h2>
+                {GIG_NOTES[gig.slug].map((note) => (
+                  <div key={note.heading}>
+                    <h3>{note.heading}</h3>
+                    {note.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       <GigPackages gig={gig} />
 
-      {related && (
-        <section className="wpr-project-area inner mb--16" aria-labelledby="related-title">
+      {relatedProjects.length > 0 && (
+        <section className="wpr-next-project-area mb--16" aria-labelledby="related-title">
           <div className="container">
             <div className="section-inner bg-white border-1">
               <div className="section-top-area">
                 <div className="section-title-area">
-                  <p className="sub-title">{related.kind}</p>
+                  <p className="sub-title">Work</p>
                   <h2
                     id="related-title"
                     className="section-title second-font font-semi-bold text-normal"
                   >
-                    Built as a demonstration
+                    Sites and builds for this gig
                   </h2>
-                  <p className="gig-answer" style={{ textAlign: "left", marginInline: 0 }}>
-                    {related.summary}
-                  </p>
+                  <p className="gig-answer"><Link href="/work">Every build, filter by service<span aria-hidden="true"> →</span></Link></p>
                 </div>
               </div>
-              <p className="ef-next-cta" style={{ textAlign: "left" }}>
-                <a href={`/work/${related.slug}`} className="wpr-btn btn-primary">
-                  Read {related.name}
-                </a>
-              </p>
+              <ul className="ef-next-list">
+                {relatedProjects.map((project) => (
+                  <li key={project.slug}>
+                    <Link href={`/work/${project.slug}`}>
+                      <span className="ef-next-list__cat">{project.kind}</span>
+                      <span className="ef-next-list__name">
+                        {project.name}
+                        <span aria-hidden="true">→</span>
+                      </span>
+                      <span className="ef-next-list__blurb">{project.blurb}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
       )}
 
       <FaqAccordion
-        items={SERVICE_FAQS}
+        items={faqsForGig(gig.slug)}
         id={`${gig.slug}Faq`}
-        eyebrow="Package questions"
+        eyebrow="Before you book"
         title={
           <>
-            About The <br /> Packages
+            Questions About <br /> {gig.shortName}
           </>
         }
-        intro="How scope, upgrades and the “from” price actually work."
+        intro="The specific limits of this gig — what it will do, what it will refuse, and what the price covers."
       />
+
+      {relatedAnswers.length > 0 && (
+        <section className="wpr-next-project-area mb--16" aria-labelledby="gig-answers">
+          <div className="container">
+            <div className="section-inner bg-white border-1">
+              <div className="section-top-area">
+                <div className="section-title-area">
+                  <p className="sub-title">Read this first</p>
+                  <h2
+                    id="gig-answers"
+                    className="section-title second-font font-semi-bold text-normal"
+                  >
+                    Answers about this gig
+                  </h2>
+                </div>
+              </div>
+              <ul className="ef-next-list">
+                {relatedAnswers.map((a) => (
+                  <li key={a.slug}>
+                    <Link href={`/answers/${a.slug}`}>
+                      <span className="ef-next-list__cat">{a.readingMinutes} min read</span>
+                      <span className="ef-next-list__name">
+                        {a.title}
+                        <span aria-hidden="true">→</span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="wpr-next-project-area mb--16" aria-labelledby="other-gigs">
         <div className="container">
@@ -194,14 +262,14 @@ export default async function GigPage({ params }: Params) {
             <ul className="ef-next-list">
               {others.map((g) => (
                 <li key={g.slug}>
-                  <a href={`/service/${g.slug}`}>
+                  <Link href={`/service/${g.slug}`}>
                     <span className="ef-next-list__cat">From ${gigFrom(g)} · 3 packages</span>
                     <span className="ef-next-list__name">
                       {g.name}
                       <span aria-hidden="true">→</span>
                     </span>
                     <span className="ef-next-list__blurb">{g.tagline}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

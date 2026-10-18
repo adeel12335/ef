@@ -1,5 +1,11 @@
 import LegalPage, { LegalTodo } from "@/components/legal/LegalPage";
-import { jurisdiction, legalName, privacyEmail, processors } from "@/lib/legal";
+import {
+  jurisdiction,
+  legalName,
+  privacyEmail,
+  processors,
+  tradingAs,
+} from "@/lib/legal";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -30,8 +36,9 @@ export default function PrivacyPage() {
       <section>
         <h3>Who is responsible for your data</h3>
         <p>
-          {legalName}, operating as Emerging Freelancer, is the data controller
-          for this website. I am an independent developer based in{" "}
+          {legalName}
+          {tradingAs ? `, operating as ${tradingAs},` : ""} is the data
+          controller for this website. I am an independent developer based in{" "}
           {jurisdiction}, working with clients internationally.
         </p>
         {privacyEmail ? (

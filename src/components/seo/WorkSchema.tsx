@@ -25,7 +25,7 @@ export default function WorkSchema() {
       url: `${SITE_URL}/work`,
       name: "Work",
       description:
-        "Concept builds demonstrating AI agents, workflow automation and business websites. No client metrics are claimed.",
+        "Client sites and labelled concept builds. Live URLs are cited. Client marketing statistics are not claimed as build results.",
       inLanguage: "en",
     },
     {

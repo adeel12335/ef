@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV, collapseId, isActive } from "@/lib/nav";
 
@@ -49,9 +50,9 @@ export default function Header() {
         <div className="header-style-one-wrapper">
           <div className="left-area square-dot">
             <div className="logo-area">
-              <a href="/" className="logo">
-                <img src="/assets/images/logo/01.svg" alt="logo" />
-              </a>
+              <Link href="/" className="logo">
+                <img src="/assets/images/logo/01.svg" alt="Emerging Freelancer" />
+              </Link>
             </div>
             <span className="square-shape top-left"></span>
             <span className="square-shape bottom-left"></span>
@@ -73,19 +74,19 @@ export default function Header() {
 
                 return (
                   <li key={item.label} className={classes}>
-                    <a
+                    <Link
                       className="main-element wpr-dropdown-main-element"
                       href={item.href}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                     {item.children && (
                       <ul className="sub-menu">
                         {item.children.map((child) => (
                           <li key={child.href} className="sub-menu-item">
-                            <a href={child.href} className="item-link link1">
+                            <Link href={child.href} className="item-link link1">
                               {child.label}
-                            </a>
+                            </Link>
                           </li>
                         ))}
                       </ul>
@@ -97,9 +98,9 @@ export default function Header() {
           </nav>
 
           <div className="button-area-start square-dot">
-            <a href="/contact" className="wpr-btn btn-primary">
+            <Link href="/contact" className="wpr-btn btn-primary">
               Start a Project
-            </a>
+            </Link>
             <div
               className="menu-btn d-flex d-lg-none d-md-flex d-sm-flex"
               id="menu-btn"
@@ -125,9 +126,9 @@ export default function Header() {
                       if (!item.children) {
                         return (
                           <li key={item.label} className="menu-item">
-                            <a className="main-element" href={item.href}>
+                            <Link className="main-element" href={item.href}>
                               {item.label}
-                            </a>
+                            </Link>
                           </li>
                         );
                       }
@@ -150,9 +151,9 @@ export default function Header() {
                           >
                             {item.children.map((child) => (
                               <li key={child.href}>
-                                <a href={child.href} className="sub-menu">
+                                <Link href={child.href} className="sub-menu">
                                   {child.label}
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
@@ -163,9 +164,9 @@ export default function Header() {
                 </nav>
               </div>
               <div className="button-area">
-                <a href="/contact" className="wpr-btn btn-primary">
+                <Link href="/contact" className="wpr-btn btn-primary">
                   Contact
-                </a>
+                </Link>
               </div>
             </div>
           </div>

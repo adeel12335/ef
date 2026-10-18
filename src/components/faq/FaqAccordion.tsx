@@ -1,19 +1,11 @@
 import type { Faq } from "@/lib/faq";
+import styles from "./FaqAccordion.module.css";
 
-/**
- * The template's own Bootstrap accordion, rendered from data.
- *
- * The markup and class names are the theme's — only the source of the content
- * changes, so the FAQ on the page and the FAQPage structured data are
- * guaranteed to be the same words.
- *
- * `id` must be unique per accordion on a page: Bootstrap uses it for
- * data-bs-parent, which is what makes opening one item close the others.
- */
+/** A native, single-open FAQ. The same answer data feeds the site's schema. */
 export default function FaqAccordion({
   items,
   id = "faqAccordion",
-  eyebrow = "FAQS",
+  eyebrow = "Common questions",
   title,
   intro,
 }: {
@@ -26,56 +18,32 @@ export default function FaqAccordion({
   const titleId = `${id}-title`;
 
   return (
-    <section className="wpr-faq-area mb--16" aria-labelledby={titleId}>
+    <section className={styles.section} aria-labelledby={titleId}>
       <div className="container">
-        <div className="section-inner bg-white border-1">
-          <div className="section-content-area">
-            <div className="section-title-area center-style">
-              <p className="sub-title">{eyebrow}</p>
-              <h2
-                id={titleId}
-                className="section-title second-font font-semi-bold text-normal"
-              >
-                {title}
-              </h2>
-              {intro ? <p className="gig-answer">{intro}</p> : null}
-            </div>
+        <div className={styles.inner}>
+          <div className={styles.intro}>
+            <p className={styles.kicker}><span aria-hidden="true" />{eyebrow}</p>
+            <h2 id={titleId} className={styles.title}>{title}</h2>
+            {intro ? <p className={styles.description}>{intro}</p> : null}
+            <a href="/contact" className={styles.contactLink}>
+              Still have a question? Get in touch
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M5 19 19 5M7 5h12v12" stroke="currentColor" strokeWidth="1.7" />
+              </svg>
+            </a>
+          </div>
 
-            <div className="accordion-one" id={id}>
-              {items.map((item, i) => {
-                const headingId = `${id}-h${i}`;
-                const panelId = `${id}-p${i}`;
-                const open = i === 0;
-
-                return (
-                  <div className="accordion-item" key={item.q}>
-                    <h3 className="accordion-header" id={headingId}>
-                      <button
-                        className={`accordion-button${open ? "" : " collapsed"}`}
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target={`#${panelId}`}
-                        aria-expanded={open}
-                        aria-controls={panelId}
-                      >
-                        {item.q}
-                      </button>
-                    </h3>
-                    <div
-                      id={panelId}
-                      className={`accordion-collapse collapse${open ? " show" : ""}`}
-                      role="region"
-                      aria-labelledby={headingId}
-                      data-bs-parent={`#${id}`}
-                    >
-                      <div className="accordion-body">
-                        <p className="desc">{item.a}</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+          <div className={styles.list} id={id}>
+            {items.map((item, index) => (
+              <details key={item.q} name={id} className={styles.item} open={index === 0}>
+                <summary className={styles.question}>
+                  <span className={styles.number} aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                  <span className={styles.questionText}>{item.q}</span>
+                  <span className={styles.toggle} aria-hidden="true" />
+                </summary>
+                <div className={styles.answer}><p>{item.a}</p></div>
+              </details>
+            ))}
           </div>
         </div>
       </div>

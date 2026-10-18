@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 
-import { lastUpdated } from "@/lib/legal";
+import Link from "next/link";
+
+import { LEGAL_PAGES, lastUpdated } from "@/lib/legal";
 import { SITE_URL } from "@/lib/seo";
 
 /**
@@ -11,20 +13,42 @@ import { SITE_URL } from "@/lib/seo";
  * text is the one place on a site where people genuinely read top to bottom,
  * so it gets a plain single column rather than the marketing layouts.
  */
+/**
+ * Q&A pairs a legal page also renders visibly. Only pass these when the page
+ * genuinely shows the same text — FAQPage markup describing answers a visitor
+ * cannot see is a structured-data violation, not a shortcut.
+ */
+export type LegalFaq = { q: string; a: string };
+
 export default function LegalPage({
   title,
   intro,
   slug,
+  faqs,
   children,
 }: {
   title: string;
   intro: string;
   slug: string;
+  faqs?: LegalFaq[];
   children: ReactNode;
 }) {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
+      ...(faqs && faqs.length
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `${SITE_URL}/${slug}#faq`,
+              mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ]
+        : []),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -72,6 +96,24 @@ export default function LegalPage({
             </div>
 
             <div className="ef-prose ef-legal">{children}</div>
+
+            {/* These three documents refer to each other constantly, and the
+                privacy policy had no way out of it at all — the footer was the
+                only route on or off the page. Rendered from LEGAL_PAGES so a
+                fourth document would appear here without being wired up. */}
+            <nav className="ef-legal-related" aria-label="Other policies">
+              <p>The rest of the small print</p>
+              <ul>
+                {LEGAL_PAGES.filter((page) => page.slug !== slug).map((page) => (
+                  <li key={page.slug}>
+                    <Link href={`/${page.slug}`}>{page.title}</Link>
+                  </li>
+                ))}
+                <li>
+                  <Link href="/contact">Ask me about any of it</Link>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </section>

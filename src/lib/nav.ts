@@ -26,8 +26,10 @@ export type NavItem = {
  */
 export const NAV: NavItem[] = [
   { label: "HOME", href: "/" },
+  // "GIGS" used to sit here pointing at /#pricing. A gig is a service with
+  // packages, so it duplicated SERVICES, and it was the only menu item that
+  // was an anchor rather than a page. The packages live on each service page.
   { label: "SERVICES", href: "/service" },
-  { label: "GIGS", href: "/#pricing" },
   { label: "WORK", href: "/work" },
   { label: "ANSWERS", href: "/answers" },
   { label: "ABOUT", href: "/about" },

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ProjectEnquiry from "@/components/contact/ProjectEnquiry";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import ServiceSchema from "@/components/seo/ServiceSchema";
@@ -68,20 +69,16 @@ export default function ServicePage() {
                                                   <li key={h}>{h}</li>
                                               ))}
                                           </ul>
-                                          <a href={`/service/${gig.slug}`} className="service-btn-area" aria-label={`See ${gig.name} packages`}>
+                                          <Link href={`/service/${gig.slug}`} className="service-btn-area" aria-label={`See ${gig.name} packages`}>
                                               <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                   <path d="M1.07812 0L0 1.07812L7.71094 8.78906L0 16.5L1.07812 17.5781L9.32812 9.32812L9.84375 8.78906L9.32812 8.25L1.07812 0Z" fill="black" />
                                               </svg>
-                                          </a>
+                                          </Link>
                                       </div>
                                   </div>
                               </div>
                           ))}
                           
-
-
-
-
 
 
 </div>
@@ -90,61 +87,7 @@ export default function ServicePage() {
           </section>
 
 
-
-          <div className="wpr-brand-area mb--16">
-              <div className="container">
-                  <div className="section-inner square-dot">
-                      <div className="left-text">
-                          <p>//WE’VE <br /> TRUSTED BY</p>
-                      </div>
-                      <div className="right-marquee-area">
-                          <div className="brand-inner">
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/01.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/02.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/03.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/04.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/05.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/06.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/01.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/02.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/03.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/04.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/05.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/06.svg" alt="" />
-                              </div>
-                          </div>
-                      </div>
-                      <span className="square-shape top-left"></span>
-                      <span className="square-shape bottom-left"></span>
-                      <span className="square-shape top-right"></span>
-                      <span className="square-shape bottom-right"></span>
-                  </div>
-              </div>
-          </div>
-
+          
 
 
           <section className="wpr-working-process mb--16">
@@ -155,13 +98,13 @@ export default function ServicePage() {
                               <div className="working-process-left">
                                   <div className="section-title-area">
                                       <p className="sub-title">PROCESS</p>
-                                      <h2 className="section-title second-font font-semi-bold text-normal quote">Combine
-                                          Creativity <br />
-                                          With Strategy</h2>
+                                      <h2 className="section-title second-font font-semi-bold text-normal quote">From the first
+                                          call <br />
+                                          to handover</h2>
                                   </div>
                                   <div className="text-area">
-                                      <p className="desc">Every step designed to deliver clarity, impact, and results.</p>
-                                      <a href="/contact" className="wpr-btn btn-primary with-icon">
+                                      <p className="desc">You always know what is happening, what I need from you next, and what you will have at the end.</p>
+                                      <Link href="/contact" className="wpr-btn btn-primary with-icon">
                                           <div className="inner">
                                               <div className="icon">
                                                   <span className="fixed-arrow">
@@ -182,7 +125,7 @@ export default function ServicePage() {
                                               </div>
                                           </div>
                                           Start a Project
-                                      </a>
+                                      </Link>
                                   </div>
                               </div>
                           </div>
@@ -190,7 +133,7 @@ export default function ServicePage() {
                               <div className="right-content-area">
                                   <div className="working-process-wrapper">
                                       <div className="image-area">
-                                          <img src="/assets/images/working-process/01.webp" alt="" />
+                                          <img src="/assets/images/working-process/understand.jpg" alt="" />
                                       </div>
                                       <div className="content-area">
                                           <div className="number">//01</div>
@@ -202,7 +145,7 @@ export default function ServicePage() {
                                   </div>
                                   <div className="working-process-wrapper">
                                       <div className="image-area">
-                                          <img src="/assets/images/working-process/02.webp" alt="" />
+                                          <img src="/assets/images/working-process/plan.jpg" alt="" />
                                       </div>
                                       <div className="content-area">
                                           <div className="number">//02</div>
@@ -214,7 +157,7 @@ export default function ServicePage() {
                                   </div>
                                   <div className="working-process-wrapper">
                                       <div className="image-area">
-                                          <img src="/assets/images/working-process/03.webp" alt="" />
+                                          <img src="/assets/images/working-process/build.jpg" alt="" />
                                       </div>
                                       <div className="content-area">
                                           <div className="number">//03</div>
@@ -226,7 +169,7 @@ export default function ServicePage() {
                                   </div>
                                   <div className="working-process-wrapper">
                                       <div className="image-area">
-                                          <img src="/assets/images/working-process/04.webp" alt="" />
+                                          <img src="/assets/images/working-process/handover.jpg" alt="" />
                                       </div>
                                       <div className="content-area">
                                           <div className="number">//04</div>
@@ -251,9 +194,7 @@ export default function ServicePage() {
           </section>
 
 
-
           
-
 
 
           <FaqAccordion
@@ -263,7 +204,6 @@ export default function ServicePage() {
               title={<>About The <br /> Packages</>}
               intro="How scope, upgrades and the “from” price actually work."
           />
-
 
 
           <section className="wpr-cta-area">
@@ -286,13 +226,12 @@ export default function ServicePage() {
                       <div className="bg-shape"><img src="/assets/images/cta/grid.svg" alt="" /></div>
                       <div className="section-bottom-shape">
                           <img src="/assets/images/cta/graphic.svg" alt="" />
-                          <span className="tag left">IMPACTFUL CREATIVE</span>
-                          <span className="tag right">GLOBAL SUPPORT</span>
+                          <span className="tag left">FIXED SCOPE, PRICED UP FRONT</span>
+                          <span className="tag right">REMOTE, WORLDWIDE</span>
                       </div>
                   </div>
               </div>
           </section>
-
 
 
           <ProjectEnquiry />

@@ -7,8 +7,8 @@ import { BRAND, SITE_URL } from "@/lib/seo";
 import Footer from "@/components/layout/Footer";
 import GoTop from "@/components/layout/GoTop";
 import Header from "@/components/layout/Header";
-import Preloader from "@/components/layout/Preloader";
 import SearchArea from "@/components/layout/SearchArea";
+import TemplateRouteSync from "@/components/layout/TemplateRouteSync";
 import TemplateScripts from "@/components/layout/TemplateScripts";
 
 /**
@@ -68,6 +68,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AI Agents, Automation, Web Development | Emerging Freelancer",
+    description:
+      "I build AI agents, workflow automation, websites and mobile apps that make your business easier to run. Fixed-scope gigs, priced up front.",
     images: ["/brand/og.png"],
   },
   robots: { index: true, follow: true },
@@ -82,13 +84,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         ))}
       </head>
       <body className="home-bg main-home onepage overflow-x-visible">
-        <Preloader />
         <Header />
         {children}
         <Footer />
         <SearchArea />
         <GoTop />
         <TemplateScripts />
+        <TemplateRouteSync />
       </body>
     </html>
   );

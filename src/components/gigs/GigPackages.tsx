@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Gig } from "@/lib/gigs";
 
 /**
@@ -51,9 +52,9 @@ export default function GigPackages({ gig }: { gig: Gig }) {
                         <span>Starting from</span> ${pkg.price}
                       </h4>
                       <div className="button-area">
-                        <a href="/contact" className="wpr-btn btn-primary">
+                        <Link href="/contact" className="wpr-btn btn-primary">
                           Start this package
-                        </a>
+                        </Link>
                       </div>
                     </div>
 

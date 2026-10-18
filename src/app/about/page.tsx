@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ProjectEnquiry from "@/components/contact/ProjectEnquiry";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import AboutSchema from "@/components/seo/AboutSchema";
@@ -5,9 +6,9 @@ import { ABOUT_FAQS } from "@/lib/faq";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "About",
+  title: "One Developer for AI Agents",
   description:
-    "One developer who scopes, builds and supports every project — AI agents, automation, websites and mobile apps. How I work and what happens after handover.",
+    "One developer in Pakistan who scopes, builds and supports every project — AI agents, automation, websites and mobile apps. No agency, no handover chain.",
   path: "/about",
 });
 
@@ -20,7 +21,7 @@ export default function AboutPage() {
                       <h1 className="section-title text-normal wow scaleIn" data-wow-delay=".7s">
                           One Developer, <br /> End To End
                       </h1>
-                      <p className="desc">I design, build and support this work myself — AI agents, automations, <br /> websites and the cloud integrations that join them up.</p>
+                      <p className="desc">I design, build and support this work myself — AI agents, automations, <br /> websites and the cloud integrations that join them up. Based in Pakistan, working worldwide.</p>
                       <div className="bg-shape">
                           <img src="/assets/images/banner/shape/bg-shape.svg" alt="" />
                       </div>
@@ -31,7 +32,6 @@ export default function AboutPage() {
                   </div>
               </div>
           </section>
-
 
 
           <section className="wpr-about-area mb--16">
@@ -53,7 +53,7 @@ export default function AboutPage() {
                                       <div className="icon"><img src="/assets/images/about/icon/01.svg" alt="" /></div>
                                       <div className="text">
                                           <h2 className="h4 title">Four gigs</h2>
-                                          <p className="desc">AI agents, automation, web and mobile, Salesforce and AWS</p>
+                                          <p className="desc">AI agents, automation, web and mobile, Salesforce and AWS — <Link href="/service">see all four</Link></p>
                                       </div>
                                   </li>
                                   <li className="border-top with-icon">
@@ -67,14 +67,14 @@ export default function AboutPage() {
                                       <div className="icon"><img src="/assets/images/about/icon/03.svg" alt="" /></div>
                                       <div className="text">
                                           <h2 className="h4 title">One developer</h2>
-                                          <p className="desc">The person who scopes it also builds it and supports it</p>
+                                          <p className="desc">The person who scopes it also builds it and supports it — <Link href="/work">see the builds</Link></p>
                                       </div>
                                   </li>
                               </ul>
                           </div>
                           <div className="right-area">
                               <div className="image-area">
-                                  <img src="/assets/images/about/01.webp" width="802" alt="" />
+                                  <img src="/assets/images/about/developer-meeting.jpg" width="802" alt="Working directly with a business on an automation project" />
                                   <img className="image-shape-right-bottom" src="/assets/images/about/shape-01.svg" alt="" />
                               </div>
                           </div>
@@ -95,61 +95,7 @@ export default function AboutPage() {
           </section>
 
 
-
-          <div className="wpr-brand-area mb--16">
-              <div className="container">
-                  <div className="section-inner square-dot">
-                      <div className="left-text">
-                          <p>//WE’VE <br /> TRUSTED BY</p>
-                      </div>
-                      <div className="right-marquee-area">
-                          <div className="brand-inner">
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/01.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/02.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/03.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/04.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/05.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/06.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/01.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/02.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/03.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/04.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/05.svg" alt="" />
-                              </div>
-                              <div className="brand-wrapper">
-                                  <img src="/assets/images/brand/06.svg" alt="" />
-                              </div>
-                          </div>
-                      </div>
-                      <span className="square-shape top-left"></span>
-                      <span className="square-shape bottom-left"></span>
-                      <span className="square-shape top-right"></span>
-                      <span className="square-shape bottom-right"></span>
-                  </div>
-              </div>
-          </div>
-
+          
 
 
           <section className="wpr-why-choose-us-area2 mb--16">
@@ -213,7 +159,6 @@ export default function AboutPage() {
                   </div>
               </div>
           </section>
-
 
 
           <section className="wpr-awards-area mb--16">
@@ -305,7 +250,6 @@ export default function AboutPage() {
           </section>
 
 
-
           <FaqAccordion
               items={ABOUT_FAQS}
               id="aboutFaq"
@@ -313,7 +257,6 @@ export default function AboutPage() {
               title={<>What To Expect <br /> From Me</>}
               intro="Communication, access, documentation and what happens when something breaks."
           />
-
 
 
           <section className="wpr-cta-area">
@@ -336,13 +279,12 @@ export default function AboutPage() {
                       <div className="bg-shape"><img src="/assets/images/cta/grid.svg" alt="" /></div>
                       <div className="section-bottom-shape">
                           <img src="/assets/images/cta/graphic.svg" alt="" />
-                          <span className="tag left">IMPACTFUL CREATIVE</span>
-                          <span className="tag right">GLOBAL SUPPORT</span>
+                          <span className="tag left">FIXED SCOPE, PRICED UP FRONT</span>
+                          <span className="tag right">REMOTE, WORLDWIDE</span>
                       </div>
                   </div>
               </div>
           </section>
-
 
 
           <ProjectEnquiry />

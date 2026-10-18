@@ -1,3 +1,5 @@
+import Link from "next/link";
+import HomeAnswers from "@/components/answers/HomeAnswers";
 import ProjectEnquiry from "@/components/contact/ProjectEnquiry";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import RotatingWord from "@/components/hero/RotatingWord";
@@ -64,7 +66,7 @@ export default function HomePage() {
                           <p className="desc">AI agents, automations, websites, mobile apps and cloud <br /> integrations that make your business easier to run.</p>
                           <div className="button-area">
                               <a href="#pricing" className="wpr-btn btn-white">See my gigs</a>
-                              <a href="/service" className="wpr-btn btn-primary with-icon">
+                              <Link href="/service" className="wpr-btn btn-primary with-icon">
                                   <div className="inner">
                                       <div className="icon">
                                           <span>
@@ -88,7 +90,7 @@ export default function HomePage() {
                                       </div>
                                   </div>
                                   Explore Services
-                              </a>
+                              </Link>
                           </div>
                       </div>
                       <div className="bg-shape">
@@ -116,6 +118,10 @@ export default function HomePage() {
                           <div className="section-title-area">
                               <p className="sub-title">ABOUT</p>
                               <h2 className="section-title second-font font-semi-bold text-normal quote">You work with me directly — the person who scopes it also builds and supports it</h2>
+                              {/* The About page was reachable only from the menu.
+                                  On a one-person site, "who am I hiring" is a
+                                  question the home page should answer with a link. */}
+                              <p className="gig-answer"><Link href="/about">How I work, and who you are hiring<span aria-hidden="true"> →</span></Link></p>
                           </div>
                       </div>
                       <div className="about-bottom-content square-dot">
@@ -149,7 +155,7 @@ export default function HomePage() {
                           </div>
                           <div className="right-area">
                               <div className="image-area">
-                                  <img src="/assets/images/about/01.webp" width="802" alt="Working remotely with business owners on automation projects" />
+                                  <img src="/assets/images/about/developer-meeting.jpg" width="802" alt="Working remotely with business owners on automation projects" />
                                   <img className="image-shape-right-bottom" src="/assets/images/about/shape-01.svg" alt="" />
                               </div>
                           </div>
@@ -178,11 +184,13 @@ export default function HomePage() {
                       <div className="floating-content">
                           <div className="section-title-area center-style">
                               <p className="sub-title bg-white">SELECTED WORK</p>
-                              <h2 className="section-title second-font font-semi-bold text-normal">Concept builds that show <br />
-                                  <span>how <span><img src="/assets/images/portfolio/sm.webp" width="147" alt="" /></span>
-                                  I solve a</span> <br /> real business problem
+                              <h2 className="section-title second-font font-semi-bold text-normal">Client sites and the <br />
+                                  <span>builds that <span><img src="/assets/images/portfolio/sm.webp" width="147" alt="" /></span>
+                                  show the</span> <br /> work
                               </h2>
-                              <p className="desc">These are concept projects, built to demonstrate the approach rather than delivered for a paying client — and labelled that way throughout. No client metrics are claimed. Real case studies will replace them as they become available to publish.</p>
+                              {/* The work index itself had no link from any page body. */}
+                              <p className="gig-answer"><Link href="/work">See all client sites and concept builds<span aria-hidden="true"> →</span></Link></p>
+                              <p className="desc">Three of the live sites are below. The full set, plus the labelled concept builds, is on the work page. No client revenue or review is claimed.</p>
                           </div>
                       </div>
                       <div className="wpr-video-pin">
@@ -192,30 +200,30 @@ export default function HomePage() {
                                       <div className="swiper-slide">
                                           <div className="slide feature-project">
                                               <div className="image-area">
-                                                  <img src="/assets/images/portfolio/01.webp" alt="Front Desk AI concept build — assistant handling an after-hours enquiry" className="video-img" />
+                                                  <img src="/assets/images/portfolio/cases/drix-agency.jpg" alt="Drix Agency — movie poster and key art studio website" className="video-img" />
                                                   <img src="/assets/images/portfolio/shape-top-left.svg" alt="" className="shape top-left-shape" />
                                                   <img src="/assets/images/portfolio/shape-top-right.svg" alt="" className="shape top-right-shape" />
                                               </div>
                                               <div className="slide-content">
                                                   <div className="product-intro">
                                                       <div className="top">
-                                                          <h2 className="h3 title"><a href="/work-details">Front Desk AI</a>
+                                                          <h2 className="h3 title"><Link href="/work/drix-agency">Drix Agency</Link>
                                                           </h2>
-                                                          <p className="desc">A voice and chat assistant that answers routine enquiries in your own wording, qualifies a real one, offers slots from the live calendar, and hands to a person the moment it should.</p>
+                                                          <p className="desc">A movie poster and key art studio site: services, a portfolio, a four-step process, and an FAQ that ends on one enquiry.</p>
                                                       </div>
                                                       <div className="bottom">
                                                           <ul>
                                                               <li>
-                                                                  <h3 className="h5">Voice + chat</h3>
-                                                                  <p>Channels handled</p>
+                                                                  <h3 className="h5">Key art</h3>
+                                                                  <p>Studio services</p>
                                                               </li>
                                                               <li>
-                                                                  <h3 className="h5">Live calendar</h3>
-                                                                  <p>Booking source</p>
+                                                                  <h3 className="h5">Portfolio</h3>
+                                                                  <p>Selected posters</p>
                                                               </li>
                                                               <li>
-                                                                  <h3 className="h5">Defined</h3>
-                                                                  <p>Human handoff</p>
+                                                                  <h3 className="h5">One enquiry</h3>
+                                                                  <p>Next step</p>
                                                               </li>
                                                           </ul>
                                                       </div>
@@ -223,42 +231,42 @@ export default function HomePage() {
                                               </div>
                                               <div className="hover_mouse">
                                                   <div className="box"></div>
-                                                  <a href="/work-details">
+                                                  <Link href="/work/drix-agency">
                                                       View project
                                                       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                           <path d="M18 0V13.4751H16.5083V2.53591L1.0442 18L0 16.9061L15.4144 1.49171H4.47514V0H18Z" fill="#98FF03" />
                                                       </svg>
-                                                  </a>
+                                                  </Link>
                                               </div>
                                           </div>
                                       </div>
                                       <div className="swiper-slide">
                                           <div className="slide feature-project">
                                               <div className="image-area">
-                                                  <img src="/assets/images/portfolio/02.webp" alt="Lead Relay concept build — one intake path feeding a CRM" className="video-img" />
+                                                  <img src="/assets/images/portfolio/cases/postautopilot.jpg" alt="PostAutoPilot — social posts distributed through a team's accounts" className="video-img" />
                                                   <img src="/assets/images/portfolio/shape-top-left.svg" alt="" className="shape top-left-shape" />
                                                   <img src="/assets/images/portfolio/shape-top-right.svg" alt="" className="shape top-right-shape" />
                                               </div>
                                               <div className="slide-content">
                                                   <div className="product-intro">
                                                       <div className="top">
-                                                          <h3 className="title"><a href="/work-details">Lead Relay</a>
+                                                          <h3 className="title"><Link href="/work/postautopilot">PostAutoPilot</Link>
                                                           </h3>
-                                                          <p className="desc">One intake path for a website form, a shared inbox and a social inbox. Every enquiry is captured once, matched against existing records, and given a dated follow-up task.</p>
+                                                          <p className="desc">A product site for writing a social post once, adapting it, and publishing through a business account or a teammate&apos;s connected account.</p>
                                                       </div>
                                                       <div className="bottom">
                                                           <ul>
                                                               <li>
-                                                                  <h3 className="h5">3 sources</h3>
-                                                                  <p>Unified intake</p>
+                                                                  <h3 className="h5">One post</h3>
+                                                                  <p>Created once</p>
                                                               </li>
                                                               <li>
-                                                                  <h3 className="h5">Matched</h3>
-                                                                  <p>De-duplication</p>
+                                                                  <h3 className="h5">Team accounts</h3>
+                                                                  <p>Distribution</p>
                                                               </li>
                                                               <li>
-                                                                  <h3 className="h5">Dated</h3>
-                                                                  <p>Follow-up tasks</p>
+                                                                  <h3 className="h5">Approval</h3>
+                                                                  <p>Where it is required</p>
                                                               </li>
                                                           </ul>
                                                       </div>
@@ -266,41 +274,41 @@ export default function HomePage() {
                                               </div>
                                               <div className="hover_mouse">
                                                   <div className="box"></div>
-                                                  <a href="/work-details">
+                                                  <Link href="/work/postautopilot">
                                                       View project
                                                       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                           <path d="M18 0V13.4751H16.5083V2.53591L1.0442 18L0 16.9061L15.4144 1.49171H4.47514V0H18Z" fill="#98FF03" />
                                                       </svg>
-                                                  </a>
+                                                  </Link>
                                               </div>
                                           </div>
                                       </div>
                                       <div className="swiper-slide">
                                           <div className="slide feature-project">
                                               <div className="image-area">
-                                                  <img src="/assets/images/portfolio/03.webp" alt="Clear Path concept build — business site with a single clear action" className="video-img" />
+                                                  <img src="/assets/images/portfolio/cases/jw-prestige.jpg" alt="JW Prestige — Paris chauffeur booking site" className="video-img" />
                                                   <img src="/assets/images/portfolio/shape-top-left.svg" alt="" className="shape top-left-shape" />
                                                   <img src="/assets/images/portfolio/shape-top-right.svg" alt="" className="shape top-right-shape" />
                                               </div>
                                               <div className="slide-content">
                                                   <div className="product-intro">
                                                       <div className="top">
-                                                          <h3 className="title"><a href="/work-details">Clear Path</a></h3>
-                                                          <p className="desc">A responsive business site built around one obvious next step, with a short enquiry form that explains its own errors and delivers straight into the tools the business already works in.</p>
+                                                          <h3 className="title"><Link href="/work/jw-prestige">JW Prestige</Link></h3>
+                                                          <p className="desc">A French booking site for a Paris chauffeur: an instant fare, Mercedes classes, airport transfer, and an FAQ.</p>
                                                       </div>
                                                       <div className="bottom">
                                                           <ul>
                                                               <li>
-                                                                  <h3 className="h5">One action</h3>
-                                                                  <p>Per page</p>
+                                                                  <h3 className="h5">Instant fare</h3>
+                                                                  <p>First action</p>
                                                               </li>
                                                               <li>
-                                                                  <h3 className="h5">3 fields</h3>
-                                                                  <p>Enquiry form</p>
+                                                                  <h3 className="h5">Vehicle classes</h3>
+                                                                  <p>Mercedes fleet</p>
                                                               </li>
                                                               <li>
-                                                                  <h3 className="h5">CRM + inbox</h3>
-                                                                  <p>Delivery target</p>
+                                                                  <h3 className="h5">French</h3>
+                                                                  <p>Paris chauffeur search</p>
                                                               </li>
                                                           </ul>
                                                       </div>
@@ -309,12 +317,12 @@ export default function HomePage() {
                                               </div>
                                               <div className="hover_mouse">
                                                   <div className="box"></div>
-                                                  <a href="/work-details">
+                                                  <Link href="/work/jw-prestige">
                                                       View project
                                                       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                           <path d="M18 0V13.4751H16.5083V2.53591L1.0442 18L0 16.9061L15.4144 1.49171H4.47514V0H18Z" fill="#98FF03" />
                                                       </svg>
-                                                  </a>
+                                                  </Link>
                                               </div>
                                           </div>
                                       </div>
@@ -352,7 +360,7 @@ export default function HomePage() {
                                   </div>
                                   <div className="text-area">
                                       <p className="desc">You always know what is happening, what I need from you next, and what you will have at the end of it.</p>
-                                      <a href="/contact" className="wpr-btn btn-primary with-icon">
+                                      <Link href="/contact" className="wpr-btn btn-primary with-icon">
                                           <div className="inner">
                                               <div className="icon">
                                                   <span className="fixed-arrow">
@@ -373,7 +381,7 @@ export default function HomePage() {
                                               </div>
                                           </div>
                                           Start a Project
-                                      </a>
+                                      </Link>
                                   </div>
                               </div>
                           </div>
@@ -381,7 +389,7 @@ export default function HomePage() {
                               <div className="right-content-area">
                                   <div className="working-process-wrapper">
                                       <div className="image-area">
-                                          <img src="/assets/images/working-process/01.webp" alt="Step one — understanding the business problem on a call" />
+                                          <img src="/assets/images/working-process/understand.jpg" alt="Step one — understanding the business problem on a call" />
                                       </div>
                                       <div className="content-area">
                                           <div className="number">//01</div>
@@ -393,7 +401,7 @@ export default function HomePage() {
                                   </div>
                                   <div className="working-process-wrapper">
                                       <div className="image-area">
-                                          <img src="/assets/images/working-process/02.webp" alt="Step two — writing the scope, workflow and fixed price" />
+                                          <img src="/assets/images/working-process/plan.jpg" alt="Step two — writing the scope, workflow and fixed price" />
                                       </div>
                                       <div className="content-area">
                                           <div className="number">//02</div>
@@ -405,7 +413,7 @@ export default function HomePage() {
                                   </div>
                                   <div className="working-process-wrapper">
                                       <div className="image-area">
-                                          <img src="/assets/images/working-process/03.webp" alt="Step three — building and testing against realistic scenarios" />
+                                          <img src="/assets/images/working-process/build.jpg" alt="Step three — building and testing against realistic scenarios" />
                                       </div>
                                       <div className="content-area">
                                           <div className="number">//03</div>
@@ -417,7 +425,7 @@ export default function HomePage() {
                                   </div>
                                   <div className="working-process-wrapper">
                                       <div className="image-area">
-                                          <img src="/assets/images/working-process/04.webp" alt="Step four — launch, documentation and handover" />
+                                          <img src="/assets/images/working-process/handover.jpg" alt="Step four — launch, documentation and handover" />
                                       </div>
                                       <div className="content-area">
                                           <div className="number">//04</div>
@@ -536,7 +544,7 @@ export default function HomePage() {
                                           </div>
                                       </div>
                                       <div className="bottom-button-area">
-                                          <a href="/contact" className="wpr-btn btn-primary">Get Started</a>
+                                          <Link href="/contact" className="wpr-btn btn-primary">Get Started</Link>
                                       </div>
                                   </div>
                               </div>
@@ -568,7 +576,9 @@ export default function HomePage() {
                                   Standard and Premium — so you can start small and move up on the same
                                   service. Packages run from <strong>${PRICE_FROM}</strong> to
                                   <strong> ${PRICE_TO}</strong>, each a fixed scope agreed in writing before
-                                  work begins, so the price does not move unless the scope does.</p>
+                                  work begins, so the price does not move unless the scope does.
+                                  Built for small service businesses that miss calls, retype leads, or
+                                  have a site that never asks for the work.</p>
                           </div>
                       </div>
                       <div className="section-mid-area">
@@ -585,9 +595,12 @@ export default function HomePage() {
           <FaqAccordion
               items={FAQS}
               id="homeFaq"
-              title={<>Questions <br /> Before We Start</>}
-              intro="Pricing, timelines, access and what happens after handover — the things people ask before the first call."
+              eyebrow="Common questions"
+              title={<>A few things <br /> worth knowing.</>}
+              intro="Clear answers on pricing, timelines, access and handover."
           />
+
+          <HomeAnswers />
 
 
 
@@ -600,7 +613,7 @@ export default function HomePage() {
                               fixed scope and a price before any work begins — and a reply within one
                               business day.</p>
                           <div className="cta-actions">
-                              <a href="/contact" className="wpr-btn btn-white">Start a project</a>
+                              <Link href="/contact" className="wpr-btn btn-white">Start a project</Link>
                               <a href="#pricing" className="cta-link">See the gigs from $120</a>
                           </div>
                           <div className="logo"><img src="/assets/images/cta/cta-logo.svg" alt="" /></div>

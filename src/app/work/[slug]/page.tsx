@@ -1,9 +1,15 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import FaqAccordion from "@/components/faq/FaqAccordion";
+import { PROJECT_FAQS } from "@/lib/faq";
 import { gigBySlug } from "@/lib/gigs";
-import { PROJECTS, projectBySlug } from "@/lib/projects";
-import { pageMeta, SITE_URL, BRAND } from "@/lib/seo";
+import { PROJECTS, projectBySlug, relatedProjects } from "@/lib/projects";
+import { answerBySlug } from "@/lib/answers";
+import { pageMeta, SITE_URL } from "@/lib/seo";
+
+import styles from "./project.module.css";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -17,7 +23,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!project) return { title: "Project not found" };
 
   return pageMeta({
-    title: `${project.name} — ${project.kind}`,
+    title: project.shortTitle ?? project.name,
     description: project.blurb,
     path: `/work/${project.slug}`,
   });
@@ -29,7 +35,9 @@ export default async function ProjectPage({ params }: Params) {
   if (!project) notFound();
 
   const gig = gigBySlug(project.gigSlug);
-  const others = PROJECTS.filter((p) => p.slug !== project.slug);
+  const others = relatedProjects(project.slug);
+  const answer = project.relatedAnswer ? answerBySlug(project.relatedAnswer) : undefined;
+  const projectFaqs = project.faqs ?? PROJECT_FAQS[project.slug] ?? [];
 
   /**
    * CreativeWork rather than CaseStudy: these are demonstrations, not client
@@ -64,16 +72,54 @@ export default async function ProjectPage({ params }: Params) {
         url: `${SITE_URL}/work/${project.slug}`,
         inLanguage: "en",
       },
+      ...(project.liveUrl
+        ? [
+            {
+              "@type": "WebSite",
+              name: project.name,
+              url: project.liveUrl,
+            },
+          ]
+        : []),
+      ...(projectFaqs.length
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `${SITE_URL}/work/${project.slug}#faq`,
+              mainEntity: projectFaqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 
   return (
     <>
+      <main className={styles.casePage}>
       <section className="wpr-banner-area breadcrumb">
         <div className="container">
           <div className="banner-content-area">
+            <p className={styles.kicker}>{project.kind} · {project.category}</p>
             <h1 className="section-title text-normal">{project.name}</h1>
             <p className="desc">{project.summary}</p>
+            <div className={styles.heroActions}>
+              {project.liveUrl && (
+                <a
+                  className={styles.primaryAction}
+                  href={project.liveUrl}
+                  rel="noopener noreferrer"
+                >
+                  Visit live site
+                </a>
+              )}
+              <Link className={styles.secondaryAction} href="/work">
+                All work
+              </Link>
+            </div>
             <div className="bg-shape">
               <img src="/assets/images/banner/shape/bg-shape.svg" alt="" />
             </div>
@@ -107,7 +153,9 @@ export default async function ProjectPage({ params }: Params) {
               <figure className="ef-detail__media">
                 <img src={project.image} alt={`${project.name} — ${project.blurb}`} />
                 <figcaption>
-                  {project.kind}. Built to demonstrate an approach, not delivered for a client.
+                  {project.kind === "Client project"
+                    ? "Client project. AI-generated editorial cover; view the live site for the actual work."
+                    : "Concept project. AI-generated editorial cover; no client is represented."}
                 </figcaption>
               </figure>
 
@@ -132,9 +180,29 @@ export default async function ProjectPage({ params }: Params) {
                   <div>
                     <dt>Related gig</dt>
                     <dd>
-                      <a className="ef-inline-link" href={`/service#${gig.slug}`}>
+                      <Link className="ef-inline-link" href={`/service/${gig.slug}`}>
                         {gig.name} — packages from ${Math.min(...gig.packages.map((p) => p.price))}
+                      </Link>
+                    </dd>
+                  </div>
+                )}
+                {project.liveUrl && (
+                  <div>
+                    <dt>Live site</dt>
+                    <dd>
+                      <a className="ef-inline-link" href={project.liveUrl} rel="noopener noreferrer">
+                        {project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}
                       </a>
+                    </dd>
+                  </div>
+                )}
+                {answer && (
+                  <div>
+                    <dt>Related answer</dt>
+                    <dd>
+                      <Link className="ef-inline-link" href={`/answers/${answer.slug}`}>
+                        {answer.shortTitle}
+                      </Link>
                     </dd>
                   </div>
                 )}
@@ -175,13 +243,27 @@ export default async function ProjectPage({ params }: Params) {
               <p>{project.outcome}</p>
 
               <p className="ef-note">
-                {project.kind}. No client metrics, conversion rates or revenue figures are
-                claimed anywhere on this page.
+                {project.kind}. Client marketing figures and reviews stay on the
+                client&apos;s site. None are claimed here as a result of the build.
               </p>
             </div>
           </div>
         </div>
       </section>
+
+      {projectFaqs.length > 0 && (
+        <FaqAccordion
+          items={projectFaqs}
+          id={`${project.slug}Faq`}
+          eyebrow="The limits"
+          title={
+            <>
+              What This Build <br /> Will Not Do
+            </>
+          }
+          intro="The same constraints as the write-up above, in the form of a direct answer."
+        />
+      )}
 
       <section className="wpr-next-project-area mb--16" aria-labelledby="next-title">
         <div className="container">
@@ -193,32 +275,33 @@ export default async function ProjectPage({ params }: Params) {
                   id="next-title"
                   className="section-title second-font font-semi-bold text-normal"
                 >
-                  Other builds
+                  Related work
                 </h2>
               </div>
             </div>
             <ul className="ef-next-list">
               {others.map((o) => (
                 <li key={o.slug}>
-                  <a href={`/work/${o.slug}`}>
+                  <Link href={`/work/${o.slug}`}>
                     <span className="ef-next-list__cat">{o.category}</span>
                     <span className="ef-next-list__name">
                       {o.name}
                       <span aria-hidden="true">→</span>
                     </span>
                     <span className="ef-next-list__blurb">{o.blurb}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
             <p className="ef-next-cta">
-              <a href="/contact" className="wpr-btn btn-primary">
+              <Link href="/contact" className="wpr-btn btn-primary">
                 Discuss a project like this
-              </a>
+              </Link>
             </p>
           </div>
         </div>
       </section>
+      </main>
 
       <script
         type="application/ld+json"

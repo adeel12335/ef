@@ -1,5 +1,6 @@
 import { FAQS } from "@/lib/faq";
 import { CURRENCY, GIGS, PRICE_FROM, PRICE_TO } from "@/lib/gigs";
+import { PROCESS } from "@/lib/process";
 import { BRAND, SITE_URL } from "@/lib/seo";
 import { PERSON_NAME_CONFIRMED, hasSocials, personBio, personName, socials } from "@/lib/person";
 
@@ -84,7 +85,7 @@ export default function StructuredData() {
             description: gig.description,
             provider: { "@id": `${SITE_URL}/#business` },
             areaServed: "Worldwide",
-            url: `${SITE_URL}/service#${gig.slug}`,
+            url: `${SITE_URL}/service/${gig.slug}`,
           },
         })),
       },
@@ -104,7 +105,7 @@ export default function StructuredData() {
             valueAddedTaxIncluded: false,
           },
           availability: "https://schema.org/InStock",
-          url: `${SITE_URL}/service#${gig.slug}`,
+          url: `${SITE_URL}/service/${gig.slug}`,
           itemOffered: {
             "@type": "Service",
             name: gig.name,
@@ -129,6 +130,19 @@ export default function StructuredData() {
           },
         ]
       : []),
+    {
+      "@type": "HowTo",
+      "@id": `${SITE_URL}/#process`,
+      name: "How a project with Emerging Freelancer runs",
+      description:
+        "Four steps from the first conversation to handover. The same steps are written on the page.",
+      step: PROCESS.map((step, i) => ({
+        "@type": "HowToStep",
+        position: i + 1,
+        name: step.title,
+        text: step.description,
+      })),
+    },
     {
       "@type": "FAQPage",
       "@id": `${SITE_URL}/#faq`,

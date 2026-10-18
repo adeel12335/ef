@@ -1,11 +1,12 @@
+import Link from "next/link";
 import ProjectEnquiry from "@/components/contact/ProjectEnquiry";
 import ContactSchema from "@/components/seo/ContactSchema";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "Contact",
+  title: "Start a Project, Reply in 1 Day",
   description:
-    "Tell me what you’d like to make easier — AI agents, automation, websites or mobile apps. I read every enquiry myself and reply within one business day.",
+    "Describe the problem in your own words. I read every enquiry myself and reply within one business day with a package or a written scope.",
   path: "/contact",
 });
 
@@ -76,6 +77,23 @@ export default function ContactPage() {
               </div>
           </section>
 
+
+          <section className="wpr-services-area inner mb--16" aria-labelledby="after-send">
+              <div className="container">
+                  <div className="section-inner bg-white border-1">
+                      <div className="ef-prose">
+                          <h2 id="after-send">What happens after you send this</h2>
+                          <p>I read it myself and reply within one business day. You get either a named package and its price, or a note that the work needs its own written scope. Nothing starts before that.</p>
+                          <ol>
+                              <li>You describe what happens today, and what you would rather happened.</li>
+                              <li>I reply with the gig and package that fits, or I say it does not fit one.</li>
+                              <li>If we continue, the scope, the price and what is excluded are written down before any build.</li>
+                          </ol>
+                          <p>If you already know the job, <Link href="/answers/what-to-prepare-before-a-build">what to have ready</Link> makes the first reply shorter.</p>
+                      </div>
+                  </div>
+              </div>
+          </section>
 
           <ProjectEnquiry />
           <ContactSchema />

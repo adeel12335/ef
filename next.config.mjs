@@ -2,6 +2,16 @@
 const nextConfig = {
   reactStrictMode: true,
 
+  async redirects() {
+    return [
+      { source: "/about-us", destination: "/about", permanent: true },
+      { source: "/services", destination: "/service", permanent: true },
+      { source: "/our-portfolio", destination: "/work", permanent: true },
+      { source: "/testimonials", destination: "/about", permanent: true },
+      { source: "/work-details", destination: "/work", permanent: true },
+    ];
+  },
+
   // `next dev` only trusts `localhost` as an origin by default: the HMR
   // WebSocket upgrade is dropped for any other Origin, which leaves the dev
   // client unable to connect and — because hydration never completes —

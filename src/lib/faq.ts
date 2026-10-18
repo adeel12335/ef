@@ -92,3 +92,175 @@ export const ABOUT_FAQS: Faq[] = [
     a: "Yes to both. An NDA is fine before we discuss anything sensitive, and every project runs against a written scope that covers deliverables, timeline, price and what happens if the scope changes.",
   },
 ];
+
+/**
+ * Questions that only make sense on one gig. The shared SERVICE_FAQS stay on
+ * /service. Repeating them on every gig URL gives Google four copies of the
+ * same answers and none of the question that page should win.
+ */
+export const GIG_FAQS: Record<string, Faq[]> = {
+  "ai-agents": [
+    {
+      q: "Will the assistant invent a price or an appointment?",
+      a: "No. It only offers times it has just read from your calendar, and a booking is confirmed only after that write succeeds. If it has no written answer, it stops and hands the conversation to a person with the transcript attached.",
+    },
+    {
+      q: "How is this different from a monthly AI phone product?",
+      a: "A hosted receptionist is a subscription, often tens to a few hundred dollars a month plus usage. This is a fixed-scope build from $150 that you keep: chat at $150, live booking at $300, voice with CRM records at $500. Model and phone usage after launch is separate, and at a small volume it is usually much smaller than the subscription.",
+    },
+    {
+      q: "Do I need a new phone number?",
+      a: "Not for chat. The Basic and Standard packages sit on the site you already have. Voice is the Premium package, and it uses a number you control rather than one locked to me.",
+    },
+    {
+      q: "What happens when a caller asks for a person?",
+      a: "They get one. Asking once is enough. The assistant stops, takes a callback detail, and sends the full transcript to a person. It does not try to talk them out of it.",
+    },
+  ],
+  "workflow-automation": [
+    {
+      q: "Do I need n8n, Make or Zapier already?",
+      a: "No. If you already pay for one of them, I build there. If you have none, n8n is the default, because you can own the workflows instead of renting every run.",
+    },
+    {
+      q: "What if a step fails in the middle of the night?",
+      a: "The original enquiry is kept and a person is told. A lead that disappears without an alert is treated as a failed build, not as an acceptable error.",
+    },
+    {
+      q: "Can the same person become two CRM records?",
+      a: "Not when the email or phone matches an existing record. Near-matches are flagged for you to check. The automation does not guess that two similar names are the same person.",
+    },
+    {
+      q: "When is automation the wrong job?",
+      a: "When enquiries are not arriving. Connecting tools will not create demand. A shorter form and one obvious next step is the cheaper fix, and I will say so before any workflow is built.",
+    },
+  ],
+  "web-mobile": [
+    {
+      q: "Is this a website or an app?",
+      a: "Basic is one landing page. Standard is a business site of up to six pages. Premium is the point where it becomes a web or mobile app with accounts. The written scope names which of those you are buying.",
+    },
+    {
+      q: "What does the on-page SEO in Basic include?",
+      a: "A unique title and description, one clear heading, and page copy written so a search result can quote it. It is not a backlink campaign or a promise of a ranking.",
+    },
+    {
+      q: "Where do form submissions go?",
+      a: "Into the inbox or CRM you already work in. The visitor is told the message was sent only after that delivery succeeds.",
+    },
+    {
+      q: "Will it work properly on a phone?",
+      a: "Yes. Phone layout is part of the build. Most of this traffic arrives there, so a desktop-only pass would be an unfinished page.",
+    },
+  ],
+  "salesforce-aws": [
+    {
+      q: "Is this Salesforce work or AWS work?",
+      a: "Either, or both, and the scope says which. Salesforce here means objects, fields, flows and reports. AWS means servers, storage, deployment and monitoring. You do not have to buy both to book one.",
+    },
+    {
+      q: "Who owns the AWS account?",
+      a: "You do. Access is granted inside your account, limited to what the job needs, and yours to revoke when the work ends. Credentials are not copied out into a repository.",
+    },
+    {
+      q: "Can changes be shown before they touch live records?",
+      a: "Yes. Salesforce changes are shown in a sandbox or a separate environment first. AWS work uses a separate environment before anything is pointed at production.",
+    },
+    {
+      q: "What if we only need a tidy-up, not a rebuild?",
+      a: "That is the Basic package: custom fields and a page layout, or one service deployed to AWS, plus one report and an access clean-up. Larger objects, flows and pipelines are Standard and Premium.",
+    },
+  ],
+};
+
+export function faqsForGig(slug: string): Faq[] {
+  return GIG_FAQS[slug] ?? SERVICE_FAQS;
+}
+
+/** Two answer-first blocks so a gig URL can be quoted without the /answers article. */
+export const GIG_NOTES: Record<string, { heading: string; paragraphs: string[] }[]> = {
+  "ai-agents": [
+    {
+      heading: "What it will refuse to do",
+      paragraphs: [
+        "It will not invent a price, a policy, or a time slot. Availability is read from the live calendar, and a booking is confirmed only after the calendar accepts the write.",
+        "Anything outside the answers you have signed off — a complaint, a discount, a question it has not been given — stops and goes to a person. That boundary is designed before the happy path, because it is what makes the rest safe to put on a phone line.",
+      ],
+    },
+    {
+      heading: "A subscription versus a fixed build",
+      paragraphs: [
+        "Hosted AI phone products, as publicly listed in October 2026, are mostly a monthly plan: entry tiers often around $49–$99, fuller plans a few hundred dollars a month, plus usage. People who commission a custom production system commonly talk about quotes in the thousands.",
+        "The packages on this page are neither of those. They are a defined build — chat from $150, booking from $300, voice from $500 — that you keep. Running the model and, for voice, the phone line, still costs money afterwards. At a small volume that is usually much less than the subscription, and it is quoted separately so the two numbers are not mixed.",
+      ],
+    },
+  ],
+  "workflow-automation": [
+    {
+      heading: "n8n, Make, or Zapier",
+      paragraphs: [
+        "I use the tool you already pay for. If you have none, n8n is the default: you can self-host it and you are not billed for every run. Zapier is the easiest to open yourself. Make sits between them when a flow has a lot of branches.",
+        "The platform is not the job. The job is one intake shape, a match on email and phone, a dated follow-up, and an alert when a step fails.",
+      ],
+    },
+    {
+      heading: "One worked intake",
+      paragraphs: [
+        "A website form, a shared inbox and a social message become one record: name, contact, source, message, time. A match updates the person you already have. A near-match waits for you. Anything else creates a new record and a follow-up with a named owner.",
+        "If a step fails, the original message is kept and someone is told. The lead is not dropped because a CRM field rejected it at 2am.",
+      ],
+    },
+  ],
+  "web-mobile": [
+    {
+      heading: "A site first, an app only when you need one",
+      paragraphs: [
+        "Basic and Standard are websites: one page, or up to six, each with the same next step. Premium is a web or mobile app with accounts, because that is a different product and a different price.",
+        "The form asks only what changes the first reply. Errors say what to fix. The visitor sees a confirmation only after the enquiry has actually landed in your inbox or CRM.",
+      ],
+    },
+  ],
+  "salesforce-aws": [
+    {
+      heading: "Salesforce on this page, AWS under its own heading",
+      paragraphs: [
+        "Salesforce work here is objects, fields, flows, assignment rules and the reports your team asked for. It follows how you actually sell, not a generic layout.",
+        "AWS work is hosting, storage, a deployment pipeline and monitoring, with access limited to what the job needs. If you want both, they are written as two parts of one scope. If you want one, that is all you buy.",
+      ],
+    },
+  ],
+};
+
+/** Short questions on each concept build, taken from constraints already on the page. */
+export const PROJECT_FAQS: Record<string, Faq[]> = {
+  "front-desk-ai": [
+    {
+      q: "Will it book a time that is not free?",
+      a: "No. It reads slots from the live calendar and confirms the booking only after the calendar write succeeds. It does not tell the caller they are booked and then try to save it.",
+    },
+    {
+      q: "What if the caller asks something it was not given an answer for?",
+      a: "It stops, takes a callback detail, and sends a person the transcript. Guessing a price or a policy is outside the build.",
+    },
+  ],
+  "lead-relay": [
+    {
+      q: "What happens to a lead when a step fails?",
+      a: "The original message is stored and a person is alerted. The pipeline does not drop the enquiry and continue as if it arrived.",
+    },
+    {
+      q: "How does it avoid duplicate people?",
+      a: "It matches on email and phone. A clear match updates the existing record. A near-match is left for a person. It does not merge two people because the names look similar.",
+    },
+  ],
+  "clear-path": [
+    {
+      q: "How many things does the form ask?",
+      a: "Only what is needed for a useful first conversation. Extra fields that a team might want later stay off the form, because each one costs submissions from people who have not decided yet.",
+    },
+    {
+      q: "When does the visitor see a confirmation?",
+      a: "After the enquiry has been delivered to the inbox or CRM. The page does not confirm a message that never arrived.",
+    },
+  ],
+};

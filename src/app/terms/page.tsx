@@ -1,5 +1,12 @@
+import Link from "next/link";
 import LegalPage, { LegalTodo } from "@/components/legal/LegalPage";
-import { businessStatus, jurisdiction, legalName } from "@/lib/legal";
+import {
+  advancePercent,
+  businessStatus,
+  jurisdiction,
+  legalName,
+  tradingAs,
+} from "@/lib/legal";
 import { PRICE_FROM, PRICE_TO } from "@/lib/gigs";
 import { pageMeta } from "@/lib/seo";
 
@@ -20,9 +27,9 @@ export default function TermsPage() {
       <section>
         <h3>Who these terms are with</h3>
         <p>
-          These terms apply between you and {legalName} ({businessStatus}),
-          trading as Emerging Freelancer. &ldquo;I&rdquo; means me;
-          &ldquo;you&rdquo; means the person or business engaging me.
+          These terms apply between you and {legalName} ({businessStatus})
+          {tradingAs ? `, trading as ${tradingAs}` : ""}. &ldquo;I&rdquo; means
+          me; &ldquo;you&rdquo; means the person or business engaging me.
         </p>
         <p>
           A project is governed by these terms together with the written scope
@@ -55,16 +62,29 @@ export default function TermsPage() {
       <section>
         <h3>Payment</h3>
         <LegalTodo>
-          Your actual payment terms — deposit percentage, when the balance falls
-          due, accepted methods, currency, and any late-payment interest. The
-          wording below is a reasonable default for freelance work, not a
-          decision I can make for you.
+          Your actual payment terms — the advance percentage, when the balance
+          falls due, and any late-payment interest. The wording below is a
+          reasonable default for freelance work, not a decision I can make for
+          you. The advance figure comes from{" "}
+          <code>advancePercent</code> in <code>src/lib/legal.ts</code>, so
+          changing it there updates this page and the{" "}
+          <Link href="/refunds">Refund Policy</Link> together.
         </LegalTodo>
         <ul>
-          <li>A deposit of 50% is payable before work starts; the balance is due on delivery, before handover of credentials and source files.</li>
+          <li>
+            An advance of {advancePercent}% is payable before work starts; the
+            balance is due on delivery, before handover of credentials and
+            source files.
+          </li>
           <li>Invoices are payable within 14 days.</li>
           <li>Prices exclude any taxes, duties or payment-processor fees that apply to you.</li>
           <li>Third-party running costs — model usage, telephony, hosting, platform subscriptions — are yours and are billed by those providers directly, not by me.</li>
+          <li>
+            If a project is cancelled, the advance is refunded in full before
+            work starts and drawn down against completed stages afterwards. The{" "}
+            <Link href="/refunds">Refund &amp; Cancellation Policy</Link> sets out the
+            stages and the arithmetic.
+          </li>
         </ul>
       </section>
 
@@ -226,7 +246,7 @@ export default function TermsPage() {
         <h3>Ending a project</h3>
         <p>
           Either of us may end a project in writing. What happens to money is in
-          the <a href="/refunds">Refund &amp; Cancellation Policy</a>. On
+          the <Link href="/refunds">Refund &amp; Cancellation Policy</Link>. On
           termination I hand over everything produced and paid for, and remove
           my access to your systems.
         </p>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { LEGAL_PAGES } from "@/lib/legal";
 import { socials } from "@/lib/person";
 
@@ -9,21 +10,25 @@ export default function Footer() {
                   <div className="section-inner border-1">
                       <div className="footer-top">
                           <ul>
-                              <li><a href="/service">Services</a></li>
+                              {/* Kept in step with lib/nav.ts — "Gigs" was dropped
+                                  from both because a gig is a service with
+                                  packages, and the packages are on the service
+                                  pages. */}
+                              <li><Link href="/service">Services</Link></li>
                               <li className="square-dot"></li>
-                              <li><a href="/#pricing">Gigs</a></li>
+                              <li><Link href="/work">Work</Link></li>
                               <li className="square-dot"></li>
-                              <li><a href="/work">Work</a></li>
+                              <li><Link href="/answers">Answers</Link></li>
                               <li className="square-dot"></li>
-                              <li><a href="/about">About</a></li>
+                              <li><Link href="/about">About</Link></li>
                               <li className="square-dot"></li>
-                              <li><a href="/contact">Contact</a></li>
+                              <li><Link href="/contact">Contact</Link></li>
                           </ul>
                       </div>
                       <div className="footer-logo-area square-dot">
-                          <a href="/" aria-label="Emerging Freelancer — home">
+                          <Link href="/" aria-label="Emerging Freelancer — home">
                               <img src="/assets/images/logo/footer-logo.svg" alt="Emerging Freelancer" />
-                          </a>
+                          </Link>
                           <div className="shape one"><img src="/assets/images/logo/shape-01.svg" alt="" /></div>
                           <div className="shape two"><img src="/assets/images/logo/shape-02.svg" alt="" /></div>
                           <span className="square-shape top-left"></span>
@@ -44,19 +49,27 @@ export default function Footer() {
                                           </a>
                                       </li>
                                   ))}
-                                  <li><a href="/contact">Start a project</a></li>
+                                  <li><Link href="/contact">Start a project</Link></li>
                               </ul>
                           </div>
-                          <ul className="ef-legal-links">
-                              {LEGAL_PAGES.map((page) => (
-                                  <li key={page.slug}>
-                                      <a href={`/${page.slug}`}>{page.nav}</a>
-                                  </li>
-                              ))}
-                          </ul>
-                          <p className="copyright">
-                              © {new Date().getFullYear()} Emerging Freelancer. All rights reserved
-                          </p>
+                          {/* The theme's copyright row is a three-column flex
+                              layout — left, centre, right, each sized 33%. The
+                              legal links were a fourth child with no width,
+                              which overflowed the row and wrapped them onto
+                              their own line. They belong with the copyright, so
+                              they share the centre column instead. */}
+                          <div className="ef-footer-centre">
+                              <ul className="ef-legal-links">
+                                  {LEGAL_PAGES.map((page) => (
+                                      <li key={page.slug}>
+                                          <Link href={`/${page.slug}`}>{page.nav}</Link>
+                                      </li>
+                                  ))}
+                              </ul>
+                              <p className="copyright">
+                                  © {new Date().getFullYear()} Emerging Freelancer. All rights reserved
+                              </p>
+                          </div>
                           <button className="scroll-top-btn">
                               Back to Top
                               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

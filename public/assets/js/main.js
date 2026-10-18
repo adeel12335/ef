@@ -291,7 +291,13 @@
             } else {
               var preloaderTL = gsap.timeline({
                 onComplete: function () {
-                  $(".preloader").remove();
+                  // Was `.remove()`. The preloader is rendered by React in the
+                  // root layout, so deleting the node left React's tree holding
+                  // a reference to a node that was no longer in the document.
+                  // The next client-side navigation then threw NotFoundError
+                  // from insertBefore and the page failed to render. Hiding it
+                  // keeps the DOM and React's tree in agreement.
+                  $(".preloader").css("display", "none");
                 },
               });
 
@@ -1202,6 +1208,15 @@
       });
     },
   }
+
+  // Added for the Next.js port: rdJs lives inside this IIFE, so nothing outside
+  // can reach it. With client-side navigation the page markup is replaced
+  // without a document reload, and the initialisers below bind to nodes that no
+  // longer exist. TemplateRouteSync re-runs a short, curated list of them after
+  // each route change — never the whole of methods(), which would stack a
+  // duplicate window scroll handler every time.
+  window.rdJs = rdJs;
+
   rdJs.m();
 
   $(document).ready(function () {
