@@ -8,7 +8,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata = pageMeta({
   title: "One Developer for AI Agents",
   description:
-    "One developer in Pakistan who scopes, builds and supports every project — AI agents, automation, websites and mobile apps. No agency, no handover chain.",
+    "One US-based developer who scopes, builds and supports every project — AI agents, automation, websites and mobile apps. No agency, no handover chain.",
   path: "/about",
 });
 
@@ -21,7 +21,7 @@ export default function AboutPage() {
                       <h1 className="section-title text-normal wow scaleIn" data-wow-delay=".7s">
                           One Developer, <br /> End To End
                       </h1>
-                      <p className="desc">I design, build and support this work myself — AI agents, automations, <br /> websites and the cloud integrations that join them up. Based in Pakistan, working worldwide.</p>
+                      <p className="desc">I design, build and support this work myself — AI agents, automations, <br /> websites and the cloud integrations that join them up. Based in the United States, working worldwide.</p>
                       <div className="bg-shape">
                           <img src="/assets/images/banner/shape/bg-shape.svg" alt="" />
                       </div>

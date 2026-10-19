@@ -337,13 +337,8 @@ export default function HomePage() {
                           </div>
                       </div>
                   </div>
-                  <div className="bottom-shape-area bg-white square-dot">
-                      <img src="/assets/images/about/shape-02.svg" alt="" />
-                      <span className="square-shape top-left"></span>
-                      <span className="square-shape bottom-left"></span>
-                      <span className="square-shape top-right"></span>
-                      <span className="square-shape bottom-right"></span>
-                  </div>
+                  {/* No hatch strip here: the next section opens with its own,
+                      and two stacked strips read as a layout glitch. */}
               </div>
           </section>
 

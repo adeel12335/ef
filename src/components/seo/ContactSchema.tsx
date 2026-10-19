@@ -1,12 +1,10 @@
-import { SITE_URL, BRAND } from "@/lib/seo";
+import { SITE_URL, BRAND, CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/seo";
 
 /**
  * Structured data for /contact.
  *
- * No telephone, email or postal address is marked up, because none has been
- * supplied and a fabricated contact point is exactly the sort of thing an
- * assistant will read out as fact. The form is the contact route, so the page
- * declares that and nothing more.
+ * Marks up the real public email and phone. No postal address: this is a remote
+ * practice with no office to visit.
  */
 export default function ContactSchema() {
   const graph: Record<string, unknown>[] = [
@@ -33,11 +31,16 @@ export default function ContactSchema() {
         name: BRAND,
         url: SITE_URL,
         areaServed: { "@type": "Place", name: "Worldwide" },
+        address: { "@type": "PostalAddress", addressCountry: "US" },
+        email: CONTACT_EMAIL,
+        telephone: CONTACT_PHONE,
         availableLanguage: ["English"],
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "Sales and project enquiries",
           url: `${SITE_URL}/contact`,
+          email: CONTACT_EMAIL,
+          telephone: CONTACT_PHONE,
           availableLanguage: ["English"],
         },
       },

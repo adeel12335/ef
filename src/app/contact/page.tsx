@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ProjectEnquiry from "@/components/contact/ProjectEnquiry";
 import ContactSchema from "@/components/seo/ContactSchema";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF, LOCATION } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Start a Project, Reply in 1 Day",
@@ -40,18 +40,18 @@ export default function ContactPage() {
                           <div className="col-lg-4 col-md-6 col-sm-6 md-mb-24">
                               <div className="box-contact-item text-center effectFade fadeUp">
                                   <i className="icon fa-regular fa-envelope"></i>
-                                  <h2 className="h6 title fw-semibold">Get in touch</h2>
-                                  <a className="text" href="#contact">
-                                      Send an enquiry
+                                  <h2 className="h6 title fw-semibold">Email</h2>
+                                  <a className="text" href={`mailto:${CONTACT_EMAIL}`}>
+                                      {CONTACT_EMAIL}
                                   </a>
                               </div>
                           </div>
                           <div className="col-lg-4 col-md-6 col-sm-6 md-mb-24">
                               <div className="box-contact-item text-center effectFade fadeUp" data-delay="0.1">
-                                  <i className="icon fa-regular fa-headset"></i>
-                                  <h2 className="h6 title fw-semibold">Fastest route</h2>
-                                  <a href="#contact" className="text">
-                                      Via the form below
+                                  <i className="icon fa-regular fa-phone"></i>
+                                  <h2 className="h6 title fw-semibold">Call</h2>
+                                  <a href={CONTACT_PHONE_HREF} className="text">
+                                      {CONTACT_PHONE}
                                   </a>
                               </div>
                           </div>
@@ -60,7 +60,7 @@ export default function ContactPage() {
                                   <i className="icon fa-regular fa-location-dot"></i>
                                   <h2 className="h6 title fw-semibold">Where I work</h2>
                                   <p className="text">
-                                      Remote — Pakistan, worldwide
+                                      {LOCATION} — remote, worldwide
                                   </p>
                               </div>
                           </div>

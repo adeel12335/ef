@@ -884,7 +884,7 @@ export const ANSWERS: Answer[] = [
       },
       {
         q: "Do I need someone in my country?",
-        a: "You need someone you can reach inside a business day, and accounts you own. I am based in Pakistan and work remotely. Location matters less than whose login the system lives in and how fast a broken booking gets a reply during the support window.",
+        a: "You need someone you can reach inside a business day, and accounts you own. I am based in the United States and work remotely. Location matters less than whose login the system lives in and how fast a broken booking gets a reply during the support window.",
       },
     ],
   },

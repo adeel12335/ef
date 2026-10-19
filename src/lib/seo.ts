@@ -14,6 +14,12 @@ export const SITE_URL = (
 ).replace(/\/$/, "");
 export const BRAND = "Emerging Freelancer";
 
+/** Public contact details, used on /contact, in the enquiry block, the privacy page and structured data. */
+export const CONTACT_EMAIL = "info@emergingfreelancer.com";
+export const CONTACT_PHONE = "+1 (218) 305-9586";
+export const CONTACT_PHONE_HREF = "tel:+12183059586";
+export const LOCATION = "United States";
+
 /**
  * Per-page metadata helper.
  *

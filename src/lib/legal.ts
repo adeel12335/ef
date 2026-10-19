@@ -40,9 +40,9 @@ export const tradingAs = legalName === BRAND ? null : BRAND;
  * deletion requests. A contact form alone is weak, because someone exercising
  * a right should not have to hand over more data to ask.
  */
-export const privacyEmail: string | null = null;
+export const privacyEmail: string | null = "info@emergingfreelancer.com";
 
-/** TODO(legal): e.g. "Punjab, Pakistan" — the courts that would hear a dispute. */
+/** TODO(legal): e.g. "Minnesota, United States" — the courts that would hear a dispute. */
 export const jurisdiction = "[Your City and Country]";
 
 /** TODO(legal): "sole trader" or a registered company name and number. */

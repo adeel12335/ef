@@ -40,7 +40,7 @@ export default function ProjectEnquiry() {
         <div className={styles.surface}>
           <div className={styles.topline}>
             <span className={styles.label}><span aria-hidden="true" />Contact</span>
-            <span className={styles.location}>Based in Pakistan / Working worldwide</span>
+            <span className={styles.location}>Based in the US / Working worldwide</span>
           </div>
           <div className={styles.layout}>
             <div className={styles.intro}>

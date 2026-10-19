@@ -33,7 +33,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: "Do you work with clients internationally?",
-    a: "Yes — remote by default. I am based in Pakistan and work with businesses worldwide. Calls are scheduled to suit your hours and everything else runs asynchronously, so neither of us is waiting on the other to be awake.",
+    a: "Yes — remote by default. I am based in the United States and work with businesses worldwide. Calls are scheduled to suit your hours and everything else runs asynchronously, so neither of us is waiting on the other to be awake.",
   },
   {
     q: "Can you work with the tools we already use?",
