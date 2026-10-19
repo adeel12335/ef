@@ -10,7 +10,7 @@ import type { Metadata } from "next";
  * point search engines at a domain that is not serving this build.
  */
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://emergingfreelancer.com"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.emergingfreelancer.com"
 ).replace(/\/$/, "");
 export const BRAND = "Emerging Freelancer";
 

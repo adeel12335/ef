@@ -90,135 +90,135 @@ individually and quoted in writing. No day rates or retainers are published.
 
 ## Pages
 
-- [Home](https://emergingfreelancer.com/): services, gigs and pricing, process, FAQ
-- [Services](https://emergingfreelancer.com/service): the four gigs at a glance
-- [Work](https://emergingfreelancer.com/work): concept builds demonstrating the approach
-- [About](https://emergingfreelancer.com/about): how I work and what to expect
-- [Contact](https://emergingfreelancer.com/contact): enquiry form
+- [Home](https://www.emergingfreelancer.com/): services, gigs and pricing, process, FAQ
+- [Services](https://www.emergingfreelancer.com/service): the four gigs at a glance
+- [Work](https://www.emergingfreelancer.com/work): concept builds demonstrating the approach
+- [About](https://www.emergingfreelancer.com/about): how I work and what to expect
+- [Contact](https://www.emergingfreelancer.com/contact): enquiry form
 
 ### Gig pages — each carries its three packages and prices
 
-- [AI Agents & Voice Assistants](https://emergingfreelancer.com/service/ai-agents) — from $150
-- [Workflow Automation](https://emergingfreelancer.com/service/workflow-automation) — from $120
-- [Websites & Mobile Apps](https://emergingfreelancer.com/service/web-mobile) — from $180
-- [Salesforce & AWS](https://emergingfreelancer.com/service/salesforce-aws) — from $150
+- [AI Agents & Voice Assistants](https://www.emergingfreelancer.com/service/ai-agents) — from $150
+- [Workflow Automation](https://www.emergingfreelancer.com/service/workflow-automation) — from $120
+- [Websites & Mobile Apps](https://www.emergingfreelancer.com/service/web-mobile) — from $180
+- [Salesforce & AWS](https://www.emergingfreelancer.com/service/salesforce-aws) — from $150
 
 ### Client sites
 
 Live URLs below are the client's public site. Figures and reviews on those sites are not results of the build.
 
-- [Drix Agency](https://emergingfreelancer.com/work/drix-agency) — movie poster and key art site, https://drix.agency/
-- [AI Calling Agent](https://emergingfreelancer.com/work/ai-calling-agent) — sign-in for a calling product
-- [PostAutoPilot](https://emergingfreelancer.com/work/postautopilot) — team social distribution site
-- [Able Athletics](https://emergingfreelancer.com/work/able-athletics) — nonprofit adaptive sports site
-- [VGC International College](https://emergingfreelancer.com/work/vgc-international-college) — Vancouver college site
-- [Finjet Capital](https://emergingfreelancer.com/work/finjet-capital) — financial services site
-- [The Wiki Studio Portal](https://emergingfreelancer.com/work/wiki-studio-portal) — team sign-in
-- [SendPilot](https://emergingfreelancer.com/work/wiki-studio-campaigns) — campaigns subdomain
-- [JW Prestige](https://emergingfreelancer.com/work/jw-prestige) — Paris chauffeur booking site
-- [Aaron Christian Paderewski](https://emergingfreelancer.com/work/aaron-paderewski) — actor portfolio
-- [Make A Move Ltd](https://emergingfreelancer.com/work/make-a-move) — Surrey movers site
-- [Signal Auto Movers](https://emergingfreelancer.com/work/signal-auto-movers) — enclosed auto transport site
-- [iIcon Shipping](https://emergingfreelancer.com/work/iicon-shipping) — Florida to Jamaica freight site
-- [Michael Minor Entertainment](https://emergingfreelancer.com/work/michael-minor) — live show site
+- [Drix Agency](https://www.emergingfreelancer.com/work/drix-agency) — movie poster and key art site, https://drix.agency/
+- [AI Calling Agent](https://www.emergingfreelancer.com/work/ai-calling-agent) — sign-in for a calling product
+- [PostAutoPilot](https://www.emergingfreelancer.com/work/postautopilot) — team social distribution site
+- [Able Athletics](https://www.emergingfreelancer.com/work/able-athletics) — nonprofit adaptive sports site
+- [VGC International College](https://www.emergingfreelancer.com/work/vgc-international-college) — Vancouver college site
+- [Finjet Capital](https://www.emergingfreelancer.com/work/finjet-capital) — financial services site
+- [The Wiki Studio Portal](https://www.emergingfreelancer.com/work/wiki-studio-portal) — team sign-in
+- [SendPilot](https://www.emergingfreelancer.com/work/wiki-studio-campaigns) — campaigns subdomain
+- [JW Prestige](https://www.emergingfreelancer.com/work/jw-prestige) — Paris chauffeur booking site
+- [Aaron Christian Paderewski](https://www.emergingfreelancer.com/work/aaron-paderewski) — actor portfolio
+- [Make A Move Ltd](https://www.emergingfreelancer.com/work/make-a-move) — Surrey movers site
+- [Signal Auto Movers](https://www.emergingfreelancer.com/work/signal-auto-movers) — enclosed auto transport site
+- [iIcon Shipping](https://www.emergingfreelancer.com/work/iicon-shipping) — Florida to Jamaica freight site
+- [Michael Minor Entertainment](https://www.emergingfreelancer.com/work/michael-minor) — live show site
 
 ### Concept builds
 
-- [Front Desk AI](https://emergingfreelancer.com/work/front-desk-ai) — AI receptionist, demonstrates the AI agents gig
-- [Lead Relay](https://emergingfreelancer.com/work/lead-relay) — lead intake pipeline, demonstrates the automation gig
-- [Clear Path](https://emergingfreelancer.com/work/clear-path) — business site with one clear action, demonstrates the web gig
+- [Front Desk AI](https://www.emergingfreelancer.com/work/front-desk-ai) — AI receptionist, demonstrates the AI agents gig
+- [Lead Relay](https://www.emergingfreelancer.com/work/lead-relay) — lead intake pipeline, demonstrates the automation gig
+- [Clear Path](https://www.emergingfreelancer.com/work/clear-path) — business site with one clear action, demonstrates the web gig
 
 ### Answers — the questions people ask before hiring
 
-- [How much does an AI agent cost?](https://emergingfreelancer.com/answers/how-much-does-an-ai-agent-cost)
+- [How much does an AI agent cost?](https://www.emergingfreelancer.com/answers/how-much-does-an-ai-agent-cost)
   Short answer: from $150 for a chat assistant trained on your own answers,
   $300–$500 once it books from a live calendar or takes calls. Running costs
   are separate and usually small. Hosted AI phone products publicly listed in
   October 2026 are a different product: mostly a monthly subscription, with
   entry plans often around $49–$99 and fuller plans a few hundred dollars a
   month. Those numbers are not comparable to a fixed-scope build.
-- [n8n vs Make vs Zapier](https://emergingfreelancer.com/answers/n8n-vs-make-vs-zapier)
+- [n8n vs Make vs Zapier](https://www.emergingfreelancer.com/answers/n8n-vs-make-vs-zapier)
   Short answer: Zapier is easiest and gets expensive fastest; Make is cheaper
   at volume and better for branching; n8n is the most flexible and the only one
   you can self-host. Choose by how often the workflow runs, not by features.
-- [What an AI receptionist can and cannot do](https://emergingfreelancer.com/answers/what-an-ai-receptionist-can-and-cannot-do)
+- [What an AI receptionist can and cannot do](https://www.emergingfreelancer.com/answers/what-an-ai-receptionist-can-and-cannot-do)
   Short answer: it handles common questions, qualification and booking at any
   hour. It should not handle pricing exceptions, complaints, or anything it has
   no defined answer for — those escalate to a person.
-- [Do I need automation, or just a better form?](https://emergingfreelancer.com/answers/do-i-need-automation-or-a-better-form)
+- [Do I need automation, or just a better form?](https://www.emergingfreelancer.com/answers/do-i-need-automation-or-a-better-form)
   Short answer: if information is being retyped between tools, automation
   helps. If enquiries are not arriving at all, a shorter form and one clear
   next step is cheaper and more likely to be the real fix.
-- [Buy an AI receptionist, or build one?](https://emergingfreelancer.com/answers/buy-or-build-an-ai-receptionist)
+- [Buy an AI receptionist, or build one?](https://www.emergingfreelancer.com/answers/buy-or-build-an-ai-receptionist)
   Short answer: buy the monthly product if the job is only "answer the phone
   and use one calendar". Build when it must follow your rules and write into
   tools you already use. Hosted plans are often $49–$500 a month. Chat here
   starts at $150; voice at $500. A $3,000–$10,000 custom system is a
   different scope.
-- [How to hire an n8n developer](https://emergingfreelancer.com/answers/how-to-hire-an-n8n-developer)
+- [How to hire an n8n developer](https://www.emergingfreelancer.com/answers/how-to-hire-an-n8n-developer)
   Short answer: ask what happens when a step fails, how duplicates are caught,
   and who owns the instance. A first two-tool workflow starts at $120.
-- [WhatsApp AI agent for a small business](https://emergingfreelancer.com/answers/whatsapp-ai-agent-for-a-small-business)
+- [WhatsApp AI agent for a small business](https://www.emergingfreelancer.com/answers/whatsapp-ai-agent-for-a-small-business)
   Short answer: use the official WhatsApp Business Platform for a number you
   cannot lose. Meta charges per business message; from 1 October 2026 service
   replies are charged after 1,000 free service messages per number each month.
   Unofficial web APIs can get the number banned.
-- [When to hire a Salesforce freelancer](https://emergingfreelancer.com/answers/when-to-hire-a-salesforce-freelancer)
+- [When to hire a Salesforce freelancer](https://www.emergingfreelancer.com/answers/when-to-hire-a-salesforce-freelancer)
   Short answer: when the org exists and the job is fields, flows, or a report.
   A tidy-up starts at $150. AWS hosting is a separate scope on the same gig.
-- [How long an AI agent takes](https://emergingfreelancer.com/answers/how-long-does-an-ai-agent-take-to-build)
+- [How long an AI agent takes](https://www.emergingfreelancer.com/answers/how-long-does-an-ai-agent-take-to-build)
   Short answer: chat 3–5 working days, calendar booking 7–10, voice 2–3 weeks.
   Access and the approved answers move the date more than the build.
-- [Missed calls and lead follow-up](https://emergingfreelancer.com/answers/missed-calls-and-lead-follow-up)
+- [Missed calls and lead follow-up](https://www.emergingfreelancer.com/answers/missed-calls-and-lead-follow-up)
   Short answer: every source should become one CRM record with a dated
   follow-up, or a person should be told the write failed. No conversion
   percentage is claimed.
-- [Who owns the AI agent after launch](https://emergingfreelancer.com/answers/who-owns-the-ai-agent-after-launch)
+- [Who owns the AI agent after launch](https://www.emergingfreelancer.com/answers/who-owns-the-ai-agent-after-launch)
   Short answer: you own it if the number, the model account, the calendar,
   and the CRM are in your name, and you can change an answer, read a recent
   conversation, and switch it off without the builder. Support is 7, 14, or
   30 days for the agreed scope.
-- [Chatbot, receptionist, or a person?](https://emergingfreelancer.com/answers/chatbot-vs-receptionist-vs-answering-service)
+- [Chatbot, receptionist, or a person?](https://www.emergingfreelancer.com/answers/chatbot-vs-receptionist-vs-answering-service)
   Short answer: chat meets people on the site ($150), an AI receptionist
   meets people who call ($500), and a human answering service is for calls
   that need judgement. They are three products.
-- [AI workflow or an AI agent?](https://emergingfreelancer.com/answers/ai-workflow-or-ai-agent)
+- [AI workflow or an AI agent?](https://www.emergingfreelancer.com/answers/ai-workflow-or-ai-agent)
   Short answer: a workflow moves a record and starts at $120. An agent talks
   to a waiting customer and starts at $150. Most businesses need the record first.
-- [Freelancer or an agency?](https://emergingfreelancer.com/answers/freelancer-or-agency-for-an-ai-agent)
+- [Freelancer or an agency?](https://www.emergingfreelancer.com/answers/freelancer-or-agency-for-an-ai-agent)
   Short answer: a freelancer fits one defined package ($120–$500) with
   accounts in your name. An agency fits a team, several locations, or a
   compliance programme.
-- [How to hire an AI developer](https://emergingfreelancer.com/answers/how-to-hire-an-ai-developer)
+- [How to hire an AI developer](https://www.emergingfreelancer.com/answers/how-to-hire-an-ai-developer)
   Short answer: ask for the boundary, the failure path, and whose account
   the agent lives in. The paid test is a chat assistant from $150.
-- [What a website AI chatbot includes](https://emergingfreelancer.com/answers/what-a-website-ai-chatbot-includes)
+- [What a website AI chatbot includes](https://www.emergingfreelancer.com/answers/what-a-website-ai-chatbot-includes)
   Short answer: up to twenty approved answers, a name and an enquiry, and an
   email. $150, 3–5 working days. Booking is $300. Voice is $500.
-- [When a person must take over](https://emergingfreelancer.com/answers/when-a-person-must-take-over)
+- [When a person must take over](https://www.emergingfreelancer.com/answers/when-a-person-must-take-over)
   Short answer: stop when the answer is not approved, when the customer asks
   for a human, or when the agent would invent a price. $150 emails you and
   stops. A defined handoff is $300.
-- [AI email automation](https://emergingfreelancer.com/answers/ai-email-automation)
+- [AI email automation](https://www.emergingfreelancer.com/answers/ai-email-automation)
   Short answer: file the message and draft a reply a human sends. An inbox
   connected to the CRM starts at $120. Unapproved sending is not the default.
-- [Salesforce or AWS?](https://emergingfreelancer.com/answers/salesforce-or-aws)
+- [Salesforce or AWS?](https://www.emergingfreelancer.com/answers/salesforce-or-aws)
   Short answer: Salesforce is fields, flows, and reports. AWS is hosting and
   deploy. The $150 package is one of them. Both, connected, is $480. No Apex
   and no certification is claimed.
-- [When automation says success](https://emergingfreelancer.com/answers/automation-says-success-but-nothing-happened)
+- [When automation says success](https://www.emergingfreelancer.com/answers/automation-says-success-but-nothing-happened)
   Short answer: a green check means the steps finished, not that the record
   exists. Failure email is $120. Safe retry and stored failures are $450.
-- [AI scheduling assistant](https://emergingfreelancer.com/answers/ai-scheduling-assistant)
+- [AI scheduling assistant](https://www.emergingfreelancer.com/answers/ai-scheduling-assistant)
   Short answer: book only a live slot of the right length. An empty hour is
   not bookable. Real availability is $300. Collecting a preferred time is $150.
-- [After-hours AI receptionist](https://emergingfreelancer.com/answers/after-hours-ai-receptionist)
+- [After-hours AI receptionist](https://www.emergingfreelancer.com/answers/after-hours-ai-receptionist)
   Short answer: night uses the same answers and the same calendar as the day.
   Voice is $500. After-hours is a setting, not a second product.
-- [Landing page or a web app?](https://emergingfreelancer.com/answers/landing-page-or-web-app)
+- [Landing page or a web app?](https://www.emergingfreelancer.com/answers/landing-page-or-web-app)
   Short answer: one page is $180, up to six pages is $350, an app with
   accounts is $500. An app does not create enquiries that are not arriving.
-- [What to prepare before a build](https://emergingfreelancer.com/answers/what-to-prepare-before-a-build)
+- [What to prepare before a build](https://www.emergingfreelancer.com/answers/what-to-prepare-before-a-build)
   Short answer: approved answers, access on an account you own, and one messy
   real enquiry. Chat is 3–5 working days once those are in hand.
 
