@@ -2,11 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import FaqAccordion from "@/components/faq/FaqAccordion";
-import { PROJECT_FAQS } from "@/lib/faq";
+import { caseStudyBySlug, type CaseStudy } from "@/lib/case-studies";
 import { gigBySlug } from "@/lib/gigs";
-import { PROJECTS, projectBySlug, relatedProjects } from "@/lib/projects";
-import { answerBySlug } from "@/lib/answers";
+import { PROJECTS, projectBySlug, relatedProjects, type Project } from "@/lib/projects";
 import { pageMeta, SITE_URL } from "@/lib/seo";
 
 import styles from "./project.module.css";
@@ -17,17 +15,44 @@ export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }));
 }
 
+/**
+ * Concept projects have no live site and no CaseStudy entry. Their write-up is
+ * built from the project record so every /work page shares one layout.
+ */
+function caseFor(project: Project): CaseStudy {
+  const cs = caseStudyBySlug(project.slug);
+  if (cs) return cs;
+  return {
+    slug: project.slug,
+    seoTitle: `${project.name}: ${project.category} Concept`,
+    metaDescription: `Concept project: ${project.blurb} How it works, what it connects to and where it hands over to a person.`.slice(0, 165),
+    headline: project.blurb,
+    client: "Concept (no client)",
+    industry: project.category,
+    platform: project.category,
+    services: project.capabilities,
+    overview: project.summary,
+    challenge: project.problem,
+    solution: project.built,
+    features: project.workflow.slice(0, 4).map((step, i) => ({ title: `Step ${i + 1}`, text: step })),
+    outcome: project.outcome,
+  };
+}
+
+const host = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const project = projectBySlug(slug);
   if (!project) return { title: "Project not found" };
+  const cs = caseFor(project);
 
   return pageMeta({
-    title: project.shortTitle ?? project.name,
-    description: project.blurb,
+    title: cs.seoTitle,
+    description: cs.metaDescription,
     path: `/work/${project.slug}`,
     keywords: project.keywords,
-    image: project.image,
+    image: cs.shots ? `/assets/images/portfolio/shots/${project.slug}-og.jpg` : project.image,
   });
 }
 
@@ -36,15 +61,14 @@ export default async function ProjectPage({ params }: Params) {
   const project = projectBySlug(slug);
   if (!project) notFound();
 
+  const cs = caseFor(project);
+  const isClient = project.kind === "Client project";
   const gig = gigBySlug(project.gigSlug);
-  const others = relatedProjects(project.slug);
-  const answer = project.relatedAnswer ? answerBySlug(project.relatedAnswer) : undefined;
-  const projectFaqs = project.faqs ?? PROJECT_FAQS[project.slug] ?? [];
+  const gigFrom = gig ? Math.min(...gig.packages.map((p) => p.price)) : null;
+  const others = relatedProjects(project.slug, 3);
+  const heroImage = cs.shots?.desktop ?? project.image;
+  const pageUrl = `${SITE_URL}/work/${project.slug}`;
 
-  /**
-   * CreativeWork rather than CaseStudy: these are demonstrations, not client
-   * engagements. No result is marked up because none has been measured.
-   */
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -53,263 +77,234 @@ export default async function ProjectPage({ params }: Params) {
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
           { "@type": "ListItem", position: 2, name: "Work", item: `${SITE_URL}/work` },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: project.name,
-            item: `${SITE_URL}/work/${project.slug}`,
-          },
+          { "@type": "ListItem", position: 3, name: project.name, item: pageUrl },
         ],
       },
       {
         "@type": "CreativeWork",
-        "@id": `${SITE_URL}/work/${project.slug}#project`,
-        name: project.name,
-        headline: `${project.name} — ${project.kind}`,
-        description: project.summary,
-        genre: project.category,
+        "@id": `${pageUrl}#project`,
+        name: cs.seoTitle,
+        headline: cs.headline,
+        description: cs.metaDescription,
+        abstract: cs.overview,
+        genre: cs.platform,
+        image: [`${SITE_URL}${heroImage}`, ...(cs.shots ? [`${SITE_URL}${cs.shots.mobile}`] : [])],
         ...(project.keywords?.length ? { keywords: project.keywords.join(", ") } : {}),
-        creativeWorkStatus: project.kind,
-        about: gig ? gig.name : project.category,
-        author: { "@id": `${SITE_URL}/#business` },
-        url: `${SITE_URL}/work/${project.slug}`,
+        creator: { "@id": `${SITE_URL}/#business` },
+        ...(isClient
+          ? {
+              sourceOrganization: { "@type": "Organization", name: cs.client, ...(project.liveUrl ? { url: project.liveUrl } : {}) },
+            }
+          : { creativeWorkStatus: "Concept" }),
+        ...(gig ? { about: { "@type": "Service", name: gig.name, url: `${SITE_URL}/service/${gig.slug}` } } : {}),
+        url: pageUrl,
         inLanguage: "en",
       },
-      ...(project.liveUrl
-        ? [
-            {
-              "@type": "WebSite",
-              name: project.name,
-              url: project.liveUrl,
-            },
-          ]
-        : []),
-      ...(projectFaqs.length
-        ? [
-            {
-              "@type": "FAQPage",
-              "@id": `${SITE_URL}/work/${project.slug}#faq`,
-              mainEntity: projectFaqs.map((f) => ({
-                "@type": "Question",
-                name: f.q,
-                acceptedAnswer: { "@type": "Answer", text: f.a },
-              })),
-            },
-          ]
-        : []),
     ],
   };
 
   return (
-    <>
-      <main className={styles.casePage}>
-      <section className="wpr-banner-area breadcrumb">
+    <main className={styles.page}>
+      {/* ---------- intro ---------- */}
+      <section className={styles.intro}>
         <div className="container">
-          <div className="banner-content-area">
-            <p className={styles.kicker}>{project.kind} · {project.category}</p>
-            <h1 className="section-title text-normal">{project.name}</h1>
-            <p className="desc">{project.summary}</p>
-            <div className={styles.heroActions}>
-              {project.liveUrl && (
-                <a
-                  className={styles.primaryAction}
-                  href={project.liveUrl}
-                  rel="noopener noreferrer"
-                >
-                  Visit live site
-                </a>
-              )}
-              <Link className={styles.secondaryAction} href="/work">
-                All work
-              </Link>
-            </div>
-            <div className="bg-shape">
-              <img src="/assets/images/banner/shape/bg-shape.svg" alt="" />
-            </div>
-            <div className="banner-shape-area">
-              <img src="/assets/images/banner/shape/shape-01.svg" width="200" alt="" className="one" />
-              <img src="/assets/images/banner/shape/shape-02.svg" width="220" alt="" className="two" />
-            </div>
-          </div>
-        </div>
-      </section>
+          <nav className={styles.crumbs} aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span aria-hidden="true">/</span>
+            <Link href="/work">Work</Link>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">{project.name}</span>
+          </nav>
 
-      <section className="wpr-project-area inner mb--16" aria-labelledby="detail-title">
-        <div className="container">
-          <div className="section-inner bg-white border-1">
-            <div className="section-top-area">
-              <div className="section-title-area">
-                <p className="sub-title">The problem</p>
-                <h2
-                  id="detail-title"
-                  className="section-title second-font font-semi-bold text-normal"
-                >
-                  {project.name}
-                </h2>
-                <p className="gig-answer" style={{ textAlign: "left", marginInline: 0 }}>
-                  {project.problem}
-                </p>
-              </div>
-            </div>
-
-            <div className="ef-detail">
-              <figure className="ef-detail__media">
-                <img src={project.image} alt={`${project.name} — ${project.blurb}`} />
-                <figcaption>
-                  {project.kind === "Client project"
-                    ? "Client project. AI-generated editorial cover; view the live site for the actual work."
-                    : "Concept project. AI-generated editorial cover; no client is represented."}
-                </figcaption>
-              </figure>
-
-              <dl className="ef-facts">
-                <div>
-                  <dt>Category</dt>
-                  <dd>{project.category}</dd>
-                </div>
-                <div>
-                  <dt>My role</dt>
-                  <dd>{project.role.join(" · ")}</dd>
-                </div>
-                <div>
-                  <dt>Built with</dt>
-                  <dd>{project.capabilities.join(" · ")}</dd>
-                </div>
-                <div>
-                  <dt>Result</dt>
-                  <dd>{project.result ?? "Not measured — see the outcome below."}</dd>
-                </div>
-                {gig && (
-                  <div>
-                    <dt>Related gig</dt>
-                    <dd>
-                      <Link className="ef-inline-link" href={`/service/${gig.slug}`}>
-                        {gig.name} — packages from ${Math.min(...gig.packages.map((p) => p.price))}
-                      </Link>
-                    </dd>
-                  </div>
-                )}
-                {project.liveUrl && (
-                  <div>
-                    <dt>Live site</dt>
-                    <dd>
-                      <a className="ef-inline-link" href={project.liveUrl} rel="noopener noreferrer">
-                        {project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-                      </a>
-                    </dd>
-                  </div>
-                )}
-                {answer && (
-                  <div>
-                    <dt>Related answer</dt>
-                    <dd>
-                      <Link className="ef-inline-link" href={`/answers/${answer.slug}`}>
-                        {answer.shortTitle}
-                      </Link>
-                    </dd>
-                  </div>
-                )}
-              </dl>
-            </div>
-
-            <div className="ef-prose">
-              <h3>What I built</h3>
-              <p>{project.built}</p>
-
-              <h3>The context</h3>
-              {project.context.map((para) => (
-                <p key={para}>{para}</p>
-              ))}
-
-              <h3>Constraints</h3>
-              <ul>
-                {project.constraints.map((c) => (
-                  <li key={c}>{c}</li>
-                ))}
-              </ul>
-
-              <h3>Approach</h3>
-              <ol>
-                {project.approach.map((a) => (
-                  <li key={a}>{a}</li>
-                ))}
-              </ol>
-
-              <h3>How it works</h3>
-              <ol>
-                {project.workflow.map((w) => (
-                  <li key={w}>{w}</li>
-                ))}
-              </ol>
-
-              <h3>Outcome</h3>
-              <p>{project.outcome}</p>
-
-              <p className="ef-note">
-                {project.kind}. Client marketing figures and reviews stay on the
-                client&apos;s site. None are claimed here as a result of the build.
+          <div className={styles.introGrid}>
+            <div>
+              <p className={styles.kicker}>
+                {isClient ? "Case study" : "Concept project"} · {cs.platform}
               </p>
+              <h1 className={styles.title}>{project.name}</h1>
+              <p className={styles.headline}>{cs.headline}</p>
+            </div>
+            <div className={styles.introSide}>
+              <p className={styles.overview}>{cs.overview}</p>
+              <div className={styles.actions}>
+                {project.liveUrl && (
+                  <a className={styles.primary} href={project.liveUrl} target="_blank" rel={cs.liveRel ?? "noopener"}>
+                    Visit {host(project.liveUrl)}
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+                  </a>
+                )}
+                <Link className={styles.secondary} href="/contact">
+                  Start a similar project
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {projectFaqs.length > 0 && (
-        <FaqAccordion
-          items={projectFaqs}
-          id={`${project.slug}Faq`}
-          eyebrow="The limits"
-          title={
-            <>
-              What This Build <br /> Will Not Do
-            </>
-          }
-          intro="The same constraints as the write-up above, in the form of a direct answer."
-        />
-      )}
-
-      <section className="wpr-next-project-area mb--16" aria-labelledby="next-title">
+      {/* ---------- device showcase ---------- */}
+      <section className={styles.showcaseWrap} aria-label={`${project.name} screenshots`}>
         <div className="container">
-          <div className="section-inner bg-white border-1">
-            <div className="section-top-area">
-              <div className="section-title-area">
-                <p className="sub-title">More work</p>
-                <h2
-                  id="next-title"
-                  className="section-title second-font font-semi-bold text-normal"
-                >
-                  Related work
-                </h2>
+          <div className={styles.showcase}>
+            <figure className={styles.browser}>
+              <div className={styles.browserBar} aria-hidden="true">
+                <span /><span /><span />
+                <em>{project.liveUrl ? host(project.liveUrl) : "concept preview"}</em>
               </div>
-            </div>
-            <ul className="ef-next-list">
-              {others.map((o) => (
-                <li key={o.slug}>
-                  <Link href={`/work/${o.slug}`}>
-                    <span className="ef-next-list__cat">{o.category}</span>
-                    <span className="ef-next-list__name">
-                      {o.name}
-                      <span aria-hidden="true">→</span>
-                    </span>
-                    <span className="ef-next-list__blurb">{o.blurb}</span>
-                  </Link>
+              <img
+                src={heroImage}
+                alt={`${project.name} ${cs.platform.toLowerCase()} on desktop: ${cs.headline}`}
+                width={1440}
+                height={900}
+                fetchPriority="high"
+              />
+            </figure>
+            {cs.shots && (
+              <figure className={styles.phone}>
+                <img
+                  src={cs.shots.mobile}
+                  alt={`${project.name} on a phone`}
+                  width={390}
+                  height={844}
+                  loading="lazy"
+                />
+              </figure>
+            )}
+            {!isClient && (
+              <p className={styles.conceptNote}>Concept project: an illustration of the build, not a client site.</p>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- facts ---------- */}
+      <section className={styles.factsWrap} aria-label="Project details">
+        <div className="container">
+          <dl className={styles.facts}>
+            <div><dt>Client</dt><dd>{cs.client}</dd></div>
+            <div><dt>Industry</dt><dd>{cs.industry}</dd></div>
+            {cs.location && <div><dt>Location</dt><dd>{cs.location}</dd></div>}
+            <div><dt>Platform</dt><dd>{cs.platform}</dd></div>
+            <div><dt>What I did</dt><dd>{cs.services.join(", ")}</dd></div>
+            {project.liveUrl && (
+              <div>
+                <dt>Live site</dt>
+                <dd><a href={project.liveUrl} target="_blank" rel={cs.liveRel ?? "noopener"}>{host(project.liveUrl)}</a></dd>
+              </div>
+            )}
+          </dl>
+        </div>
+      </section>
+
+      {/* ---------- challenge / solution ---------- */}
+      <section className={styles.story}>
+        <div className="container">
+          <div className={styles.storyGrid}>
+            <article>
+              <p className={styles.storyNo}>01</p>
+              <h2>The challenge</h2>
+              <p>{cs.challenge}</p>
+            </article>
+            <article>
+              <p className={styles.storyNo}>02</p>
+              <h2>The solution</h2>
+              <p>{cs.solution}</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- features ---------- */}
+      <section className={styles.featuresWrap} aria-labelledby="features-title">
+        <div className="container">
+          <div className={styles.featuresPanel}>
+            <p className={styles.eyebrow}>What was built</p>
+            <h2 id="features-title" className={styles.sectionTitle}>Key features</h2>
+            <ul className={styles.features}>
+              {cs.features.map((f, i) => (
+                <li key={f.title}>
+                  <span className={styles.featureNo}>{String(i + 1).padStart(2, "0")}</span>
+                  <h3>{f.title}</h3>
+                  <p>{f.text}</p>
                 </li>
               ))}
             </ul>
-            <p className="ef-next-cta">
-              <Link href="/contact" className="wpr-btn btn-primary">
-                Discuss a project like this
-              </Link>
-            </p>
           </div>
         </div>
       </section>
-      </main>
+
+      {/* ---------- gallery ---------- */}
+      {cs.shots && cs.shots.sections.length > 0 && (
+        <section className={styles.gallery} aria-labelledby="gallery-title">
+          <div className="container">
+            <p className={styles.eyebrow}>On the live site</p>
+            <h2 id="gallery-title" className={styles.sectionTitle}>Inside the build</h2>
+            <div className={styles.galleryGrid}>
+              {cs.shots.sections.map((src, i) => (
+                <figure key={src} className={styles.browser}>
+                  <div className={styles.browserBar} aria-hidden="true">
+                    <span /><span /><span />
+                    <em>{project.liveUrl ? host(project.liveUrl) : ""}</em>
+                  </div>
+                  <img src={src} alt={`${project.name} website, section ${i + 2}`} width={1440} height={900} loading="lazy" />
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ---------- outcome ---------- */}
+      <section className={styles.outcomeWrap}>
+        <div className="container">
+          <div className={styles.outcome}>
+            <div>
+              <p className={styles.eyebrowLight}>The outcome</p>
+              <p className={styles.outcomeText}>{cs.outcome}</p>
+            </div>
+            <div className={styles.outcomeActions}>
+              <Link className={styles.primaryLight} href="/contact">Start a similar project</Link>
+              {gig && (
+                <Link className={styles.textLink} href={`/service/${gig.slug}`}>
+                  {gig.name}{gigFrom ? `, from $${gigFrom}` : ""} <span aria-hidden="true">→</span>
+                </Link>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- more work ---------- */}
+      <section className={styles.more} aria-labelledby="more-title">
+        <div className="container">
+          <div className={styles.moreHead}>
+            <h2 id="more-title" className={styles.sectionTitle}>More work</h2>
+            <Link className={styles.textLinkDark} href="/work">All projects <span aria-hidden="true">→</span></Link>
+          </div>
+          <ul className={styles.moreGrid}>
+            {others.map((p) => {
+              const other = caseStudyBySlug(p.slug);
+              return (
+                <li key={p.slug}>
+                  <Link href={`/work/${p.slug}`} className={styles.moreCard}>
+                    <span className={styles.moreImage}>
+                      <img src={other?.shots?.desktop ?? p.image} alt="" width={1440} height={900} loading="lazy" />
+                    </span>
+                    <span className={styles.moreLabel}>{other?.platform ?? p.category}</span>
+                    <span className={styles.moreTitle}>{p.name}</span>
+                    <span className={styles.moreText}>{other?.headline ?? p.blurb}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
       />
-    </>
+    </main>
   );
 }

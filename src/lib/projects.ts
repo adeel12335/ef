@@ -7,6 +7,7 @@
  * marketing statistics, reviews, or revenue claims as a result of the build.
  */
 
+import { caseStudyBySlug } from "./case-studies";
 import { CLIENT_WORK } from "./client-work";
 
 export type Project = {
@@ -213,7 +214,15 @@ const CONCEPT_PROJECTS: Project[] = [
   },
 ];
 
-export const PROJECTS: Project[] = [...CLIENT_WORK, ...CONCEPT_PROJECTS];
+/**
+ * `image` is the editorial cover (used where text sits over the image, as on the
+ * home portfolio). `screenshot` is a real capture of the live client site, used
+ * on /work and on the case study page.
+ */
+export const PROJECTS: (Project & { screenshot?: string })[] = [...CLIENT_WORK, ...CONCEPT_PROJECTS].map((p) => ({
+  ...p,
+  screenshot: caseStudyBySlug(p.slug)?.shots?.desktop,
+}));
 
 export function projectBySlug(slug: string) {
   return PROJECTS.find((p) => p.slug === slug);

@@ -69,11 +69,11 @@ export default function WorkPage() {
               </div>
               <WorkGallery />
               <div className={styles.note}>
-                <strong>About the covers</strong>
+                <strong>About the images</strong>
                 <p>
-                  Covers are AI-generated editorial images made for this portfolio,
-                  not client photography or screenshots. Open a client case to visit
-                  the live website.
+                  Client projects show screenshots of the live website. Concept builds
+                  use illustrations and are labelled as concepts. Open any case to see
+                  the full write-up.
                 </p>
               </div>
             </div>

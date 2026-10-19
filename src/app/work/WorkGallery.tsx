@@ -74,13 +74,13 @@ export default function WorkGallery() {
               aria-label={`Read the ${project.name} case study`}
             >
               <img
-                src={project.image}
+                src={project.screenshot ?? project.image}
                 alt=""
                 className={styles.cover}
                 loading="lazy"
                 decoding="async"
               />
-              <span className={styles.coverLabel}>Editorial cover</span>
+              {project.kind !== "Client project" && <span className={styles.coverLabel}>Concept</span>}
             </Link>
 
             <div className={styles.cardBody}>

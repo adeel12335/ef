@@ -7,13 +7,48 @@ import GigCard from "@/components/gigs/GigCard";
 import StructuredData from "@/components/seo/StructuredData";
 import { FAQS } from "@/lib/faq";
 import { GIGS, PRICE_FROM, PRICE_TO } from "@/lib/gigs";
-import { projectBySlug } from "@/lib/projects";
-import workStyles from "./home-work.module.css";
+import { PROJECTS } from "@/lib/projects";
+import HomeWork, { type WorkCard, type WorkFilter } from "@/components/work/HomeWork";
 
-const FEATURED_PROJECTS = ["drix-agency", "postautopilot", "jw-prestige"].map((slug) => {
-  const project = projectBySlug(slug);
-  if (!project) throw new Error(`Missing featured project: ${slug}`);
-  return project;
+/* ---------- Home portfolio ----------
+   Filters come from the work that exists: there are no mobile-app or cloud
+   case studies yet, so there are no tabs for them. The "All" view is a fixed
+   editorial pick; each tab shows up to five of its own projects. */
+const WEB_APPS = ["wiki-studio-portal", "wiki-studio-campaigns", "ai-calling-agent"];
+const AI_WORK = ["ai-calling-agent", "front-desk-ai", "lead-relay"];
+const FEATURED = ["drix-agency", "postautopilot", "ai-calling-agent", "jw-prestige", "wiki-studio-portal"];
+
+const WORK_FILTERS: WorkFilter[] = [
+  { id: "all", label: "All projects" },
+  { id: "websites", label: "Websites" },
+  { id: "apps", label: "Web apps & portals" },
+  { id: "ai", label: "AI & automation" },
+];
+
+function workLabel(slug: string, gigSlug: string, isConcept: boolean) {
+  const base = AI_WORK.includes(slug)
+    ? gigSlug === "workflow-automation" ? "Automation" : "AI agent"
+    : WEB_APPS.includes(slug) ? "Web app" : "Website";
+  return isConcept ? `Concept · ${base}` : base;
+}
+
+const WORK_CARDS: WorkCard[] = [
+  ...FEATURED.map((slug) => PROJECTS.find((p) => p.slug === slug)!),
+  ...PROJECTS.filter((p) => !FEATURED.includes(p.slug)),
+].map((p) => {
+  const groups: string[] = [];
+  if (FEATURED.includes(p.slug)) groups.push("featured");
+  if (AI_WORK.includes(p.slug)) groups.push("ai");
+  if (WEB_APPS.includes(p.slug)) groups.push("apps");
+  if (!AI_WORK.includes(p.slug) && !WEB_APPS.includes(p.slug) && p.kind === "Client project") groups.push("websites");
+  return {
+    slug: p.slug,
+    name: p.name,
+    blurb: p.blurb,
+    image: p.image,
+    label: workLabel(p.slug, p.gigSlug, p.kind !== "Client project"),
+    groups,
+  };
 });
 
 export default function HomePage() {
@@ -185,64 +220,7 @@ export default function HomePage() {
 
 
 
-          <section className={workStyles.section} aria-labelledby="featured-work-title">
-              <div className="container">
-                  <div className={workStyles.shell}>
-                      <div className={workStyles.header}>
-                          <div>
-                              <p className={workStyles.eyebrow}>Selected client work · 03</p>
-                              <h2 id="featured-work-title" className={workStyles.title}>
-                                  Three businesses. Three different jobs.
-                              </h2>
-                          </div>
-                          <div>
-                              <p className={workStyles.intro}>
-                                  A film needs an image. A team needs distribution. A passenger
-                                  needs a flawless arrival. Each site is shaped around that real job.
-                              </p>
-                              <Link className={workStyles.allWork} href="/work">
-                                  Explore all 17 projects <span aria-hidden="true">→</span>
-                              </Link>
-                          </div>
-                      </div>
-
-                      <div className={workStyles.grid}>
-                          {FEATURED_PROJECTS.map((project, index) => (
-                              <article className={workStyles.card} key={project.slug}>
-                                  <Link
-                                      className={workStyles.imageLink}
-                                      href={`/work/${project.slug}`}
-                                      aria-label={`Read the ${project.name} case study`}
-                                  >
-                                      <img
-                                          className={workStyles.image}
-                                          src={project.image}
-                                          alt=""
-                                          decoding="async"
-                                      />
-                                      <span className={workStyles.imageLabel}>Editorial cover</span>
-                                  </Link>
-                                  <div className={workStyles.body}>
-                                      <div className={workStyles.meta}>
-                                          <span className={workStyles.number}>
-                                              {String(index + 1).padStart(2, "0")}
-                                          </span>
-                                          <span>{project.category}</span>
-                                      </div>
-                                      <h3 className={workStyles.cardTitle}>
-                                          <Link href={`/work/${project.slug}`}>{project.name}</Link>
-                                      </h3>
-                                      <p className={workStyles.description}>{project.blurb}</p>
-                                      <Link className={workStyles.caseLink} href={`/work/${project.slug}`}>
-                                          Read case study
-                                      </Link>
-                                  </div>
-                              </article>
-                          ))}
-                      </div>
-                  </div>
-              </div>
-          </section>
+          <HomeWork items={WORK_CARDS} filters={WORK_FILTERS} total={PROJECTS.length} />
 
 
 

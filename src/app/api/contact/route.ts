@@ -148,6 +148,38 @@ ${message}`,
       );
     }
 
+    // Confirmation to the person who wrote in. Sent only after the enquiry
+    // itself was accepted, and a failure here never turns a delivered enquiry
+    // into an error. The body is fixed copy plus their first name: it does not
+    // echo the message, so the form cannot be used to send arbitrary text to
+    // an address someone else typed in.
+    try {
+      const first = esc(name.split(/\s+/)[0].slice(0, 40));
+      await transport.sendMail({
+        from: `Emerging Freelancer <${from}>`,
+        to: email,
+        replyTo: to,
+        subject: "We received your message — Emerging Freelancer",
+        html:
+          `<div style="font:15px/1.65 system-ui,-apple-system,Segoe UI,sans-serif;color:#252623;max-width:560px">` +
+          `<p style="margin:0 0 16px">Hi ${first},</p>` +
+          `<p style="margin:0 0 16px">Thanks for getting in touch with Emerging Freelancer. Your message has reached us, and you will get a personal reply within one business day.</p>` +
+          `<p style="margin:0 0 16px">If there is anything you would like to add, such as a link, a brief or a deadline, simply reply to this email.</p>` +
+          `<p style="margin:0 0 24px">Talk soon,<br><strong>Emerging Freelancer</strong><br>` +
+          `<a href="https://www.emergingfreelancer.com" style="color:#252623">emergingfreelancer.com</a> · <a href="mailto:${esc(to)}" style="color:#252623">${esc(to)}</a></p>` +
+          `<p style="margin:0;font-size:12px;color:#8a8d85">You are receiving this because this address was entered in the contact form on emergingfreelancer.com. If that was not you, you can ignore this email.</p>` +
+          `</div>`,
+        text:
+          `Hi ${name.split(/\s+/)[0].slice(0, 40)},\n\n` +
+          `Thanks for getting in touch with Emerging Freelancer. Your message has reached us, and you will get a personal reply within one business day.\n\n` +
+          `If there is anything you would like to add, such as a link, a brief or a deadline, simply reply to this email.\n\n` +
+          `Talk soon,\nEmerging Freelancer\nhttps://www.emergingfreelancer.com · ${to}\n\n` +
+          `You are receiving this because this address was entered in the contact form on emergingfreelancer.com. If that was not you, you can ignore this email.`,
+      });
+    } catch (err) {
+      console.error("[contact] Confirmation email failed (enquiry was delivered):", err);
+    }
+
     return text("Thanks — your message has been delivered. I'll reply to the address you gave.");
   } catch (err) {
     console.error("[contact] Delivery threw:", err);
