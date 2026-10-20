@@ -1,3 +1,5 @@
+import legacyRedirects from "./legacy-redirects.json" with { type: "json" };
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -9,6 +11,10 @@ const nextConfig = {
       { source: "/our-portfolio", destination: "/work", permanent: true },
       { source: "/testimonials", destination: "/about", permanent: true },
       { source: "/work-details", destination: "/work", permanent: true },
+      // URLs from the domain's earlier WordPress site that Google still knows.
+      // Each points at the closest page on this site, so they stop showing as
+      // 404s in Search Console and pass on whatever links they had.
+      ...legacyRedirects,
     ];
   },
 
