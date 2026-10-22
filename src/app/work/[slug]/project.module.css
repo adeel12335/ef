@@ -93,6 +93,12 @@
   color: #3a3b37;
 }
 
+.updated {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
 .overview {
   margin: 0 0 26px;
   font-size: 16.5px;

@@ -32,6 +32,9 @@ export type CaseStudy = {
   liveRel?: string;
 };
 
+/** Date shown on case-study pages. YYYY-MM-DD. */
+export const CASES_UPDATED = "2026-10-22";
+
 const shots = (slug: string, sections = 2) => ({
   desktop: `/assets/images/portfolio/shots/${slug}-desktop.webp`,
   mobile: `/assets/images/portfolio/shots/${slug}-mobile.webp`,
@@ -41,7 +44,7 @@ const shots = (slug: string, sections = 2) => ({
 export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "drix-agency",
-    seoTitle: "Drix Agency: Movie Poster Studio Website",
+    seoTitle: "Drix Agency: Poster Studio Website",
     metaDescription:
       "How the Drix Agency website turns a cinematic poster portfolio into enquiries: service pages, a genre-led poster grid, a four-step process and a clear quote path.",
     headline: "A cinematic website for a movie poster and key art studio",
@@ -94,7 +97,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "postautopilot",
-    seoTitle: "PostAutoPilot: Social Media SaaS Website",
+    seoTitle: "PostAutoPilot: Social SaaS Website",
     metaDescription:
       "The PostAutoPilot site explains employee-advocacy social posting in one scroll: create once, personalise, publish, with AutoPilot and Co-Pilot modes.",
     headline: "A SaaS product site for social posting through your team's networks",
@@ -120,7 +123,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "able-athletics",
-    seoTitle: "Able Athletics: Adaptive Sports Website",
+    seoTitle: "Able Athletics: Sports Website",
     metaDescription:
       "A nonprofit website for inclusive, unified sports for children of all abilities: mission, programs, upcoming events, impact numbers, donations and newsletter signup.",
     headline: "A nonprofit website for inclusive sports for children of all abilities",
@@ -147,7 +150,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "vgc-international-college",
-    seoTitle: "VGC College: Vancouver Education Website",
+    seoTitle: "VGC College: Education Website",
     metaDescription:
       "A college website for English, business and university pathway programs in downtown Vancouver, with brochure, placement test, applications and an agent portal.",
     headline: "An international college website for students and agents",
@@ -174,7 +177,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "finjet-capital",
-    seoTitle: "Finjet Capital: Financial Services Website",
+    seoTitle: "Finjet Capital: Finance Website",
     metaDescription:
       "A financial services website for wealth management, investment banking and retirement planning, with service pages, transactions, press and a client login.",
     headline: "A financial services website built on trust and clarity",
@@ -226,7 +229,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "wiki-studio-campaigns",
-    seoTitle: "SendPilot: Email Campaign & Warmup Tool",
+    seoTitle: "SendPilot: Email Warmup Tool",
     metaDescription:
       "SendPilot, an email campaign tool on top of Brevo with warmup, sending windows, natural pacing, testing and reporting to protect domain reputation. Self-hosted.",
     headline: "SendPilot: email campaigns that land where they should",
@@ -252,7 +255,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "jw-prestige",
-    seoTitle: "JW Prestige: Paris Chauffeur Booking Site",
+    seoTitle: "JW Prestige: Chauffeur Website",
     metaDescription:
       "A French-language booking website for a Paris luxury chauffeur: instant trip planner, airport and station transfers, Mercedes fleet pages and 24/7 availability.",
     headline: "A booking-first website for a luxury chauffeur service in Paris",
@@ -279,7 +282,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "aaron-paderewski",
-    seoTitle: "Aaron Paderewski: Actor Portfolio Website",
+    seoTitle: "Aaron Paderewski: Actor Website",
     metaDescription:
       "An actor and filmmaker portfolio website with film credits, acting, directing and horse-riding reels, a gallery and a direct contact route for casting.",
     headline: "An actor and filmmaker portfolio built around the reel",
@@ -332,7 +335,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "signal-auto-movers",
-    seoTitle: "Signal Auto Movers: Car Shipping Website",
+    seoTitle: "Signal Auto Movers: Website",
     metaDescription:
       "An auto transport website for enclosed and open car shipping across the USA: multi-step free quote, door-to-door and terminal options and a simple shipping process.",
     headline: "A lead-generating website for a US auto transport company",
@@ -362,7 +365,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "iicon-shipping",
-    seoTitle: "iIcon Shipping: Florida–Jamaica Freight Site",
+    seoTitle: "iIcon Shipping: Freight Website",
     metaDescription:
       "A freight-forwarding website for shipping from Florida to Jamaica: personal US address, air and sea freight, package tracking, rates and customer accounts.",
     headline: "A freight-forwarding website from Florida to Jamaica",
@@ -389,7 +392,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "michael-minor",
-    seoTitle: "Michael Minor: Entertainer Booking Website",
+    seoTitle: "Michael Minor: Booking Website",
     metaDescription:
       "A website for singer, actor and ventriloquist Michael Minor: featured shows, video clips, characters and a booking route for schools, theatres and corporate events.",
     headline: "A booking website for a singer, actor and ventriloquist",

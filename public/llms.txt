@@ -230,3 +230,7 @@ Live URLs below are the client's public site. Figures and reviews on those sites
 - No awards, certifications, client counts, ratings or testimonials are
   claimed, because none have been published.
 - Prices above are starting points for the stated scope, not fixed totals.
+
+## Full reference
+
+- [llms-full.txt](https://www.emergingfreelancer.com/llms-full.txt): every service, answer and case study in full text.

@@ -22,7 +22,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!gig) return { title: "Service not found" };
 
   return pageMeta({
-    title: `${gig.name} — from $${gigFrom(gig)}`,
+    title:
+      gig.slug === "ai-agents"
+        ? "AI Agents & Voice Assistants from $150"
+        : `${gig.name} — from $${gigFrom(gig)}`,
     // Leads with the price, because "how much" is the query this page answers.
     description: `${gig.tagline}. Three packages from $${gigFrom(gig)}: ${gig.packages
       .map((p) => `${p.tier} $${p.price}`)
@@ -171,12 +174,12 @@ export default async function GigPage({ params }: Params) {
             <div className="section-inner bg-white border-1">
               <div className="section-top-area">
                 <div className="section-title-area">
-                  <p className="sub-title">Work</p>
+                  <p className="sub-title">Related work</p>
                   <h2
                     id="related-title"
                     className="section-title second-font font-semi-bold text-normal"
                   >
-                    Sites and builds for this gig
+                    Related work
                   </h2>
                   <p className="gig-answer"><Link href="/work">Every build, filter by service<span aria-hidden="true"> →</span></Link></p>
                 </div>
@@ -218,12 +221,12 @@ export default async function GigPage({ params }: Params) {
             <div className="section-inner bg-white border-1">
               <div className="section-top-area">
                 <div className="section-title-area">
-                  <p className="sub-title">Read this first</p>
+                  <p className="sub-title">Related answers</p>
                   <h2
                     id="gig-answers"
                     className="section-title second-font font-semi-bold text-normal"
                   >
-                    Answers about this gig
+                    Related answers
                   </h2>
                 </div>
               </div>

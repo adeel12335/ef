@@ -1,7 +1,7 @@
 import { FAQS } from "@/lib/faq";
 import { CURRENCY, GIGS, PRICE_FROM, PRICE_TO } from "@/lib/gigs";
 import { PROCESS } from "@/lib/process";
-import { BRAND, SITE_URL } from "@/lib/seo";
+import { BRAND, CONTACT_EMAIL, CONTACT_PHONE, SITE_URL } from "@/lib/seo";
 import { PERSON_NAME_CONFIRMED, hasSocials, personBio, personName, socials } from "@/lib/person";
 
 /**
@@ -52,6 +52,9 @@ export default function StructuredData() {
       description:
         "Independent developer building AI agents and voice assistants, workflow automation, websites and mobile applications, and Salesforce and AWS integrations for small and medium-sized businesses.",
       ...(PERSON_NAME_CONFIRMED ? { founder: { "@id": `${SITE_URL}/#person` } } : {}),
+      email: CONTACT_EMAIL,
+      telephone: CONTACT_PHONE,
+      address: { "@type": "PostalAddress", addressCountry: "US" },
       areaServed: { "@type": "Place", name: "Worldwide" },
       availableLanguage: ["English"],
       currenciesAccepted: CURRENCY,

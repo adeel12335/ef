@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import FaqAccordion from "@/components/faq/FaqAccordion";
-import { ANSWERS, answerBySlug } from "@/lib/answers";
+import { ANSWERS, answerBySlug, relatedAnswers } from "@/lib/answers";
 import { projectsForAnswer } from "@/lib/projects";
 import { gigBySlug, gigFrom } from "@/lib/gigs";
 import { pageMeta, SITE_URL, BRAND } from "@/lib/seo";
@@ -35,9 +35,7 @@ export default async function AnswerPage({ params }: Params) {
 
   const gig = answer.gigSlug ? gigBySlug(answer.gigSlug) : undefined;
   const cases = projectsForAnswer(answer.slug);
-  const rest = ANSWERS.filter((a) => a.slug !== answer.slug);
-  const sameGig = answer.gigSlug ? rest.filter((a) => a.gigSlug === answer.gigSlug) : [];
-  const others = [...sameGig, ...rest.filter((a) => a.gigSlug !== answer.gigSlug)].slice(0, 3);
+  const others = relatedAnswers(answer.slug, 3);
 
   /**
    * Article + FAQPage. `dateModified` is a real field here because these are
@@ -209,12 +207,12 @@ export default async function AnswerPage({ params }: Params) {
           <div className="section-inner bg-white border-1">
             <div className="section-top-area">
               <div className="section-title-area">
-                <p className="sub-title">More answers</p>
+                <p className="sub-title">Related questions</p>
                 <h2
                   id="more-answers"
                   className="section-title second-font font-semi-bold text-normal"
                 >
-                  Other questions
+                  Related questions
                 </h2>
               </div>
             </div>

@@ -20,6 +20,24 @@ const featured = [
     title: "What can an AI receptionist do?",
     preview: "Where it helps, and when a person should take over.",
   },
+  {
+    slug: "do-i-need-automation-or-a-better-form",
+    topic: "Workflow",
+    title: "Automation, or just a better form?",
+    preview: "When a connected workflow is worth it — and when a cleaner form is enough.",
+  },
+  {
+    slug: "landing-page-or-web-app",
+    topic: "Web & apps",
+    title: "Landing page or a web app?",
+    preview: "Pick the lighter build when a brochure site will do the job.",
+  },
+  {
+    slug: "when-to-hire-a-salesforce-freelancer",
+    topic: "Salesforce & AWS",
+    title: "When to hire a Salesforce freelancer",
+    preview: "Signs you need Salesforce or AWS work, not another plugin stack.",
+  },
 ].map((item) => {
   const answer = ANSWERS.find((candidate) => candidate.slug === item.slug);
   if (!answer) throw new Error(`Missing featured answer: ${item.slug}`);

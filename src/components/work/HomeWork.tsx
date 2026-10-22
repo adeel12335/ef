@@ -35,7 +35,7 @@ export default function HomeWork({
   const [active, setActive] = useState(filters[0]?.id ?? "all");
 
   const visible = useMemo(
-    () => (active === "all" ? items.filter((i) => i.groups.includes("featured")) : items.filter((i) => i.groups.includes(active))).slice(0, 5),
+    () => (active === "all" ? items.filter((i) => i.groups.includes("featured")) : items.filter((i) => i.groups.includes(active))).slice(0, 6),
     [active, items],
   );
 

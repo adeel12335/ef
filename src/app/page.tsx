@@ -16,7 +16,14 @@ import HomeWork, { type WorkCard, type WorkFilter } from "@/components/work/Home
    editorial pick; each tab shows up to five of its own projects. */
 const WEB_APPS = ["wiki-studio-portal", "wiki-studio-campaigns", "ai-calling-agent"];
 const AI_WORK = ["ai-calling-agent", "front-desk-ai", "lead-relay"];
-const FEATURED = ["drix-agency", "postautopilot", "ai-calling-agent", "jw-prestige", "wiki-studio-portal"];
+const FEATURED = [
+  "drix-agency",
+  "postautopilot",
+  "ai-calling-agent",
+  "jw-prestige",
+  "wiki-studio-portal",
+  "front-desk-ai",
+];
 
 const WORK_FILTERS: WorkFilter[] = [
   { id: "all", label: "All projects" },

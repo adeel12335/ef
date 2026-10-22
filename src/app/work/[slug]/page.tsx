@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { caseStudyBySlug, type CaseStudy } from "@/lib/case-studies";
+import { CASES_UPDATED, caseStudyBySlug, type CaseStudy } from "@/lib/case-studies";
 import { gigBySlug } from "@/lib/gigs";
 import { PROJECTS, projectBySlug, relatedProjects, type Project } from "@/lib/projects";
 import { pageMeta, SITE_URL } from "@/lib/seo";
@@ -24,7 +24,8 @@ function caseFor(project: Project): CaseStudy {
   if (cs) return cs;
   return {
     slug: project.slug,
-    seoTitle: `${project.name}: ${project.category} Concept`,
+    // Prefer shortTitle so `%s | Emerging Freelancer` stays under ~60 chars.
+    seoTitle: project.shortTitle ?? `${project.name}: Concept`,
     metaDescription: `Concept project: ${project.blurb} How it works, what it connects to and where it hands over to a person.`.slice(0, 165),
     headline: project.blurb,
     client: "Concept (no client)",
@@ -98,6 +99,7 @@ export default async function ProjectPage({ params }: Params) {
           : { creativeWorkStatus: "Concept" }),
         ...(gig ? { about: { "@type": "Service", name: gig.name, url: `${SITE_URL}/service/${gig.slug}` } } : {}),
         url: pageUrl,
+        dateModified: CASES_UPDATED,
         inLanguage: "en",
       },
     ],
@@ -123,6 +125,9 @@ export default async function ProjectPage({ params }: Params) {
               </p>
               <h1 className={styles.title}>{project.name}</h1>
               <p className={styles.headline}>{cs.headline}</p>
+              <p className={styles.updated}>
+                Updated <time dateTime={CASES_UPDATED}>{new Date(CASES_UPDATED + "T12:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}</time>
+              </p>
             </div>
             <div className={styles.introSide}>
               <p className={styles.overview}>{cs.overview}</p>
@@ -278,7 +283,7 @@ export default async function ProjectPage({ params }: Params) {
       <section className={styles.more} aria-labelledby="more-title">
         <div className="container">
           <div className={styles.moreHead}>
-            <h2 id="more-title" className={styles.sectionTitle}>More work</h2>
+            <h2 id="more-title" className={styles.sectionTitle}>More projects</h2>
             <Link className={styles.textLinkDark} href="/work">All projects <span aria-hidden="true">→</span></Link>
           </div>
           <ul className={styles.moreGrid}>

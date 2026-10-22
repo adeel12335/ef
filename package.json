@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "postbuild": "node scripts/indexnow.mjs",
+    "indexnow": "node scripts/indexnow.mjs --force"
   },
   "dependencies": {
     "next": "16.4.2",

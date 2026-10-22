@@ -48,7 +48,7 @@ const CONCEPT_PROJECTS: Project[] = [
   {
     slug: "front-desk-ai",
     name: "Front Desk AI",
-    shortTitle: "Front Desk AI — Real Calendar Slots",
+    shortTitle: "Front Desk AI: Voice & Chat Agent",
     gigSlug: "ai-agents",
     category: "AI agent · Voice and chat",
     kind: "Concept project",
@@ -106,7 +106,7 @@ const CONCEPT_PROJECTS: Project[] = [
   {
     slug: "lead-relay",
     name: "Lead Relay",
-    shortTitle: "Lead Relay — One CRM Record",
+    shortTitle: "Lead Relay: Workflow Automation",
     gigSlug: "workflow-automation",
     category: "Workflow automation",
     kind: "Concept project",
@@ -158,8 +158,8 @@ const CONCEPT_PROJECTS: Project[] = [
   {
     slug: "clear-path",
     name: "Clear Path",
-    shortTitle: "Clear Path — One Clear Next Step",
-    gigSlug: "web-mobile",
+    shortTitle: "Clear Path: Website & Integrations",
+    gigSlug: "salesforce-aws",
     category: "Website and integrations",
     kind: "Concept project",
     blurb:
@@ -228,20 +228,32 @@ export function projectBySlug(slug: string) {
   return PROJECTS.find((p) => p.slug === slug);
 }
 
+const ALSO_ON_GIG: Record<string, string[]> = {
+  "workflow-automation": ["postautopilot"],
+};
+
 export function projectsForGig(gigSlug: string) {
-  return PROJECTS.filter((p) => p.gigSlug === gigSlug);
+  const primary = PROJECTS.filter((p) => p.gigSlug === gigSlug);
+  const seen = new Set(primary.map((p) => p.slug));
+  const extra: typeof primary = [];
+  for (const slug of ALSO_ON_GIG[gigSlug] ?? []) {
+    const project = PROJECTS.find((p) => p.slug === slug);
+    if (project && !seen.has(project.slug)) extra.push(project);
+  }
+  return [...primary, ...extra];
 }
 
 export function projectsForAnswer(answerSlug: string) {
   return PROJECTS.filter((p) => p.relatedAnswer === answerSlug);
 }
 
-/** Same gig first, then the rest, capped so a page does not link to every case. */
+/** Next case studies, wrapping the list, so later projects receive inlinks too. */
 export function relatedProjects(slug: string, limit = 3) {
-  const current = projectBySlug(slug);
-  if (!current) return [];
-  const others = PROJECTS.filter((p) => p.slug !== slug);
-  const same = others.filter((p) => p.gigSlug === current.gigSlug);
-  const rest = others.filter((p) => p.gigSlug !== current.gigSlug);
-  return [...same, ...rest].slice(0, limit);
+  const index = PROJECTS.findIndex((p) => p.slug === slug);
+  if (index < 0) return [];
+  const picked = [];
+  for (let step = 1; step < PROJECTS.length && picked.length < limit; step += 1) {
+    picked.push(PROJECTS[(index + step) % PROJECTS.length]);
+  }
+  return picked;
 }

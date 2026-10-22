@@ -230,7 +230,7 @@ export const ANSWERS: Answer[] = [
       "If information is being retyped between tools, you need automation. If enquiries are simply not arriving, automation will not help — a shorter form and one clear next step usually will, and it costs less. The test is whether your problem is after the enquiry or before it.",
     updated: "2026-10-18",
     readingMinutes: 3,
-    gigSlug: "web-mobile",
+    gigSlug: "workflow-automation",
     sections: [
       {
         heading: "Work out which side of the enquiry your problem is on",
@@ -781,6 +781,7 @@ export const ANSWERS: Answer[] = [
     slug: "freelancer-or-agency-for-an-ai-agent",
     title: "Should you hire a freelancer or an agency to build an AI agent?",
     shortTitle: "Freelancer or an Agency?",
+    gigSlug: "ai-agents",
     description:
       "When one freelancer with a fixed package is the right hire, and when the work is actually an agency programme.",
     answer:
@@ -1299,6 +1300,7 @@ export const ANSWERS: Answer[] = [
     slug: "what-to-prepare-before-a-build",
     title: "What should you prepare before an AI or automation build?",
     shortTitle: "What to Prepare Before a Build",
+    gigSlug: "web-mobile",
     description:
       "The access, the approved answers, and one real example that decide the delivery date. Chat is 3–5 days once those are in hand.",
     answer:
@@ -1359,4 +1361,15 @@ export function answerBySlug(slug: string) {
 
 export function answersForGig(gigSlug: string) {
   return ANSWERS.filter((a) => a.gigSlug === gigSlug);
+}
+
+/** Next articles in the library, wrapping, so every page receives sibling links. */
+export function relatedAnswers(slug: string, limit = 3) {
+  const index = ANSWERS.findIndex((answer) => answer.slug === slug);
+  if (index < 0) return [];
+  const picked = [];
+  for (let step = 1; step < ANSWERS.length && picked.length < limit; step += 1) {
+    picked.push(ANSWERS[(index + step) % ANSWERS.length]);
+  }
+  return picked;
 }
