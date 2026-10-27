@@ -78,11 +78,13 @@
 .surface .field input:focus, .surface .field textarea:focus { outline: none; border-color: #c3e635; }
 .surface .field input:focus-visible, .surface .field textarea:focus-visible { outline: 1px solid #c3e635; outline-offset: 5px; }
 .surface .hint { margin: 22px 0; color: var(--enquiry-muted); font-size: 13px; line-height: 1.6; }
+.captcha { min-height: 78px; margin: 4px 0 22px; }
 .surface .submit { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; min-height: 64px; padding: 16px 24px; border: 1px solid #c3e635; border-radius: 0; background: #c3e635; color: #252623; font: inherit; font-size: 18px; font-weight: 700; cursor: pointer; transition: background 180ms ease, border-color 180ms ease; }
 .submit svg { width: 26px; height: 26px; flex-shrink: 0; transition: transform 180ms ease; }
 .surface .submit:hover { background: #d1ee6b; border-color: #d1ee6b; }
 .submit:hover svg { transform: translate(2px, -2px); }
 .submit:focus-visible { outline: 2px solid #f5f4ef; outline-offset: 5px; }
+.submit:disabled { opacity: .65; cursor: not-allowed; }
 .form fieldset:disabled { opacity: .65; }
 .form fieldset:disabled .submit { cursor: wait; }
 .surface .note { margin: 18px 0 0; color: var(--enquiry-muted); font-size: 12px; line-height: 1.6; }

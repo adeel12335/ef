@@ -60,7 +60,7 @@ export default function PrivacyPage() {
       <section>
         <h3>What this site collects</h3>
         <p>
-          Two things, and nothing else:
+          The enquiry, a short abuse count, and a spam check:
         </p>
         <ul>
           <li>
@@ -76,6 +76,12 @@ export default function PrivacyPage() {
             never written to a database or a file. It is discarded when the
             window passes or the server restarts.
           </li>
+          <li>
+            <strong>A reCAPTCHA check on the enquiry form.</strong> Google
+            receives a token for that check, which can include your IP address
+            and browser data, so a script cannot send the form. The message
+            itself is not sent to Google.
+          </li>
         </ul>
         <p>
           Your web host will also keep its own server logs, which typically
@@ -90,9 +96,9 @@ export default function PrivacyPage() {
           Stated plainly, because most privacy policies bury it:
         </p>
         <ul>
-          <li>No cookies are set by this site. There is no cookie banner because there is nothing to consent to.</li>
+          <li>This site does not set its own cookies, and there is no analytics cookie. Google reCAPTCHA on the enquiry form may set a cookie to tell a person from a script.</li>
           <li>No analytics, no tag manager, no pixels, no session recording, no heatmaps.</li>
-          <li>No advertising networks, and no sharing or selling of personal data to anyone.</li>
+          <li>No advertising networks, and no selling of personal data. The only sharing is with the services listed below, to deliver the enquiry and to run the spam check.</li>
           <li>No profiling and no automated decision-making about you.</li>
           <li>
             Fonts are served from this site rather than from Google Fonts, so
@@ -111,8 +117,9 @@ export default function PrivacyPage() {
           project, performance of a contract.
         </p>
         <p>
-          The brief IP count exists to keep the form usable and is also a
-          legitimate interest: without it, the form can be flooded.
+          The brief IP count and the reCAPTCHA check exist to keep the form
+          usable and are also a legitimate interest: without them, the form
+          can be flooded with spam.
         </p>
       </section>
 

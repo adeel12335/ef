@@ -52,7 +52,7 @@ export const businessStatus = "[sole trader / registered company and number]";
  * Date these documents last changed. Update it whenever you edit the text —
  * a stale "last updated" is the first thing that undermines a policy.
  */
-export const lastUpdated = "18 October 2026";
+export const lastUpdated = "27 October 2026";
 
 /**
  * Third parties that can see personal data submitted through this site.
@@ -73,6 +73,13 @@ export const processors = [
     data: "Server logs, which typically include IP address and page requested",
     where: "United States, with edge locations worldwide",
     url: "https://vercel.com/legal/privacy-policy",
+  },
+  {
+    name: "Google reCAPTCHA",
+    role: "Checks the enquiry form to refuse automated spam",
+    data: "A spam-check token, which can include your IP address and browser data",
+    where: "United States",
+    url: "https://policies.google.com/privacy",
   },
 ];
 

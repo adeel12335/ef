@@ -1,17 +1,74 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import Script from "next/script";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import styles from "./ProjectEnquiry.module.css";
+
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
+const CAPTCHA_REQUIRED = process.env.NODE_ENV === "production" && !SITE_KEY;
+
+type Grecaptcha = {
+  ready: (callback: () => void) => void;
+  render: (element: HTMLElement, options: { sitekey: string; theme: "dark" }) => number;
+  getResponse: (widgetId?: number) => string;
+  reset: (widgetId?: number) => void;
+};
+
+declare global {
+  interface Window {
+    grecaptcha?: Grecaptcha;
+  }
+}
 
 export default function ProjectEnquiry() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [feedback, setFeedback] = useState("");
+  const box = useRef<HTMLDivElement>(null);
+  const widgetId = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!SITE_KEY) return;
+    let cancelled = false;
+
+    function mount() {
+      const captcha = window.grecaptcha;
+      if (cancelled || !box.current || !captcha || widgetId.current !== null) return;
+      captcha.ready(() => {
+        if (cancelled || !box.current || widgetId.current !== null || !window.grecaptcha) return;
+        widgetId.current = window.grecaptcha.render(box.current, { sitekey: SITE_KEY, theme: "dark" });
+      });
+    }
+
+    mount();
+    window.addEventListener("ef-recaptcha-ready", mount);
+    return () => {
+      cancelled = true;
+      widgetId.current = null;
+      window.removeEventListener("ef-recaptcha-ready", mount);
+    };
+  }, []);
+
+  function resetCaptcha() {
+    const id = widgetId.current;
+    if (id !== null) window.grecaptcha?.reset(id);
+  }
 
   async function submitEnquiry(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (status === "sending") return;
+    if (status === "sending" || CAPTCHA_REQUIRED) return;
     const form = event.currentTarget;
     const data = new FormData(form);
+    const token = SITE_KEY && widgetId.current !== null
+      ? window.grecaptcha?.getResponse(widgetId.current) ?? ""
+      : "";
+
+    if (SITE_KEY && !token) {
+      setStatus("error");
+      setFeedback("Please confirm you are not a robot.");
+      return;
+    }
+
+    if (token) data.set("g-recaptcha-response", token);
     setStatus("sending");
     setFeedback("");
 
@@ -19,6 +76,7 @@ export default function ProjectEnquiry() {
       const response = await fetch("/api/contact", { method: "POST", body: data });
       const message = await response.text();
       if (!response.ok) {
+        resetCaptcha();
         setStatus("error");
         setFeedback(response.status >= 500
           ? "Your message couldn’t be sent right now. Your details are still here — please try again later."
@@ -28,7 +86,9 @@ export default function ProjectEnquiry() {
       setStatus("success");
       setFeedback("Thanks — your enquiry has been delivered. I’ll reply to the email you shared.");
       form.reset();
+      resetCaptcha();
     } catch {
+      resetCaptcha();
       setStatus("error");
       setFeedback("Your message wasn’t sent. Check your connection and try again — your details are still here.");
     }
@@ -81,7 +141,13 @@ export default function ProjectEnquiry() {
                   <textarea id="enquiry-message" name="message" placeholder="The idea, the challenge, or the thing taking too much of your time…" required minLength={15} rows={4} aria-describedby="enquiry-brief" />
                 </div>
                 <p id="enquiry-brief" className={styles.hint}>Have a brief? Add a link in your message.</p>
-                <button className={styles.submit} type="submit">
+                {SITE_KEY ? (
+                  <div ref={box} className={styles.captcha} />
+                ) : null}
+                {CAPTCHA_REQUIRED ? (
+                  <p className={styles.feedback} data-status="error">The spam check is not configured, so this form cannot send yet.</p>
+                ) : null}
+                <button className={styles.submit} type="submit" disabled={CAPTCHA_REQUIRED}>
                   <span>{status === "sending" ? "Sending enquiry…" : "Send enquiry"}</span>
                   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" strokeWidth="1.7" /></svg>
                 </button>
@@ -92,6 +158,13 @@ export default function ProjectEnquiry() {
           </div>
         </div>
       </div>
+      {SITE_KEY ? (
+        <Script
+          src="https://www.google.com/recaptcha/api.js?render=explicit"
+          strategy="afterInteractive"
+          onLoad={() => window.dispatchEvent(new Event("ef-recaptcha-ready"))}
+        />
+      ) : null}
     </section>
   );
 }

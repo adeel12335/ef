@@ -25,6 +25,8 @@ export const dynamic = "force-dynamic";
  *   SMTP_PASS           that mailbox's password
  *   CONTACT_TO_EMAIL    where enquiries land
  *   CONTACT_FROM_EMAIL  the sender; most hosts require this to be SMTP_USER
+ *   RECAPTCHA_SECRET_KEY          Google reCAPTCHA v2 secret (server only)
+ *   NEXT_PUBLIC_RECAPTCHA_SITE_KEY  matching site key, shown in the widget
  */
 
 const text = (body: string, status = 200) =>
@@ -54,6 +56,34 @@ const esc = (s: string) =>
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+
+type CaptchaResult = "ok" | "missing" | "fail" | "unconfigured";
+
+/** Checkbox reCAPTCHA. Production refuses mail when the secret is unset. */
+async function captchaPasses(token: string, ip: string): Promise<CaptchaResult> {
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
+  if (!secret) {
+    return process.env.NODE_ENV === "production" ? "unconfigured" : "ok";
+  }
+  if (!token || token.length > 4000) return "missing";
+
+  try {
+    const body = new URLSearchParams({ secret, response: token });
+    if (ip && ip !== "unknown") body.set("remoteip", ip);
+    const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: { "content-type": "application/x-www-form-urlencoded" },
+      body,
+      signal: AbortSignal.timeout(8_000),
+    });
+    if (!res.ok) return "fail";
+    const data = (await res.json()) as { success?: boolean };
+    return data.success === true ? "ok" : "fail";
+  } catch (err) {
+    console.error("[contact] reCAPTCHA verify failed:", err);
+    return "fail";
+  }
+}
 
 export async function POST(request: Request) {
   const ip =
@@ -86,6 +116,18 @@ export async function POST(request: Request) {
       "Please add a little more detail — a couple of sentences about the problem is plenty.",
       400,
     );
+  }
+
+  const captcha = await captchaPasses(String(form.get("g-recaptcha-response") ?? "").trim(), ip);
+  if (captcha === "unconfigured") {
+    console.error("[contact] RECAPTCHA_SECRET_KEY is not set.");
+    return text(
+      "This form's spam check isn't configured yet, so your message was NOT sent.",
+      503,
+    );
+  }
+  if (captcha !== "ok") {
+    return text("Please confirm you are not a robot, then send the form again.", 400);
   }
 
   const host = process.env.SMTP_HOST;
