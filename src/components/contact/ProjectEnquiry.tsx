@@ -9,9 +9,7 @@ const CAPTCHA_REQUIRED = process.env.NODE_ENV === "production" && !SITE_KEY;
 
 type Grecaptcha = {
   ready: (callback: () => void) => void;
-  render: (element: HTMLElement, options: { sitekey: string; theme: "dark" }) => number;
-  getResponse: (widgetId?: number) => string;
-  reset: (widgetId?: number) => void;
+  execute: (siteKey: string, options: { action: string }) => Promise<string>;
 };
 
 declare global {
@@ -23,34 +21,38 @@ declare global {
 export default function ProjectEnquiry() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [feedback, setFeedback] = useState("");
-  const box = useRef<HTMLDivElement>(null);
-  const widgetId = useRef<number | null>(null);
+  const ready = useRef<Promise<void> | null>(null);
 
   useEffect(() => {
     if (!SITE_KEY) return;
     let cancelled = false;
-
-    function mount() {
-      const captcha = window.grecaptcha;
-      if (cancelled || !box.current || !captcha || widgetId.current !== null) return;
-      captcha.ready(() => {
-        if (cancelled || !box.current || widgetId.current !== null || !window.grecaptcha) return;
-        widgetId.current = window.grecaptcha.render(box.current, { sitekey: SITE_KEY, theme: "dark" });
-      });
-    }
-
-    mount();
-    window.addEventListener("ef-recaptcha-ready", mount);
+    ready.current = new Promise((resolve) => {
+      const done = () => {
+        if (!cancelled) window.grecaptcha?.ready(() => resolve());
+      };
+      if (window.grecaptcha) done();
+      else window.addEventListener("ef-recaptcha-ready", done, { once: true });
+    });
     return () => {
       cancelled = true;
-      widgetId.current = null;
-      window.removeEventListener("ef-recaptcha-ready", mount);
     };
   }, []);
 
-  function resetCaptcha() {
-    const id = widgetId.current;
-    if (id !== null) window.grecaptcha?.reset(id);
+  async function spamToken() {
+    if (!SITE_KEY) return "";
+    const pending = ready.current;
+    if (!pending) return "";
+    await Promise.race([
+      pending,
+      new Promise((resolve) => setTimeout(resolve, 8000)),
+    ]);
+    const captcha = window.grecaptcha;
+    if (!captcha) return "";
+    try {
+      return await captcha.execute(SITE_KEY, { action: "enquiry" });
+    } catch {
+      return "";
+    }
   }
 
   async function submitEnquiry(event: FormEvent<HTMLFormElement>) {
@@ -58,13 +60,11 @@ export default function ProjectEnquiry() {
     if (status === "sending" || CAPTCHA_REQUIRED) return;
     const form = event.currentTarget;
     const data = new FormData(form);
-    const token = SITE_KEY && widgetId.current !== null
-      ? window.grecaptcha?.getResponse(widgetId.current) ?? ""
-      : "";
+    const token = await spamToken();
 
     if (SITE_KEY && !token) {
       setStatus("error");
-      setFeedback("Please confirm you are not a robot.");
+      setFeedback("The spam check did not finish. Please try sending again.");
       return;
     }
 
@@ -76,7 +76,6 @@ export default function ProjectEnquiry() {
       const response = await fetch("/api/contact", { method: "POST", body: data });
       const message = await response.text();
       if (!response.ok) {
-        resetCaptcha();
         setStatus("error");
         setFeedback(response.status >= 500
           ? "Your message couldn’t be sent right now. Your details are still here — please try again later."
@@ -86,9 +85,7 @@ export default function ProjectEnquiry() {
       setStatus("success");
       setFeedback("Thanks — your enquiry has been delivered. I’ll reply to the email you shared.");
       form.reset();
-      resetCaptcha();
     } catch {
-      resetCaptcha();
       setStatus("error");
       setFeedback("Your message wasn’t sent. Check your connection and try again — your details are still here.");
     }
@@ -141,9 +138,6 @@ export default function ProjectEnquiry() {
                   <textarea id="enquiry-message" name="message" placeholder="The idea, the challenge, or the thing taking too much of your time…" required minLength={15} rows={4} aria-describedby="enquiry-brief" />
                 </div>
                 <p id="enquiry-brief" className={styles.hint}>Have a brief? Add a link in your message.</p>
-                {SITE_KEY ? (
-                  <div ref={box} className={styles.captcha} />
-                ) : null}
                 {CAPTCHA_REQUIRED ? (
                   <p className={styles.feedback} data-status="error">The spam check is not configured, so this form cannot send yet.</p>
                 ) : null}
@@ -160,7 +154,7 @@ export default function ProjectEnquiry() {
       </div>
       {SITE_KEY ? (
         <Script
-          src="https://www.google.com/recaptcha/api.js?render=explicit"
+          src={`https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`}
           strategy="afterInteractive"
           onLoad={() => window.dispatchEvent(new Event("ef-recaptcha-ready"))}
         />

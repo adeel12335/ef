@@ -25,8 +25,8 @@ export const dynamic = "force-dynamic";
  *   SMTP_PASS           that mailbox's password
  *   CONTACT_TO_EMAIL    where enquiries land
  *   CONTACT_FROM_EMAIL  the sender; most hosts require this to be SMTP_USER
- *   RECAPTCHA_SECRET_KEY          Google reCAPTCHA v2 secret (server only)
- *   NEXT_PUBLIC_RECAPTCHA_SITE_KEY  matching site key, shown in the widget
+ *   RECAPTCHA_SECRET_KEY            Google reCAPTCHA v3 secret (server only)
+ *   NEXT_PUBLIC_RECAPTCHA_SITE_KEY  matching v3 site key, loaded with the form
  */
 
 const text = (body: string, status = 200) =>
@@ -59,7 +59,9 @@ const esc = (s: string) =>
 
 type CaptchaResult = "ok" | "missing" | "fail" | "unconfigured";
 
-/** Checkbox reCAPTCHA. Production refuses mail when the secret is unset. */
+const MIN_SCORE = 0.5;
+
+/** Invisible reCAPTCHA v3. Production refuses mail when the secret is unset. */
 async function captchaPasses(token: string, ip: string): Promise<CaptchaResult> {
   const secret = process.env.RECAPTCHA_SECRET_KEY;
   if (!secret) {
@@ -77,8 +79,12 @@ async function captchaPasses(token: string, ip: string): Promise<CaptchaResult> 
       signal: AbortSignal.timeout(8_000),
     });
     if (!res.ok) return "fail";
-    const data = (await res.json()) as { success?: boolean };
-    return data.success === true ? "ok" : "fail";
+    const data = (await res.json()) as { success?: boolean; score?: number; action?: string };
+    if (data.success === true && data.action === "enquiry" && typeof data.score === "number" && data.score >= MIN_SCORE) {
+      return "ok";
+    }
+    console.error("[contact] reCAPTCHA rejected", data.success, data.action, data.score);
+    return "fail";
   } catch (err) {
     console.error("[contact] reCAPTCHA verify failed:", err);
     return "fail";
@@ -127,7 +133,7 @@ export async function POST(request: Request) {
     );
   }
   if (captcha !== "ok") {
-    return text("Please confirm you are not a robot, then send the form again.", 400);
+    return text("The spam check could not confirm this submission, so nothing was sent. Please try again.", 400);
   }
 
   const host = process.env.SMTP_HOST;
